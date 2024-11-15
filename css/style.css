@@ -537,6 +537,13 @@ a:focus {
     transition: 2s;
 }
 
+.progress .progress-bar {
+    width: 0px;
+    background: #EF233C;
+    border-radius: 10px;
+    transition: 2s;
+}
+
 .about .about-text a.btn {
     margin-top: 15px;
 }
@@ -1651,4 +1658,103 @@ a:focus {
     background-color: #EF233C;
     color: white;
   }
-  
+
+/* Scoped styles for the skills section only */
+#skills-data {
+    padding: 50px 0;
+    color: #ffffff;
+}
+
+#skills-data .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+#skills-data .section-header p {
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+#skills-data .skills {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+#skills-data .skill-container {
+    display: flex;
+    align-items: center; /* Center items vertically */
+    justify-content: left; /* Align to the left */
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+#skills-data .icons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+#skills-data .skill-icon {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+/* Progress bar container */
+#skills-data .progress {
+    width: 95%;  /* Set to 100% width so it spans the container */
+    height: 10px;
+    background-color: #e0e0e0;  /* Light gray background */
+    border-radius: 5px;
+    display: flex;  /* Use flexbox to align progress */
+    justify-content: flex-start;  /* Align the progress (filled part) to the right */
+    overflow: hidden;
+}
+
+/* Progress bar fill */
+#skills-data .progress-bar {
+    height: 100%;
+    background-color: #EF233C;  /* Color of the filled progress */
+    border-radius: 5px;
+    width: 70%;  /* Adjust width to the actual progress percentage */
+    transition: width 0.3s ease-in-out;
+}
+
+#skills-data .progress-bar[aria-valuenow="85"] {
+    width: 85%;
+}
+
+#skills-data .progress-bar[aria-valuenow="95"] {
+    width: 95%;
+}
+
+#skills-data .progress-bar[aria-valuenow="90"] {
+    width: 90%;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    #skills-data .skill-container {
+        flex-direction: column;  /* Stack images and progress bar vertically on smaller screens */
+        align-items: center;
+    }
+
+    #skills-data .progress {
+        width: 80%;  /* Ensure progress bar is wide enough on smaller screens */
+    }
+
+    #skills-data .icons {
+        justify-content: center; /* Center icons on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    #skills-data .progress {
+        width: 90%; /* Further adjust for very small screens */
+    }
+}
