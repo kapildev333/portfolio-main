@@ -154,7 +154,7 @@ addEventListener('resize', () => {
   points.position.x = offset();
 });
 
-// pause when the tab is hidden — no point burning a GPU nobody is looking at
+// pause when the tab is hidden; no point burning a GPU nobody is looking at
 let visible = true;
 document.addEventListener('visibilitychange', () => { visible = !document.hidden; });
 

@@ -1,13 +1,14 @@
 # kapil-portfolio
 
-Interactive 3D portfolio + printable résumé for **Kapil Soni** — backend and platform
+Interactive 3D portfolio + printable résumé for **Kapil Soni**, backend and platform
 engineer (Go, Kubernetes, Kafka), pitching fixed-scope contract work.
-Static — no build step, no npm install. Open `index.html` and it runs.
+Static. No build step, no npm install. Open `index.html` and it runs.
 
 ```
 index.html          portfolio (WebGL hero, scroll motion)
 resume.html         one-page résumé, prints straight to PDF
 assets/css/style.css
+assets/img/          reference headshots
 assets/js/scene.js  three.js point cloud that morphs on scroll
 assets/js/main.js   GSAP reveals, Lenis smooth scroll, cursor, tilt
 ```
@@ -36,12 +37,12 @@ To get `kapildev333.github.io` with no path, name the repo `kapildev333.github.i
 
 Two links are placeholders, both marked `data-todo` in `index.html`:
 
-- YouTube channel URL — `#offline` section
-- Photography / Instagram URL — `#offline` section
+- YouTube channel URL, in the `#offline` section
+- Photography / Instagram URL, in the `#offline` section
 
 Everything else comes from `Kapil-Soni-Resume_1.html`. When that résumé changes, the
 matching copy lives in `index.html` (`#about`, `#work`, `#projects`, `#process`, `#stack`)
-and in `resume.html` — they are deliberately duplicated rather than templated, since a
+and in `resume.html`. They are deliberately duplicated rather than templated, since a
 one-page résumé and a pitch page word the same facts differently.
 
 ## Notes
