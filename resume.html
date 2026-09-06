@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Kapil Soni — Résumé</title>
-<meta name="description" content="Résumé of Kapil Soni, full-stack, mobile and cloud engineer based in Montréal.">
+<meta name="description" content="Résumé of Kapil Soni — backend and platform engineer in Montréal. Go, Kubernetes, Kafka. Available for fixed-scope contract work.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⬡</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -80,136 +80,132 @@ footer{margin-top:2rem;padding-top:1rem;border-top:1px solid var(--line);font:.7
 <article class="sheet">
   <header class="fade">
     <h1>Kapil Soni</h1>
-    <p class="tagline">Full-Stack · Mobile · Cloud Engineer — 4 years shipping production software</p>
+    <p class="tagline">Backend &amp; Platform Engineer — Go, Kubernetes, Kafka</p>
     <div class="meta">
-      <span>Montréal, QC</span>
+      <span>Montréal, Canada</span>
       <a href="mailto:developer.kapil333@gmail.com">developer.kapil333@gmail.com</a>
-      <a href="tel:+12638805015">+1 263 880 5015</a>
+      <a href="tel:+12638805015">+1 263-880-5015</a>
       <a href="https://github.com/kapildev333">github.com/kapildev333</a>
       <a href="https://linkedin.com/in/devkapil333/">linkedin.com/in/devkapil333</a>
     </div>
   </header>
 
   <section class="fade" style="animation-delay:.06s">
-    <h2>Summary</h2>
-    <p class="summary">Software developer with four years of full-stack, Android and backend delivery in agile teams —
-    Kotlin and Java on mobile, Spring Boot and Go on the server, Angular and React on the web, deployed to AWS and Azure.
-    Comfortable owning a feature from requirements through instrumentation tests and the pipeline that ships it.
-    Most recently worked on secure storage and authentication inside OneSpan's Mobile Security Suite.</p>
+    <h2>Why I'm reaching out</h2>
+    <p class="summary">I help small engineering teams ship faster and keep their backends solid while they grow.
+    At Lightspeed I work on a sales-creation endpoint handling 28M+ requests a week, and the part I'm proudest of is
+    making it boring: clear monitoring, safe rollouts, and a team that ships without worrying about it. I take on
+    fixed-scope contract work — a one-week readiness audit, a short hardening sprint, or an extra senior backend
+    engineer for a feature you need shipped — so you get senior help without a six-month hiring cycle.</p>
   </section>
 
   <section class="fade" style="animation-delay:.12s">
     <h2>Experience</h2>
 
     <div class="entry">
-      <div class="row"><h3>Software Developer Intern — OneSpan</h3><span class="when">May 2024 – Aug 2024</span></div>
-      <p class="org">Montréal, QC · Mobile Security Suite (Android SDK)</p>
+      <div class="row"><h3>Software Developer — Lightspeed Commerce</h3><span class="when">2025 – present</span></div>
+      <p class="org">Montréal, QC · joined as an intern in 2025, full-time since 2026</p>
       <ul>
-        <li>Built <b>secure data-storage</b> for Android in Kotlin and Java, hardening how credentials and keys are held at rest in an SDK deployed by financial institutions.</li>
-        <li>Worked across the <b>Kotlin ↔ C++/JNI boundary</b> into the native security core, tracing defects through both layers.</li>
-        <li>Set up <b>GitLab CI/CD pipelines</b> for SDK builds, static analysis, tests and artifact publishing, removing manual release steps.</li>
-        <li>Wrote instrumentation tests on physical devices to catch OEM-specific failures emulators do not reproduce.</li>
+        <li>Optimised a high-traffic X-Series sales-creation endpoint (<b>28M+ weekly requests</b>) with stronger monitoring, alerting and production-readiness practices.</li>
+        <li>Built time-versioned APIs and backend services in <b>Go</b> with PostgreSQL, Redis, gRPC, GraphQL and Protobuf; added <b>Kafka</b> event processing to move work off synchronous request paths.</li>
+        <li>Shipped safely with <b>canary, feature-flag and shadow deployments</b> backed by Datadog SLOs.</li>
+        <li>Helped resolve <b>5 Sev-0 and 3 Sev-1 incidents</b> and cut incident investigation time by <b>25%</b>.</li>
       </ul>
     </div>
 
     <div class="entry">
-      <div class="row"><h3>Software Developer — Bacancy Technology</h3><span class="when">Jan 2021 – Mar 2024</span></div>
-      <p class="org">Ahmedabad, IN · Enterprise clients incl. Toyota and Tata</p>
+      <div class="row"><h3>Software Developer Intern — OneSpan</h3><span class="when">May – Aug 2024</span></div>
+      <p class="org">Montréal, QC</p>
       <ul>
-        <li>Delivered full-stack features across <b>Android, Angular, Spring Boot and Go</b> in two-week agile cycles.</li>
-        <li>Cut database query time by roughly <b>30%</b> through index redesign, elimination of N+1 access patterns and targeted query rewrites.</li>
-        <li>Decomposed monolith responsibilities into <b>Python and Go microservices</b>, each independently deployable.</li>
-        <li>Integrated <b>Stripe</b> payments and <b>Twilio</b> messaging end to end — webhooks, idempotent retries and reconciliation.</li>
-        <li>Raised unit-test coverage on owned modules and reviewed peers' pull requests as a routine part of delivery.</li>
-        <li>Mentored two junior developers through their first production releases.</li>
+        <li>Enhanced the Java <b>Mobile Security Suite</b> used by banking apps: secure REST integrations with OAuth 2.0, JWT, TLS 1.3 and mutual certificate validation.</li>
+        <li>Built React document-signing and verification workflows, including digital-signature validation and real-time camera checks for in-branch authentication.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="row"><h3>Software Developer — Bacancy</h3><span class="when">2021 – 2024</span></div>
+      <p class="org">Ahmedabad, India</p>
+      <ul>
+        <li>Delivered full-stack products for clients: <b>Go microservices</b> with clean API boundaries and goroutine-based concurrency; React/TypeScript front-ends with Redux and code-splitting.</li>
+        <li>Ran workloads on <b>Kubernetes with ArgoCD</b>; built AWS infrastructure on RDS, Aurora, SQS, SNS and S3; tuned PostgreSQL and MySQL schemas and indexes.</li>
+        <li>Improved delivery with reusable Dockerfiles, Jenkins pipelines and Git-based CI/CD that cut manual release effort.</li>
       </ul>
     </div>
   </section>
 
   <section class="fade" style="animation-delay:.18s">
-    <h2>Selected Projects</h2>
-
-    <div class="proj">
-      <strong>YLore / Core Lite</strong><em>React · Spring Boot · Go · AWS · WebSockets</em>
-      <p>Personal and organisational safety platform: live location detection, configurable safety plans and a help-alert escalation chain. Contributed across the React client, the Spring core and Go services handling real-time location fan-out.</p>
-    </div>
-    <div class="proj">
-      <strong>Mobile Security Suite (OneSpan)</strong><em>Android · Kotlin · Java · C++ · FIDO</em>
-      <p>Multi-factor authentication SDK combining biometrics, FIDO, push approval and Cronto with app-shielding. Worked on secure storage and the native interop layer.</p>
-    </div>
-    <div class="proj">
-      <strong>SnackPOS</strong><em>Java · Spring Boot · AWS · Docker · Jenkins · GitLab</em>
-      <p>Scalable point-of-sale system with a high-throughput transaction core, containerised deployment and automated CI/CD.</p>
-    </div>
-    <div class="proj">
-      <strong>ChargePoint Integrations</strong><em>Spring Boot · Go · Angular · PostgreSQL</em>
-      <p>EV charging session lifecycle — reservation, authorisation, metering and settlement — with recovery paths for dropped sessions and failed payments.</p>
-    </div>
-    <div class="proj">
-      <strong>Dayo</strong><em>Android · Kotlin · Spring Boot · Twilio · Firebase</em>
-      <p>Dating application: matching, realtime chat, media upload, push notifications, phone verification and abuse reporting.</p>
-    </div>
-    <div class="proj">
-      <strong>eCommerce — Go and Spring Boot</strong><em>Go · Java · Spring Boot · PostgreSQL</em>
-      <p>The same commerce domain implemented twice, deliberately, to compare concurrency and error-handling models. Catalogue, cart, orders and payments in both.</p>
-    </div>
-    <div class="proj">
-      <strong>Redis Token Service</strong><em>Go · Redis · JWT</em>
-      <p>Access/refresh token rotation with reuse detection and revocation, backed by Redis.</p>
-    </div>
-    <div class="proj">
-      <strong>Serverless Spring on AWS Lambda</strong><em>Java · Spring · Lambda · API Gateway</em>
-      <p>Spring Boot packaged for Lambda behind API Gateway, benchmarking cold-start cost against a conventional deployment.</p>
-    </div>
-    <div class="proj">
-      <strong>React Video Call</strong><em>React · WebRTC · Node · Socket.IO</em>
-      <p>Peer-to-peer video calling built directly on WebRTC — signalling, ICE negotiation and screen share.</p>
-    </div>
-    <div class="proj">
-      <strong>FastAPI Microservice · iOS Video Processing</strong><em>Python · FastAPI · Docker · Swift · AVFoundation</em>
-      <p>A production-shaped Python service template, and an iOS capture-and-export pipeline written to carry Android experience across platforms.</p>
-    </div>
+    <h2>How I work</h2>
+    <ul>
+      <li><b>Start in production.</b> Dashboards, incident history and the deploy pipeline before opinions. What breaks shows where to spend your money.</li>
+      <li><b>Ship in safe slices.</b> Feature flags, canaries and shadow traffic. Every change is small enough to roll back in a minute.</li>
+      <li><b>Leave the team stronger.</b> Runbooks, alerts and tests stay with you, so you don't need me on call after the engagement ends.</li>
+    </ul>
   </section>
 
   <section class="fade" style="animation-delay:.24s">
-    <h2>Technical Skills</h2>
-    <div class="grid2">
-      <dl>
-        <div class="kv"><dt>Languages</dt><dd>Kotlin, Java, Go, TypeScript, Python, C#, Swift, SQL</dd></div>
-        <div class="kv"><dt>Mobile</dt><dd>Android SDK, Jetpack, Coroutines, JNI, Room, Firebase, iOS/Swift</dd></div>
-        <div class="kv"><dt>Backend</dt><dd>Spring Boot, Go, FastAPI, .NET/C#, REST, gRPC</dd></div>
-      </dl>
-      <dl>
-        <div class="kv"><dt>Frontend</dt><dd>Angular, React, RxJS, HTML/CSS, accessibility</dd></div>
-        <div class="kv"><dt>Data</dt><dd>PostgreSQL, MySQL, Redis, query tuning</dd></div>
-        <div class="kv"><dt>Cloud/DevOps</dt><dd>AWS, Azure, Docker, Jenkins, GitLab CI, GitHub Actions</dd></div>
-      </dl>
+    <h2>Projects</h2>
+
+    <div class="proj">
+      <strong>Catalog Semantic Search (e-commerce)</strong><em>Go · PostgreSQL · pgvector · OpenSearch · React</em>
+      <p>Embeds product text and images so a natural-language query or an uploaded photo returns matching SKUs with price filters; hybrid keyword and vector ranking with a React storefront demo.</p>
+    </div>
+    <div class="proj">
+      <strong>Order Support Assistant (e-commerce)</strong><em>Go · gRPC · PostgreSQL · Redis · React</em>
+      <p>Chat assistant for order status and returns that answers only from live order, fulfillment and inventory APIs through a typed tool layer, with guardrails, human hand-off and an audit log of every call.</p>
+    </div>
+    <div class="proj">
+      <strong>Content Moderation Pipeline (social)</strong><em>Go · Kafka · PostgreSQL · Kubernetes · React</em>
+      <p>Kafka-fed pipeline that classifies posts and images, routes low-confidence items to a human review queue with appeals and audit logs, and reports queue depth and decision latency to Prometheus.</p>
+    </div>
+    <div class="proj">
+      <strong>Fraud and Chargeback Scoring (payments)</strong><em>Go · Kafka · Redis · Prometheus · Grafana</em>
+      <p>Scores checkout events in real time by combining a rules engine with model-based review of ambiguous cases, publishing decisions back to Kafka and tracking throughput and false positives in Grafana.</p>
     </div>
   </section>
 
   <section class="fade" style="animation-delay:.3s">
-    <h2>Education</h2>
-    <div class="entry">
-      <div class="row"><h3>M.Eng., Software Engineering — Concordia University</h3><span class="when">2024 – 2025</span></div>
-      <p class="org">Montréal, QC · Software engineering processes, requirements engineering, quality assurance</p>
-    </div>
-    <div class="entry">
-      <div class="row"><h3>B.E., Computer Engineering</h3><span class="when">2017 – 2021</span></div>
-      <p class="org">Gujarat, IN</p>
+    <h2>Skills</h2>
+    <div class="grid2">
+      <dl>
+        <div class="kv"><dt>Languages &amp; UI</dt><dd>Go, Java, TypeScript, JavaScript, SQL, React, Redux, Jest</dd></div>
+        <div class="kv"><dt>Backend &amp; data</dt><dd>Go/Gin, Spring Boot, REST, gRPC, GraphQL, Protobuf, PostgreSQL, MySQL, Redis, Kafka, SQS/SNS, OpenSearch</dd></div>
+      </dl>
+      <dl>
+        <div class="kv"><dt>Cloud &amp; ops</dt><dd>AWS (RDS, Aurora, SQS, SNS, S3), Docker, Kubernetes, ArgoCD, Jenkins, GitHub/GitLab CI, Datadog, Prometheus, Grafana, SLOs, canary and shadow deployments</dd></div>
+      </dl>
     </div>
   </section>
 
   <section class="fade" style="animation-delay:.36s">
-    <h2>Beyond Engineering</h2>
+    <h2>Education</h2>
+    <div class="entry">
+      <div class="row"><h3>M.Eng. Software Engineering — Concordia University</h3><span class="when">2024 – 2025</span></div>
+      <p class="org">Montréal, Canada</p>
+    </div>
+    <div class="entry">
+      <div class="row"><h3>B.E. Information Technology — Gujarat Technological University</h3><span class="when">2017 – 2021</span></div>
+    </div>
+  </section>
+
+  <section class="fade" style="animation-delay:.42s">
+    <h2>How a first engagement goes</h2>
+    <p class="summary">Week one, I look at your codebase, infrastructure and how you ship today, then give you a short
+    prioritized list of what will slow you down or break first as you grow, and what each fix costs. From there we pick
+    what fits: a two-to-four-week sprint on the top items, or me joining as an extra senior backend engineer to ship a
+    feature you need out the door. Fixed price, clear scope, and everything I build stays with your team.</p>
+  </section>
+
+  <section class="fade" style="animation-delay:.48s">
+    <h2>Beyond engineering</h2>
     <ul>
-      <li><b>YouTube &amp; content creation</b> — writes, shoots and edits a channel end to end; the same instinct for explaining a system clearly that makes documentation and code review land.</li>
+      <li><b>YouTube &amp; content creation</b> — writes, shoots and edits a channel end to end; the same instinct for explaining a system clearly that makes runbooks and design docs land.</li>
       <li><b>Photography</b> — street and portrait work around Montréal; composition, light, and a lot of practice deciding what to leave out.</li>
       <li><b>Cooking</b> — Gujarati home cooking and whatever Montréal has taught since. Good prep, honest feedback loop.</li>
     </ul>
   </section>
 
   <footer>
-    <span>Kapil Soni · Montréal, QC</span>
+    <span>Kapil Soni · Montréal, Canada</span>
     <span>References available on request</span>
   </footer>
 </article>

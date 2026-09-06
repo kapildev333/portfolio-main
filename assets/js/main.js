@@ -178,8 +178,9 @@
 
   /* ── rotating role ── */
   const roles = [
-    'Full-stack engineer', 'Android developer', 'Backend / Go & Spring',
-    'Cloud + CI/CD', 'YouTuber & photographer',
+    'Backend & platform engineer', 'Go · Kafka · Kubernetes',
+    '28M requests a week', 'Available for contract work',
+    'YouTuber & photographer',
   ];
   const rot = $('#rot');
   if (rot && !reduced) {

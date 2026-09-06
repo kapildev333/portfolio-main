@@ -1,6 +1,7 @@
 # kapil-portfolio
 
-Interactive 3D portfolio + printable résumé for **Kapil Soni**.
+Interactive 3D portfolio + printable résumé for **Kapil Soni** — backend and platform
+engineer (Go, Kubernetes, Kafka), pitching fixed-scope contract work.
 Static — no build step, no npm install. Open `index.html` and it runs.
 
 ```
@@ -38,8 +39,10 @@ Two links are placeholders, both marked `data-todo` in `index.html`:
 - YouTube channel URL — `#offline` section
 - Photography / Instagram URL — `#offline` section
 
-Also confirm the education entries in `index.html` and `resume.html` — degree years and
-the B.E. institution were inferred and should be corrected to match your actual record.
+Everything else comes from `Kapil-Soni-Resume_1.html`. When that résumé changes, the
+matching copy lives in `index.html` (`#about`, `#work`, `#projects`, `#process`, `#stack`)
+and in `resume.html` — they are deliberately duplicated rather than templated, since a
+one-page résumé and a pitch page word the same facts differently.
 
 ## Notes
 

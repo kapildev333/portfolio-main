@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Kapil Soni — Full-Stack &amp; Mobile Engineer</title>
-<meta name="description" content="Kapil Soni — full-stack, Android and cloud engineer in Montréal. Java, Kotlin, Go, Angular, React, Spring, AWS and Azure. Also a YouTuber, photographer and cook.">
+<title>Kapil Soni — Backend &amp; Platform Engineer</title>
+<meta name="description" content="Kapil Soni — backend and platform engineer in Montréal. Go, Kubernetes, Kafka. Available for fixed-scope contract work: readiness audits, hardening sprints, and senior backend delivery.">
 <meta name="theme-color" content="#06070a">
-<meta property="og:title" content="Kapil Soni — Full-Stack &amp; Mobile Engineer">
-<meta property="og:description" content="Ships secure mobile, backend and cloud systems. Montréal.">
+<meta property="og:title" content="Kapil Soni — Backend &amp; Platform Engineer">
+<meta property="og:description" content="Go, Kubernetes, Kafka. Fixed-scope contract work for small engineering teams. Montréal.">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⬡</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -40,6 +40,7 @@
   <nav class="nav__links" aria-label="Primary">
     <a href="#work">Work</a>
     <a href="#projects">Projects</a>
+    <a href="#process">How I work</a>
     <a href="#stack">Stack</a>
     <a href="#offline">Offline</a>
     <a href="#contact">Contact</a>
@@ -51,10 +52,11 @@
 <div class="menu" id="menu">
   <a href="#work"><span>01</span> Work</a>
   <a href="#projects"><span>02</span> Projects</a>
-  <a href="#stack"><span>03</span> Stack</a>
-  <a href="#offline"><span>04</span> Offline</a>
-  <a href="#contact"><span>05</span> Contact</a>
-  <a href="resume.html"><span>06</span> Résumé</a>
+  <a href="#process"><span>03</span> How I work</a>
+  <a href="#stack"><span>04</span> Stack</a>
+  <a href="#offline"><span>05</span> Offline</a>
+  <a href="#contact"><span>06</span> Contact</a>
+  <a href="resume.html"><span>07</span> Résumé</a>
 </div>
 
 <main id="top">
@@ -62,21 +64,21 @@
 <!-- ══ hero ══ -->
 <section class="hero" id="hero">
   <div class="hero__inner">
-    <p class="hero__eyebrow" data-reveal>Montréal, QC · open to full-time roles</p>
+    <p class="hero__eyebrow" data-reveal>Montréal · taking fixed-scope contract work</p>
     <h1 class="hero__title">
       <span class="line" data-split>Kapil Soni</span>
     </h1>
     <p class="hero__role" data-reveal>
-      <span class="rot" id="rot" aria-live="polite">Full-stack engineer</span>
+      <span class="rot" id="rot" aria-live="polite">Backend &amp; platform engineer</span>
     </p>
     <p class="hero__blurb" data-reveal>
-      Four years of shipping software people actually depend on — secure Android suites,
-      Spring and Go services, Angular and React front-ends, all of it wired to AWS and Azure.
-      I like the part where a vague problem turns into something you can tap.
+      I help small engineering teams ship faster and keep their backends solid while they grow.
+      At Lightspeed I work on a sales-creation endpoint handling <b>28M+ requests a week</b> —
+      and the part I'm proudest of is making it boring.
     </p>
     <div class="hero__actions" data-reveal>
-      <a class="btn btn--primary" href="#projects" data-magnetic>See the work</a>
-      <a class="btn" href="mailto:developer.kapil333@gmail.com" data-magnetic>Say hello</a>
+      <a class="btn btn--primary" href="#process" data-magnetic>How I work</a>
+      <a class="btn" href="mailto:developer.kapil333@gmail.com?subject=Contract%20work" data-magnetic>Start a conversation</a>
     </div>
   </div>
   <div class="hero__scroll" aria-hidden="true"><i></i>scroll</div>
@@ -90,40 +92,40 @@
 <!-- ══ marquee ══ -->
 <div class="marquee" aria-hidden="true">
   <div class="marquee__track">
-    <span>Kotlin</span><b>◆</b><span>Java</span><b>◆</b><span>Go</span><b>◆</b><span>TypeScript</span><b>◆</b><span>Python</span><b>◆</b><span>Spring&nbsp;Boot</span><b>◆</b><span>Angular</span><b>◆</b><span>React</span><b>◆</b><span>Android</span><b>◆</b><span>AWS</span><b>◆</b><span>Azure</span><b>◆</b><span>Docker</span><b>◆</b><span>CI/CD</span><b>◆</b>
-    <span>Kotlin</span><b>◆</b><span>Java</span><b>◆</b><span>Go</span><b>◆</b><span>TypeScript</span><b>◆</b><span>Python</span><b>◆</b><span>Spring&nbsp;Boot</span><b>◆</b><span>Angular</span><b>◆</b><span>React</span><b>◆</b><span>Android</span><b>◆</b><span>AWS</span><b>◆</b><span>Azure</span><b>◆</b><span>Docker</span><b>◆</b><span>CI/CD</span><b>◆</b>
+    <span>Go</span><b>◆</b><span>Kafka</span><b>◆</b><span>Kubernetes</span><b>◆</b><span>PostgreSQL</span><b>◆</b><span>gRPC</span><b>◆</b><span>GraphQL</span><b>◆</b><span>Protobuf</span><b>◆</b><span>Redis</span><b>◆</b><span>ArgoCD</span><b>◆</b><span>Datadog</span><b>◆</b><span>AWS</span><b>◆</b><span>React</span><b>◆</b><span>TypeScript</span><b>◆</b>
+    <span>Go</span><b>◆</b><span>Kafka</span><b>◆</b><span>Kubernetes</span><b>◆</b><span>PostgreSQL</span><b>◆</b><span>gRPC</span><b>◆</b><span>GraphQL</span><b>◆</b><span>Protobuf</span><b>◆</b><span>Redis</span><b>◆</b><span>ArgoCD</span><b>◆</b><span>Datadog</span><b>◆</b><span>AWS</span><b>◆</b><span>React</span><b>◆</b><span>TypeScript</span><b>◆</b>
   </div>
 </div>
 
 <!-- ══ about ══ -->
 <section class="sec about" id="about">
-  <p class="sec__label" data-reveal>01 — About</p>
+  <p class="sec__label" data-reveal>01 — Why I'm reaching out</p>
   <div class="about__grid">
     <p class="about__lead" data-split-words>
-      I build the boring, load-bearing parts well — auth, payments, sync, pipelines —
-      so the interesting parts have somewhere to stand.
+      Senior backend help without a six-month hiring cycle.
     </p>
     <div class="about__body">
       <p data-reveal>
-        I started on Android at Bacancy, drifted into backend because that's where the hard bugs lived,
-        and ended up comfortable across the whole line: a Kotlin screen, the Spring service behind it,
-        the Go worker behind that, and the pipeline that ships all three.
+        Most small teams don't need another platform rewrite. They need the two or three things
+        that will break first as they grow, found early and fixed properly — clear monitoring,
+        safe rollouts, and a service nobody has to babysit.
       </p>
       <p data-reveal>
-        At OneSpan I worked on the security end of that stack — secure storage and authentication for an
-        SDK that banks put in front of millions of people. Nothing focuses you like code where a mistake
-        is somebody's money.
+        That's the work I do at Lightspeed on an endpoint taking tens of millions of requests a
+        week, and it's the work I take on contract: a one-week readiness audit, a short hardening
+        sprint, or an extra senior backend engineer for a feature you need shipped. Fixed scope,
+        clear price, everything I build stays with your team.
       </p>
       <p data-reveal>
-        Away from the editor I run a YouTube channel, shoot a lot of film and street photography,
-        and cook for anyone who'll sit down. Same instinct, different medium: take something raw,
+        Away from the terminal I run a YouTube channel, shoot street and portrait photography,
+        and cook for anyone who'll sit down. Same instinct, different medium — take something raw,
         pay attention, hand it to someone.
       </p>
       <ul class="about__stats">
-        <li data-reveal><b data-count="4">0</b><span>years shipping</span></li>
-        <li data-reveal><b data-count="30" data-suffix="%">0</b><span>faster queries</span></li>
-        <li data-reveal><b data-count="12" data-suffix="+">0</b><span>projects delivered</span></li>
-        <li data-reveal><b data-count="5" data-suffix="">0</b><span>languages in prod</span></li>
+        <li data-reveal><b data-count="28" data-suffix="M+">0</b><span>requests / week</span></li>
+        <li data-reveal><b data-count="25" data-suffix="%">0</b><span>faster incident triage</span></li>
+        <li data-reveal><b data-count="8" data-suffix="">0</b><span>Sev-0 &amp; Sev-1 resolved</span></li>
+        <li data-reveal><b data-count="5" data-suffix="+">0</b><span>years shipping</span></li>
       </ul>
     </div>
   </div>
@@ -135,44 +137,55 @@
   <h2 class="sec__title" data-split-words>Where I've shipped</h2>
   <ol class="timeline">
     <li class="job" data-reveal>
-      <div class="job__when">May 2024 — Aug 2024</div>
-      <div class="job__what">
-        <h3>Software Developer Intern</h3>
-        <p class="job__org">OneSpan · Montréal, QC</p>
-        <ul>
-          <li>Built secure data-storage for Android in Kotlin and Java, hardening how the Mobile Security Suite keeps credentials and keys at rest.</li>
-          <li>Worked inside a C++/JNI security core — the layer that has to be right when everything above it is not.</li>
-          <li>Set up GitLab CI/CD pipelines so SDK builds, tests and artifacts stopped depending on somebody remembering.</li>
-          <li>Wrote instrumentation tests against real devices to catch the failures emulators politely hide.</li>
-        </ul>
-        <div class="tags"><span>Kotlin</span><span>Java</span><span>C++</span><span>Android Keystore</span><span>GitLab CI</span></div>
-      </div>
-    </li>
-    <li class="job" data-reveal>
-      <div class="job__when">Jan 2021 — Mar 2024</div>
+      <div class="job__when">2025 — present</div>
       <div class="job__what">
         <h3>Software Developer</h3>
-        <p class="job__org">Bacancy Technology · Ahmedabad, IN</p>
+        <p class="job__org">Lightspeed Commerce · Montréal — joined as an intern in 2025, full-time since 2026</p>
         <ul>
-          <li>Full-stack delivery across Android, Angular, Spring Boot and Go for enterprise clients including Toyota and Tata.</li>
-          <li>Cut database query time roughly 30% by reworking indexes, N+1 access patterns and the worst of the ORM.</li>
-          <li>Split monolith responsibilities into Python and Go microservices, each with its own deploy and its own blast radius.</li>
-          <li>Integrated Twilio for messaging and Stripe for payments end to end — webhooks, retries, reconciliation, the unglamorous half.</li>
-          <li>Ran the agile loop with the team: estimates, reviews, unit tests, and release notes people actually read.</li>
+          <li>Optimised a high-traffic X-Series sales-creation endpoint carrying <b>28M+ requests a week</b>, with stronger monitoring, alerting and production-readiness practices.</li>
+          <li>Built time-versioned APIs and backend services in <b>Go</b> with PostgreSQL, Redis, gRPC, GraphQL and Protobuf.</li>
+          <li>Added <b>Kafka</b> event processing to move work off synchronous request paths.</li>
+          <li>Shipped safely with canary, feature-flag and shadow deployments backed by Datadog SLOs.</li>
+          <li>Helped resolve <b>5 Sev-0 and 3 Sev-1 incidents</b> and cut incident investigation time by 25%.</li>
         </ul>
-        <div class="tags"><span>Android</span><span>Angular</span><span>Spring Boot</span><span>Go</span><span>Python</span><span>AWS</span><span>Stripe</span><span>Twilio</span></div>
+        <div class="tags"><span>Go</span><span>Kafka</span><span>gRPC</span><span>GraphQL</span><span>Protobuf</span><span>PostgreSQL</span><span>Redis</span><span>Datadog</span></div>
       </div>
     </li>
     <li class="job" data-reveal>
-      <div class="job__when">2024 — 2025</div>
+      <div class="job__when">May — Aug 2024</div>
       <div class="job__what">
-        <h3>M.Eng., Software Engineering</h3>
-        <p class="job__org">Concordia University · Montréal, QC</p>
+        <h3>Software Developer Intern</h3>
+        <p class="job__org">OneSpan · Montréal</p>
         <ul>
-          <li>Graduate coursework in software engineering processes, requirements and quality assurance.</li>
-          <li>Built and documented a full requirements-to-verification project (SOEN 6011) in Java.</li>
+          <li>Enhanced the Java <b>Mobile Security Suite</b> used inside banking apps: secure REST integrations with OAuth 2.0, JWT, TLS 1.3 and mutual certificate validation.</li>
+          <li>Built React document-signing and verification workflows, including digital-signature validation and real-time camera checks for in-branch authentication.</li>
         </ul>
-        <div class="tags"><span>Java</span><span>Requirements</span><span>Verification</span></div>
+        <div class="tags"><span>Java</span><span>React</span><span>OAuth 2.0</span><span>JWT</span><span>TLS 1.3</span><span>mTLS</span></div>
+      </div>
+    </li>
+    <li class="job" data-reveal>
+      <div class="job__when">2021 — 2024</div>
+      <div class="job__what">
+        <h3>Software Developer</h3>
+        <p class="job__org">Bacancy · Ahmedabad, India</p>
+        <ul>
+          <li>Delivered full-stack products for clients: <b>Go microservices</b> with clean API boundaries and goroutine-based concurrency.</li>
+          <li>Built React/TypeScript front-ends with Redux and code-splitting.</li>
+          <li>Ran workloads on <b>Kubernetes with ArgoCD</b>; built AWS infrastructure on RDS, Aurora, SQS, SNS and S3.</li>
+          <li>Tuned PostgreSQL and MySQL schemas and indexes where the queries actually hurt.</li>
+          <li>Cut manual release effort with reusable Dockerfiles, Jenkins pipelines and Git-based CI/CD.</li>
+        </ul>
+        <div class="tags"><span>Go</span><span>Kubernetes</span><span>ArgoCD</span><span>AWS</span><span>React</span><span>TypeScript</span><span>Jenkins</span><span>Docker</span></div>
+      </div>
+    </li>
+    <li class="job" data-reveal>
+      <div class="job__when">2017 — 2025</div>
+      <div class="job__what">
+        <h3>Education</h3>
+        <p class="job__org">M.Eng. Software Engineering — Concordia University, Montréal (2024–2025)</p>
+        <ul>
+          <li>B.E. Information Technology — Gujarat Technological University (2017–2021).</li>
+        </ul>
       </div>
     </li>
   </ol>
@@ -184,128 +197,124 @@
   <h2 class="sec__title" data-split-words>Things I built</h2>
 
   <div class="cards">
-    <article class="card card--wide" data-tilt data-reveal>
+    <article class="card" data-tilt data-reveal>
       <div class="card__no">01</div>
-      <h3>YLore / Core Lite</h3>
-      <p class="card__kind">Personal safety platform · Product</p>
-      <p>A safety app for people walking home at 1am and for the organisations responsible for them: live location, pre-built safety plans, and a help-alert chain that escalates to real humans. I worked across the React client, the Spring Boot core and the Go services handling location fan-out.</p>
-      <div class="tags"><span>React</span><span>Spring Boot</span><span>Go</span><span>AWS</span><span>WebSockets</span></div>
+      <h3>Catalog Semantic Search</h3>
+      <p class="card__kind">E-commerce · Search</p>
+      <p>Embeds product text and images so a natural-language query — or an uploaded photo — returns matching SKUs with price filters. Hybrid keyword and vector ranking, with a React storefront demo to prove it in front of real catalogue data.</p>
+      <div class="tags"><span>Go</span><span>PostgreSQL</span><span>pgvector</span><span>OpenSearch</span><span>React</span></div>
     </article>
 
     <article class="card" data-tilt data-reveal>
       <div class="card__no">02</div>
-      <h3>Mobile Security Suite</h3>
-      <p class="card__kind">OneSpan · Android SDK</p>
-      <p>Multi-factor authentication SDK — biometrics, FIDO, push approval, Cronto — with app-shielding underneath. I worked on secure storage and the JNI boundary between Kotlin and the C++ crypto core.</p>
-      <div class="tags"><span>Android</span><span>Kotlin</span><span>Java</span><span>C++</span><span>FIDO</span></div>
+      <h3>Order Support Assistant</h3>
+      <p class="card__kind">E-commerce · Support automation</p>
+      <p>A chat assistant for order status and returns that answers <em>only</em> from live order, fulfilment and inventory APIs through a typed tool layer — with guardrails, human hand-off, and an audit log of every call it made.</p>
+      <div class="tags"><span>Go</span><span>gRPC</span><span>PostgreSQL</span><span>Redis</span><span>React</span></div>
     </article>
 
     <article class="card" data-tilt data-reveal>
       <div class="card__no">03</div>
-      <h3>SnackPOS</h3>
-      <p class="card__kind">Point of sale · Backend</p>
-      <p>A POS built for the moment the lunch rush hits: Spring Boot transaction core, Docker everywhere, Jenkins and GitLab doing the shipping. Scales sideways on AWS instead of praying.</p>
-      <div class="tags"><span>Java</span><span>Spring Boot</span><span>AWS</span><span>Docker</span><span>Jenkins</span></div>
+      <h3>Content Moderation Pipeline</h3>
+      <p class="card__kind">Social · Streaming</p>
+      <p>Kafka-fed pipeline that classifies posts and images, routes low-confidence items to a human review queue with appeals and audit logs, and reports queue depth and decision latency to Prometheus so backlog is visible before it becomes a problem.</p>
+      <div class="tags"><span>Go</span><span>Kafka</span><span>PostgreSQL</span><span>Kubernetes</span><span>React</span></div>
     </article>
 
     <article class="card" data-tilt data-reveal>
       <div class="card__no">04</div>
-      <h3>ChargePoint Integrations</h3>
-      <p class="card__kind">EV infrastructure · Client work</p>
-      <p>Charging-station session flows and telemetry: reserve, authorise, charge, settle. The interesting part is everything that happens when the car, the network or the payment drops out mid-session.</p>
-      <div class="tags"><span>Spring Boot</span><span>Go</span><span>Angular</span><span>PostgreSQL</span></div>
-    </article>
-
-    <article class="card" data-tilt data-reveal>
-      <div class="card__no">05</div>
-      <h3>Dayo</h3>
-      <p class="card__kind">Dating app · Android + services</p>
-      <p>Matching, realtime chat, media upload and push. Built the Android client and the messaging service behind it, with Twilio for verification and a lot of care around abuse reporting.</p>
-      <div class="tags"><span>Android</span><span>Kotlin</span><span>Spring Boot</span><span>Twilio</span><span>Firebase</span></div>
-    </article>
-
-    <article class="card" data-tilt data-reveal>
-      <div class="card__no">06</div>
-      <h3>eCommerce — twice</h3>
-      <p class="card__kind">Open source · Go &amp; Java</p>
-      <p>The same commerce domain built in Go and in Spring Boot, deliberately, to feel the difference: goroutines and explicit errors versus the framework doing the thinking. Catalogue, cart, orders, payments in both.</p>
-      <div class="tags"><span>Go</span><span>Spring Boot</span><span>PostgreSQL</span><span>REST</span></div>
-    </article>
-
-    <article class="card" data-tilt data-reveal>
-      <div class="card__no">07</div>
-      <h3>Redis Token Service</h3>
-      <p class="card__kind">Open source · Go</p>
-      <p>Access and refresh token rotation backed by Redis — the small, boring service every product rebuilds badly. Handles reuse detection and revocation instead of just handing out JWTs and hoping.</p>
-      <div class="tags"><span>Go</span><span>Redis</span><span>JWT</span></div>
-    </article>
-
-    <article class="card" data-tilt data-reveal>
-      <div class="card__no">08</div>
-      <h3>Serverless Spring on Lambda</h3>
-      <p class="card__kind">Open source · AWS</p>
-      <p>Spring Boot packaged to run cold-start-tolerably on AWS Lambda behind API Gateway. An experiment in how far you can push a heavyweight framework into a serverless shape before it stops being worth it.</p>
-      <div class="tags"><span>Java</span><span>Spring</span><span>AWS Lambda</span><span>API Gateway</span></div>
-    </article>
-
-    <article class="card" data-tilt data-reveal>
-      <div class="card__no">09</div>
-      <h3>React Video Call</h3>
-      <p class="card__kind">Open source · WebRTC</p>
-      <p>Peer-to-peer video calling with signalling, ICE negotiation and screen share — built to understand WebRTC properly rather than reach for a vendor SDK.</p>
-      <div class="tags"><span>React</span><span>WebRTC</span><span>Node</span><span>Socket.IO</span></div>
-    </article>
-
-    <article class="card" data-tilt data-reveal>
-      <div class="card__no">10</div>
-      <h3>FastAPI Microservice</h3>
-      <p class="card__kind">Open source · Python</p>
-      <p>A template microservice done right: typed schemas, async DB access, health checks, containerised, and a CI pipeline that refuses to deploy a red build.</p>
-      <div class="tags"><span>Python</span><span>FastAPI</span><span>Docker</span><span>CI/CD</span></div>
-    </article>
-
-    <article class="card" data-tilt data-reveal>
-      <div class="card__no">11</div>
-      <h3>iOS Video Processing</h3>
-      <p class="card__kind">Open source · Swift</p>
-      <p>Capture, frame-level processing and export on iOS with AVFoundation. Written mostly to prove the Android habits transfer.</p>
-      <div class="tags"><span>Swift</span><span>AVFoundation</span><span>iOS</span></div>
-    </article>
-
-    <article class="card" data-tilt data-reveal>
-      <div class="card__no">12</div>
-      <h3>Bacancy Systems</h3>
-      <p class="card__kind">Internal platform</p>
-      <p>Internal tooling for staffing, timesheets and project reporting — Angular front-end over Spring services. The kind of system where every "small" request touches four tables.</p>
-      <div class="tags"><span>Angular</span><span>Spring Boot</span><span>MySQL</span></div>
+      <h3>Fraud &amp; Chargeback Scoring</h3>
+      <p class="card__kind">Payments · Real time</p>
+      <p>Scores checkout events in real time by combining a rules engine with model-based review of the ambiguous cases, publishes decisions back to Kafka, and tracks throughput and false positives in Grafana — because a fraud model you can't measure is a guess.</p>
+      <div class="tags"><span>Go</span><span>Kafka</span><span>Redis</span><span>Prometheus</span><span>Grafana</span></div>
     </article>
   </div>
+
+  <p class="sec__label earlier__label" data-reveal>Earlier work</p>
+  <ul class="earlier">
+    <li data-reveal><b>YLore / Core Lite</b><span>Personal-safety platform — live location, safety plans, help-alert escalation.</span><i>React · Spring Boot · Go · AWS</i></li>
+    <li data-reveal><b>SnackPOS</b><span>Point-of-sale transaction core built to survive the lunch rush.</span><i>Java · Spring Boot · AWS · Docker · Jenkins</i></li>
+    <li data-reveal><b>ChargePoint integrations</b><span>EV session lifecycle: reserve, authorise, meter, settle — plus every way it drops out.</span><i>Spring Boot · Go · Angular · PostgreSQL</i></li>
+    <li data-reveal><b>Dayo</b><span>Dating app: matching, realtime chat, media upload, verification and abuse reporting.</span><i>Android · Kotlin · Spring Boot · Twilio</i></li>
+    <li data-reveal><b>eCommerce, twice</b><span>The same domain in Go and in Spring Boot, deliberately, to feel the difference.</span><i>Go · Java · PostgreSQL</i></li>
+    <li data-reveal><b>Redis token service</b><span>Access/refresh rotation with reuse detection and revocation.</span><i>Go · Redis · JWT</i></li>
+  </ul>
+</section>
+
+<!-- ══ process + engagements ══ -->
+<section class="sec process" id="process">
+  <p class="sec__label" data-reveal>04 — How I work</p>
+  <h2 class="sec__title" data-split-words>Three habits, no ceremony</h2>
+
+  <ol class="steps">
+    <li data-reveal>
+      <span class="steps__no">01</span>
+      <h3>Start in production</h3>
+      <p>Dashboards, incident history and the deploy pipeline before opinions. What breaks shows where to spend your money.</p>
+    </li>
+    <li data-reveal>
+      <span class="steps__no">02</span>
+      <h3>Ship in safe slices</h3>
+      <p>Feature flags, canaries and shadow traffic. Every change is small enough to roll back in a minute.</p>
+    </li>
+    <li data-reveal>
+      <span class="steps__no">03</span>
+      <h3>Leave the team stronger</h3>
+      <p>Runbooks, alerts and tests stay with you, so you don't need me on call after the engagement ends.</p>
+    </li>
+  </ol>
+
+  <h2 class="sec__title process__second" data-split-words>How a first engagement goes</h2>
+  <p class="process__lead" data-reveal>
+    Week one, I read your codebase, infrastructure and how you ship today. You get a short prioritised
+    list of what will slow you down or break first as you grow, and what each fix costs. From there we
+    pick what fits.
+  </p>
+  <div class="offers">
+    <article class="offer" data-tilt data-reveal>
+      <span class="offer__len">1 week</span>
+      <h3>Readiness audit</h3>
+      <p>A read of the code, the infra and the pipeline, ending in a ranked list of risks with a cost against each one. Useful on its own even if we stop there.</p>
+    </article>
+    <article class="offer" data-tilt data-reveal>
+      <span class="offer__len">2–4 weeks</span>
+      <h3>Hardening sprint</h3>
+      <p>We take the top items off that list and fix them: monitoring, alerting, safe rollouts, the query that falls over at 3× traffic. Runbooks included.</p>
+    </article>
+    <article class="offer" data-tilt data-reveal>
+      <span class="offer__len">By feature</span>
+      <h3>Extra senior engineer</h3>
+      <p>You have a backend feature that needs shipping and no one free to ship it. I join the team, build it, document it and hand it over.</p>
+    </article>
+  </div>
+  <p class="process__foot" data-reveal>Fixed price, clear scope, and everything I build stays with your team.
+    <a href="mailto:developer.kapil333@gmail.com?subject=Contract%20work" data-magnetic>Tell me what's slowing you down →</a></p>
 </section>
 
 <!-- ══ stack ══ -->
 <section class="sec stack" id="stack">
-  <p class="sec__label" data-reveal>04 — Stack</p>
+  <p class="sec__label" data-reveal>05 — Stack</p>
   <h2 class="sec__title" data-split-words>What I reach for</h2>
   <div class="stack__grid">
-    <div class="stack__col" data-reveal><h3>Languages</h3><p>Kotlin · Java · Go · TypeScript · Python · C# · SQL · Swift</p></div>
-    <div class="stack__col" data-reveal><h3>Mobile</h3><p>Android SDK · Jetpack · Coroutines · JNI · Room · Firebase · iOS/Swift</p></div>
-    <div class="stack__col" data-reveal><h3>Backend</h3><p>Spring Boot · Go · FastAPI · .NET/C# · REST · gRPC · PostgreSQL · MySQL · Redis</p></div>
-    <div class="stack__col" data-reveal><h3>Frontend</h3><p>Angular · React · TypeScript · RxJS · HTML/CSS · design systems · accessibility</p></div>
-    <div class="stack__col" data-reveal><h3>Cloud &amp; DevOps</h3><p>AWS · Azure · Docker · Jenkins · GitLab CI · GitHub Actions · Lambda</p></div>
-    <div class="stack__col" data-reveal><h3>Practice</h3><p>Agile · code review · unit &amp; instrumentation testing · profiling · writing it down</p></div>
+    <div class="stack__col" data-reveal><h3>Languages &amp; UI</h3><p>Go · Java · TypeScript · JavaScript · SQL · React · Redux · Jest</p></div>
+    <div class="stack__col" data-reveal><h3>Backend</h3><p>Go/Gin · Spring Boot · REST · gRPC · GraphQL · Protobuf</p></div>
+    <div class="stack__col" data-reveal><h3>Data &amp; messaging</h3><p>PostgreSQL · MySQL · Redis · Kafka · SQS/SNS · OpenSearch · pgvector</p></div>
+    <div class="stack__col" data-reveal><h3>Cloud</h3><p>AWS — RDS, Aurora, SQS, SNS, S3 · Docker · Kubernetes · ArgoCD</p></div>
+    <div class="stack__col" data-reveal><h3>Delivery</h3><p>Jenkins · GitHub &amp; GitLab CI · canary, feature-flag and shadow deployments</p></div>
+    <div class="stack__col" data-reveal><h3>Observability</h3><p>Datadog · Prometheus · Grafana · SLOs · alerting that means something</p></div>
   </div>
   <div class="bars">
-    <div class="bar" data-reveal><label>Mobile / Android</label><i data-fill="95"></i></div>
-    <div class="bar" data-reveal><label>Backend services</label><i data-fill="90"></i></div>
-    <div class="bar" data-reveal><label>Full-stack delivery</label><i data-fill="85"></i></div>
-    <div class="bar" data-reveal><label>Frontend</label><i data-fill="85"></i></div>
-    <div class="bar" data-reveal><label>Cloud &amp; CI/CD</label><i data-fill="80"></i></div>
+    <div class="bar" data-reveal><label>Go &amp; backend services</label><i data-fill="95"></i></div>
+    <div class="bar" data-reveal><label>Distributed / event-driven systems</label><i data-fill="90"></i></div>
+    <div class="bar" data-reveal><label>Kubernetes &amp; deployment safety</label><i data-fill="88"></i></div>
+    <div class="bar" data-reveal><label>Observability &amp; incident response</label><i data-fill="88"></i></div>
+    <div class="bar" data-reveal><label>React / TypeScript front-end</label><i data-fill="80"></i></div>
   </div>
 </section>
 
 <!-- ══ offline ══ -->
 <section class="sec offline" id="offline">
-  <p class="sec__label" data-reveal>05 — Offline</p>
+  <p class="sec__label" data-reveal>06 — Offline</p>
   <h2 class="sec__title" data-split-words>When the laptop shuts</h2>
   <p class="offline__lead" data-reveal>Four other crafts, all of them about noticing things.</p>
   <div class="hobbies">
@@ -338,13 +347,14 @@
 
 <!-- ══ contact ══ -->
 <section class="sec contact" id="contact">
-  <p class="sec__label" data-reveal>06 — Contact</p>
-  <h2 class="contact__big" data-split-words>Let's build something.</h2>
-  <p class="contact__sub" data-reveal>Open to full-stack, mobile and backend roles in Montréal or remote. Also happy to just talk shop.</p>
-  <a class="contact__mail" href="mailto:developer.kapil333@gmail.com" data-magnetic>developer.kapil333@gmail.com</a>
+  <p class="sec__label" data-reveal>07 — Contact</p>
+  <h2 class="contact__big" data-split-words>Let's scope it.</h2>
+  <p class="contact__sub" data-reveal>A one-week readiness audit, a hardening sprint, or an extra senior backend engineer.
+    Tell me what's slowing you down and I'll tell you what it takes to fix.</p>
+  <a class="contact__mail" href="mailto:developer.kapil333@gmail.com?subject=Contract%20work" data-magnetic>developer.kapil333@gmail.com</a>
   <ul class="contact__list">
     <li data-reveal><span>Phone</span><a href="tel:+12638805015">+1 263 880 5015</a></li>
-    <li data-reveal><span>Location</span><a href="#contact">Montréal, QC</a></li>
+    <li data-reveal><span>Location</span><a href="#contact">Montréal, Canada</a></li>
     <li data-reveal><span>GitHub</span><a href="https://github.com/kapildev333" target="_blank" rel="noopener">kapildev333</a></li>
     <li data-reveal><span>LinkedIn</span><a href="https://linkedin.com/in/devkapil333/" target="_blank" rel="noopener">devkapil333</a></li>
     <li data-reveal><span>Résumé</span><a href="resume.html">One page, printable</a></li>
