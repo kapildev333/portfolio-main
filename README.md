@@ -45,6 +45,13 @@ matching copy lives in `index.html` (`#about`, `#work`, `#projects`, `#process`,
 and in `resume.html`. They are deliberately duplicated rather than templated, since a
 one-page résumé and a pitch page word the same facts differently.
 
+## Cache busting
+
+GitHub Pages sends long cache headers, so a returning visitor can keep running old
+JS/CSS after a deploy. The asset URLs in `index.html` carry a `?v=N` suffix; bump N
+whenever `style.css`, `main.js` or `scene.js` changes, or the change will not reach
+people who have already visited.
+
 ## Notes
 
 - Respects `prefers-reduced-motion`: WebGL freezes, all entrance animation is skipped.
