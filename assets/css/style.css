@@ -186,10 +186,6 @@ main{position:relative;z-index:2}
 .card p:not(.card__kind){color:var(--muted);font-size:.95rem}
 
 /* ── stack ── */
-.stack__grid{display:grid;gap:1.6rem;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin-bottom:4rem}
-.stack__col{border-top:1px solid var(--line);padding-top:1.1rem}
-.stack__col h3{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--cy);margin-bottom:.6rem;font-weight:500}
-.stack__col p{color:var(--muted);font-size:.95rem}
 
 /* ── hobbies ── */
 .offline__lead{color:var(--muted);margin-top:-2rem;margin-bottom:2.6rem;font-size:1.05rem}
@@ -434,25 +430,7 @@ main{position:relative;z-index:2}
 .card__schem svg{width:100%;height:auto;display:block;color:var(--ink)}
 .card:hover .card__schem{border-color:rgba(94,231,255,.28)}
 
-/* ── evidence table (replaces the proficiency bars) ── */
 .stack__note{color:var(--muted);margin:-2rem 0 1.6rem;font-size:1rem}
-.evidence{width:100%;border-collapse:collapse;text-align:left;font-size:.93rem}
-.evidence th,.evidence td{padding:.85rem 1rem .85rem 0;border-bottom:1px solid var(--line);vertical-align:top}
-.evidence thead th{font-family:var(--f-mono);font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;
-  color:var(--cy);font-weight:500;padding-bottom:.6rem}
-.evidence tbody th{font-family:var(--f-display);font-weight:500;color:var(--ink);white-space:nowrap;padding-right:1.6rem}
-.evidence td:first-of-type{font-family:var(--f-mono);font-size:.74rem;letter-spacing:.06em;color:var(--cy);
-  white-space:nowrap;padding-right:1.6rem}
-.evidence td:last-child{color:var(--muted)}
-.evidence tbody tr:hover td,.evidence tbody tr:hover th{background:rgba(255,255,255,.02)}
-@media(max-width:760px){
-  .evidence,.evidence tbody,.evidence tr,.evidence th,.evidence td{display:block;width:100%}
-  .evidence thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
-  .evidence tbody tr{border-bottom:1px solid var(--line);padding:.9rem 0}
-  .evidence th,.evidence td{border:0;padding:.1rem 0}
-  .evidence tbody th{white-space:normal;font-size:1.05rem}
-}
-
 /* ── hero: a third, quieter action for the contract path ── */
 .btn--quiet{border-color:transparent;color:var(--muted);padding-inline:.9rem}
 .btn--quiet:hover{color:var(--ink);border-color:var(--line)}
@@ -468,3 +446,21 @@ main{position:relative;z-index:2}
 .process__lead a{color:var(--cy);border-bottom:1px solid rgba(11,111,131,.4)}
 .sec--light .process__lead a{border-bottom-color:rgba(11,111,131,.45)}
 .process__lead a:hover{color:var(--ink);border-color:var(--ink)}
+
+/* ── stack ────────────────────────────────────────────────────────────
+   Was two lists of the same technologies: a six-cell category grid and
+   then a table repeating all of it. One list now, and the provenance
+   column is the quiet part instead of the loudest thing on screen. */
+.stack__note{color:var(--muted);margin:-2rem 0 2.4rem;max-width:62ch;font-size:1.02rem}
+.stackline{display:grid;border-top:1px solid var(--line)}
+.stackline__row{display:grid;gap:.45rem 3rem;padding:1.35rem 0;border-bottom:1px solid var(--line);
+  transition:padding-left .35s var(--ease),background .35s}
+.stackline__row:hover{padding-left:.9rem;background:rgba(255,255,255,.018)}
+.stackline dt{font-family:var(--f-display);font-weight:500;font-size:1.02rem;color:var(--ink);
+  letter-spacing:-.01em;line-height:1.35}
+.stackline dt span{display:block;margin-top:.4rem;font-family:var(--f-mono);font-size:.64rem;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--muted);opacity:.72}
+.stackline dd{margin:0;color:var(--muted);font-size:.95rem;line-height:1.65}
+@media(min-width:860px){
+  .stackline__row{grid-template-columns:minmax(200px,270px) 1fr;align-items:baseline}
+}

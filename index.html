@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=8">
+<link rel="stylesheet" href="assets/css/style.css?v=9">
 </head>
 <body>
 
@@ -517,30 +517,54 @@
 <section class="sec stack" id="stack">
   <p class="sec__label" data-reveal>04 · Stack</p>
   <h2 class="sec__title" data-split-words>What I reach for</h2>
-  <div class="stack__grid">
-    <div class="stack__col" data-reveal><h3>Languages &amp; UI</h3><p>Go · Java · TypeScript · JavaScript · SQL · React · Redux · Jest</p></div>
-    <div class="stack__col" data-reveal><h3>Backend</h3><p>Go/Gin · Spring Boot · REST · gRPC · GraphQL · Protobuf</p></div>
-    <div class="stack__col" data-reveal><h3>Data &amp; messaging</h3><p>PostgreSQL · MySQL · Redis · Kafka · SQS/SNS · OpenSearch · pgvector</p></div>
-    <div class="stack__col" data-reveal><h3>Cloud</h3><p>AWS (RDS, Aurora, SQS, SNS, S3) · Docker · Kubernetes · ArgoCD</p></div>
-    <div class="stack__col" data-reveal><h3>Delivery</h3><p>Jenkins · GitHub &amp; GitLab CI · canary, feature-flag and shadow deployments</p></div>
-    <div class="stack__col" data-reveal><h3>Observability</h3><p>Datadog · Prometheus · Grafana · SLOs · alerting</p></div>
-  </div>
-  <p class="stack__note" data-reveal>Where each of these actually got used, and what came out of it.</p>
-  <table class="evidence" data-reveal>
-    <thead><tr><th scope="col">Technology</th><th scope="col">Where</th><th scope="col">What I built with it</th></tr></thead>
-    <tbody>
-      <tr><th scope="row">Go</th><td>Lightspeed, Bacancy</td><td>Time-versioned APIs and backend services; earlier, client microservices with goroutine-based concurrency.</td></tr>
-      <tr><th scope="row">Kafka</th><td>Lightspeed</td><td>Event processing that moved work off synchronous request paths.</td></tr>
-      <tr><th scope="row">gRPC, GraphQL, Protobuf</th><td>Lightspeed</td><td>Service interfaces for the X-Series sales-creation path.</td></tr>
-      <tr><th scope="row">PostgreSQL, Redis</th><td>Lightspeed, Bacancy</td><td>Backing stores for those services; schema and index tuning on MySQL and PostgreSQL at Bacancy.</td></tr>
-      <tr><th scope="row">Datadog, SLOs</th><td>Lightspeed</td><td>Monitoring and alerting behind canary, feature-flag and shadow deployments.</td></tr>
-      <tr><th scope="row">Kubernetes, ArgoCD</th><td>Bacancy</td><td>Ran client workloads and their deployments.</td></tr>
-      <tr><th scope="row">AWS</th><td>Bacancy</td><td>RDS, Aurora, SQS, SNS and S3 for client infrastructure.</td></tr>
-      <tr><th scope="row">React, TypeScript</th><td>OneSpan, Bacancy</td><td>Document-signing and verification workflows; client front-ends with Redux and code-splitting.</td></tr>
-      <tr><th scope="row">Java</th><td>OneSpan</td><td>Mobile Security Suite: REST integrations with OAuth 2.0, JWT, TLS 1.3 and mutual certificate validation.</td></tr>
-      <tr><th scope="row">Docker, Jenkins, CI</th><td>Bacancy</td><td>Reusable Dockerfiles and pipelines that cut manual release effort.</td></tr>
-    </tbody>
-  </table>
+  <p class="stack__note" data-reveal>Every technology here, where it was used, and what came out of it.</p>
+
+  <dl class="stackline" data-reveal>
+    <div class="stackline__row">
+      <dt>Go<span>Lightspeed · Bacancy · Freelance</span></dt>
+      <dd>Time-versioned APIs and backend services at Lightspeed. Client microservices with goroutine-based concurrency at Bacancy. All four freelance builds, with Gin over the top.</dd>
+    </div>
+    <div class="stackline__row">
+      <dt>Kafka, SQS/SNS<span>Lightspeed · Bacancy · Freelance</span></dt>
+      <dd>Moved work off synchronous request paths at Lightspeed. The moderation and fraud pipelines are built on it end to end.</dd>
+    </div>
+    <div class="stackline__row">
+      <dt>gRPC, GraphQL, Protobuf, REST<span>Lightspeed</span></dt>
+      <dd>Service interfaces for the X-Series sales-creation path.</dd>
+    </div>
+    <div class="stackline__row">
+      <dt>PostgreSQL, MySQL, Redis<span>Lightspeed · Bacancy · Freelance</span></dt>
+      <dd>Backing stores for those services, plus schema and index tuning at Bacancy on the queries that actually hurt.</dd>
+    </div>
+    <div class="stackline__row">
+      <dt>OpenSearch, pgvector<span>Freelance</span></dt>
+      <dd>Hybrid keyword and vector ranking for catalogue search, so a photo and a sentence hit the same index.</dd>
+    </div>
+    <div class="stackline__row">
+      <dt>Datadog, Prometheus, Grafana, SLOs<span>Lightspeed · Freelance</span></dt>
+      <dd>Monitoring and alerting behind canary, feature-flag and shadow deployments. Queue depth, decision latency and false positives on the freelance pipelines.</dd>
+    </div>
+    <div class="stackline__row">
+      <dt>Kubernetes, ArgoCD, Docker<span>Bacancy · Freelance</span></dt>
+      <dd>Ran client workloads and the deployments that put them there.</dd>
+    </div>
+    <div class="stackline__row">
+      <dt>AWS<span>Bacancy</span></dt>
+      <dd>RDS, Aurora, SQS, SNS and S3 for client infrastructure.</dd>
+    </div>
+    <div class="stackline__row">
+      <dt>Jenkins, GitHub &amp; GitLab CI<span>Bacancy · OneSpan</span></dt>
+      <dd>Reusable Dockerfiles and pipelines that cut manual release effort, including the SDK build and publish chain at OneSpan.</dd>
+    </div>
+    <div class="stackline__row">
+      <dt>Java, Spring Boot<span>OneSpan · Bacancy</span></dt>
+      <dd>Mobile Security Suite: REST integrations with OAuth 2.0, JWT, TLS 1.3 and mutual certificate validation.</dd>
+    </div>
+    <div class="stackline__row">
+      <dt>TypeScript, React, Redux, Jest<span>OneSpan · Bacancy · Freelance</span></dt>
+      <dd>Document-signing and verification workflows. Client front-ends with code-splitting. The storefront and console UIs on the freelance builds.</dd>
+    </div>
+  </dl>
 </section>
 
 <!-- ══ process + engagements ══ -->
@@ -764,7 +788,7 @@
 <script type="importmap">
 { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js" } }
 </script>
-<script type="module" src="assets/js/scene.js?v=8"></script>
-<script src="assets/js/main.js?v=8" defer></script>
+<script type="module" src="assets/js/scene.js?v=9"></script>
+<script src="assets/js/main.js?v=9" defer></script>
 </body>
 </html>
