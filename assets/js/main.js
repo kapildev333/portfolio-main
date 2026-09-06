@@ -61,11 +61,26 @@
   const bar = $('#loaderBar');
   const pct = $('#loaderPct');
   const state = { v: 0 };
+  let revealed = false;
 
-  function intro() {
-    const tl = gsap.timeline();
-    setTimeout(() => tl.progress(1), 6000); // rAF is throttled in background tabs
-    tl.to(loader, { opacity: 0, duration: .6, ease: 'power2.out', onComplete: () => loader.remove() })
+  // Everything below runs on gsap's ticker, which is rAF-driven and therefore
+  // frozen while the tab is in the background. A page opened in a background
+  // tab would sit on the loader forever, so the escape hatch has to be a plain
+  // timer that owes nothing to rAF.
+  function reveal(animated) {
+    if (revealed) return;
+    revealed = true;
+    clearTimeout(escapeHatch);
+
+    if (!animated) {
+      if (loader) loader.remove();
+      document.body.classList.remove('is-loading');
+      gsap.set('.hero__title .char', { opacity: 1, y: 0, rotateX: 0 });
+      gsap.set('.hero [data-reveal]', { opacity: 1, y: 0 });
+      return;
+    }
+    gsap.timeline()
+      .to(loader, { opacity: 0, duration: .6, ease: 'power2.out', onComplete: () => loader.remove() })
       .add(() => document.body.classList.remove('is-loading'), '<')
       .from('.nav', { y: -40, opacity: 0, duration: .8, ease: 'power3.out' }, '-=.3')
       .to('.hero__title .char', {
@@ -73,6 +88,7 @@
       }, '-=.6')
       .to('.hero [data-reveal]', { opacity: 1, y: 0, duration: .9, ease: 'power3.out', stagger: .09 }, '-=.7');
   }
+  const escapeHatch = setTimeout(() => reveal(false), 5000);
 
   gsap.set('.hero__title .char', { opacity: 0, y: '0.9em', rotateX: -70 });
   gsap.set('[data-split], [data-split-words]', { opacity: 1 });
@@ -80,27 +96,25 @@
   gsap.set('[data-split-words] .word', { opacity: 0, y: '0.7em' });
 
   if (reduced) {
-    gsap.set('.hero__title .char, [data-reveal], [data-split-words] .word', { opacity: 1, y: 0, rotateX: 0 });
-    loader && loader.remove();
-    document.body.classList.remove('is-loading');
+    gsap.set('[data-split-words] .word', { opacity: 1, y: 0 });
+    gsap.set('[data-reveal]', { opacity: 1, y: 0 });
+    reveal(false);
   } else {
     // fake-but-honest progress: finishes when fonts + window load are done
-    gsap.to(state, {
-      v: 92, duration: 1.4, ease: 'power1.out',
-      onUpdate: () => { bar.style.width = state.v + '%'; pct.textContent = Math.round(state.v); },
-    });
-    const done = () => gsap.to(state, {
-      v: 100, duration: .35,
-      onUpdate: () => { bar.style.width = state.v + '%'; pct.textContent = Math.round(state.v); },
-      onComplete: intro,
-    });
+    const paint = () => { bar.style.width = state.v + '%'; pct.textContent = Math.round(state.v); };
+    gsap.to(state, { v: 92, duration: 1.4, ease: 'power1.out', onUpdate: paint });
+    const done = () => {
+      // no point animating a progress bar nobody can see
+      if (document.hidden) return reveal(false);
+      gsap.to(state, { v: 100, duration: .35, onUpdate: paint, onComplete: () => reveal(true) });
+    };
     let fired = false;
     const once = () => { if (!fired) { fired = true; done(); } };
     Promise.all([
       document.fonts ? document.fonts.ready : Promise.resolve(),
       new Promise((r) => (document.readyState === 'complete' ? r() : addEventListener('load', r))),
     ]).then(once);
-    setTimeout(once, 4000); // never trap someone behind a slow CDN
+    setTimeout(once, 3000); // never trap someone behind a slow CDN
   }
 
   /* ── scroll reveals ── */
