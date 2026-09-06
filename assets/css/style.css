@@ -122,7 +122,7 @@ main{position:relative;z-index:2}
 .hero__eyebrow::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--cy);margin-right:.7rem;vertical-align:middle;animation:pulse 2.4s infinite}
 @keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(94,231,255,.55)}70%{opacity:.7;box-shadow:0 0 0 9px rgba(94,231,255,0)}}
 .hero__title{font-family:var(--f-display);font-weight:700;letter-spacing:-.045em;line-height:.88;
-  font-size:clamp(3.1rem,13.5vw,10.5rem);margin-bottom:.6rem}
+  font-size:clamp(3.1rem,13.5vw,10.5rem);margin-bottom:clamp(1rem,2.2vw,1.9rem);padding-bottom:.06em}
 .hero__title .char{display:inline-block;will-change:transform}
 .hero__role{font-family:var(--f-mono);font-size:clamp(.85rem,2.2vw,1.15rem);color:var(--cy);letter-spacing:.06em;margin-bottom:1.6rem;min-height:1.6em}
 .hero__role .rot::after{content:"_";animation:blink 1s steps(2) infinite;color:var(--vi)}
@@ -177,7 +177,8 @@ main{position:relative;z-index:2}
 .card:hover .tags span,.job:hover .tags span{border-color:rgba(94,231,255,.35);color:var(--ink)}
 
 /* ── project cards ── */
-.cards{display:grid;gap:1.1rem;grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
+.cards{display:grid;gap:1.1rem;grid-template-columns:1fr}
+@media(min-width:820px){.cards{grid-template-columns:repeat(2,1fr)}}
 .card{
   position:relative;border:1px solid var(--line);border-radius:18px;padding:1.6rem 1.5rem 1.5rem;
   background:linear-gradient(160deg,rgba(255,255,255,.045),rgba(255,255,255,.012));
@@ -190,8 +191,6 @@ main{position:relative;z-index:2}
 }
 .card:hover{border-color:rgba(94,231,255,.4);box-shadow:0 24px 60px -30px rgba(94,231,255,.4)}
 .card:hover::after{opacity:1}
-.card--wide{grid-column:1/-1}
-@media(min-width:1000px){.card--wide{grid-column:span 2}}
 .card__no{font-family:var(--f-mono);font-size:.7rem;color:var(--vi);letter-spacing:.2em;margin-bottom:.9rem}
 .card h3{font-family:var(--f-display);font-size:1.32rem;font-weight:500;letter-spacing:-.02em;margin-bottom:.2rem}
 .card__kind{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.85rem}
@@ -295,9 +294,14 @@ main{position:relative;z-index:2}
 .quote blockquote{display:grid;gap:.8rem}
 .quote blockquote p{color:var(--muted);font-size:.95rem}
 .quote figcaption{display:flex;align-items:center;gap:.9rem;border-top:1px solid var(--line);padding-top:1.1rem}
-.quote figcaption img{width:52px;height:52px;border-radius:50%;object-fit:cover;flex:none;
-  border:1px solid var(--line);filter:grayscale(1) contrast(1.05);transition:filter .45s}
-.quote:hover figcaption img{filter:none}
+.quote figcaption .avatar{width:52px;height:52px;flex:none;border-radius:50%;overflow:hidden;
+  border:1px solid var(--line);display:block}
+.quote figcaption .avatar img{width:100%;height:100%;object-fit:cover;display:block;
+  filter:grayscale(1) contrast(1.05);transition:filter .45s}
+.quote:hover figcaption .avatar img{filter:none}
+/* Khushboo's photo is full-body, so an un-cropped 52px avatar shows a torso.
+   Scale up and offset so her face lands in the middle of the circle. */
+.avatar--tight img{width:290%;height:290%;margin-left:-98%;margin-top:-2%}
 .quote figcaption span{display:grid;line-height:1.4}
 .quote figcaption b{font-family:var(--f-display);font-weight:500;font-size:1rem;color:var(--ink)}
 .quote figcaption span{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.08em;color:var(--muted)}
