@@ -1,4 +1,4 @@
-/* ── UI motion: loader, smooth scroll, reveals, cursor, tilt ── */
+/* ── UI motion: intro, smooth scroll, reveals, cursor, tilt ── */
 (function () {
   'use strict';
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -8,17 +8,12 @@
   // The animation libraries come from a CDN, which a corporate proxy, a strict
   // ad-blocker or a regional block can refuse. Without this guard gsap is
   // undefined, the next line throws, and the visitor is left staring at a
-  // loader over a page whose content CSS has hidden. Bail to plain HTML instead.
+  // page whose content CSS has hidden. Bail to plain HTML instead.
   //
   // The `js` class is what activates the hide-until-animated CSS, so it is only
   // added once we know we can actually animate. If this script never loads at
   // all, the class is never set and the page renders as ordinary HTML.
-  if (!window.gsap || !window.ScrollTrigger) {
-    const l = document.getElementById('loader');
-    if (l) l.remove();
-    document.body.classList.remove('is-loading');
-    return;
-  }
+  if (!window.gsap || !window.ScrollTrigger) return;
   document.documentElement.classList.add('js');
 
   gsap.registerPlugin(ScrollTrigger);
@@ -72,65 +67,24 @@
   $$('[data-split]').forEach(splitChars);
   $$('[data-split-words]').forEach(splitWords);
 
-  /* ── loader → hero ── */
-  const loader = $('#loader');
-  const bar = $('#loaderBar');
-  const pct = $('#loaderPct');
-  const state = { v: 0 };
-  let revealed = false;
-
-  // Everything below runs on gsap's ticker, which is rAF-driven and therefore
-  // frozen while the tab is in the background. A page opened in a background
-  // tab would sit on the loader forever, so the escape hatch has to be a plain
-  // timer that owes nothing to rAF.
-  function reveal(animated) {
-    if (revealed) return;
-    revealed = true;
-    clearTimeout(escapeHatch);
-
-    if (!animated) {
-      if (loader) loader.remove();
-      document.body.classList.remove('is-loading');
-      gsap.set('.hero__title .char', { opacity: 1, y: 0, rotateX: 0 });
-      gsap.set('.hero [data-reveal]', { opacity: 1, y: 0 });
-      return;
-    }
-    gsap.timeline()
-      .to(loader, { opacity: 0, duration: .6, ease: 'power2.out', onComplete: () => loader.remove() })
-      .add(() => document.body.classList.remove('is-loading'), '<')
-      .from('.nav', { y: -40, opacity: 0, duration: .8, ease: 'power3.out' }, '-=.3')
-      .to('.hero__title .char', {
-        opacity: 1, y: 0, rotateX: 0, duration: 1, ease: 'power4.out', stagger: .04,
-      }, '-=.6')
-      .to('.hero [data-reveal]', { opacity: 1, y: 0, duration: .9, ease: 'power3.out', stagger: .09 }, '-=.7');
-  }
-  const escapeHatch = setTimeout(() => reveal(false), 5000);
-
+  /* ── intro ── */
+  // No preloader. It bought nothing on a static page, and it was the single
+  // element most able to leave a visitor staring at a blank screen.
   gsap.set('.hero__title .char', { opacity: 0, y: '0.9em', rotateX: -70 });
   gsap.set('[data-split], [data-split-words]', { opacity: 1 });
   gsap.set('[data-reveal]', { opacity: 0, y: 26 });
   gsap.set('[data-split-words] .word', { opacity: 0, y: '0.7em' });
 
   if (reduced) {
-    gsap.set('[data-split-words] .word', { opacity: 1, y: 0 });
-    gsap.set('[data-reveal]', { opacity: 1, y: 0 });
-    reveal(false);
+    gsap.set('.hero__title .char, [data-reveal], [data-split-words] .word',
+             { opacity: 1, y: 0, rotateX: 0 });
   } else {
-    // fake-but-honest progress: finishes when fonts + window load are done
-    const paint = () => { bar.style.width = state.v + '%'; pct.textContent = Math.round(state.v); };
-    gsap.to(state, { v: 92, duration: 1.4, ease: 'power1.out', onUpdate: paint });
-    const done = () => {
-      // no point animating a progress bar nobody can see
-      if (document.hidden) return reveal(false);
-      gsap.to(state, { v: 100, duration: .35, onUpdate: paint, onComplete: () => reveal(true) });
-    };
-    let fired = false;
-    const once = () => { if (!fired) { fired = true; done(); } };
-    Promise.all([
-      document.fonts ? document.fonts.ready : Promise.resolve(),
-      new Promise((r) => (document.readyState === 'complete' ? r() : addEventListener('load', r))),
-    ]).then(once);
-    setTimeout(once, 3000); // never trap someone behind a slow CDN
+    gsap.timeline({ delay: .15 })
+      .from('.nav', { y: -40, opacity: 0, duration: .8, ease: 'power3.out' })
+      .to('.hero__title .char', {
+        opacity: 1, y: 0, rotateX: 0, duration: 1, ease: 'power4.out', stagger: .04,
+      }, '-=.6')
+      .to('.hero [data-reveal]', { opacity: 1, y: 0, duration: .9, ease: 'power3.out', stagger: .09 }, '-=.7');
   }
 
   /* ── scroll reveals ── */
@@ -159,16 +113,6 @@
     if (reduced) { o.v = end; set(); return; }
     gsap.to(o, {
       v: end, duration: 1.6, ease: 'power2.out', onUpdate: set,
-      scrollTrigger: { trigger: el, start: 'top 92%' },
-    });
-  });
-
-  /* ── skill bars ── */
-  $$('.bar i').forEach((el) => {
-    const w = el.dataset.fill + '%';
-    if (reduced) { el.style.width = w; return; }
-    gsap.to(el, {
-      width: w, duration: 1.3, ease: 'power3.out',
       scrollTrigger: { trigger: el, start: 'top 92%' },
     });
   });
@@ -205,33 +149,6 @@
     lenis && (open ? lenis.stop() : lenis.start());
   });
   addEventListener('keydown', (e) => e.key === 'Escape' && closeMenu());
-
-  /* ── rotating role ── */
-  const roles = [
-    'Backend & platform engineer', 'Go · Kafka · Kubernetes',
-    '28M requests a week', 'Available for contract work',
-    'YouTuber & photographer',
-  ];
-  const rot = $('#rot');
-  if (rot && !reduced) {
-    let i = 0;
-    const type = () => {
-      const next = roles[++i % roles.length];
-      const tl = gsap.timeline();
-      const wipe = { n: rot.textContent.length };
-      tl.to(wipe, {
-        n: 0, duration: .35, ease: 'none',
-        onUpdate: () => { rot.textContent = rot.textContent.slice(0, Math.round(wipe.n)); },
-      })
-      .add(() => { wipe.n = 0; })
-      .to(wipe, {
-        n: next.length, duration: .55, ease: 'none',
-        onUpdate: () => { rot.textContent = next.slice(0, Math.round(wipe.n)); },
-      })
-      .call(() => setTimeout(type, 2200));
-    };
-    setTimeout(type, 2600);
-  }
 
   /* ── custom cursor ── */
   const cur = $('#cursor');

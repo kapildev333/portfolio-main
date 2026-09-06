@@ -19,24 +19,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=5">
+<link rel="stylesheet" href="assets/css/style.css?v=6">
 </head>
-<body class="is-loading">
+<body>
 
 <a class="skip" href="#top">Skip to content</a>
-
-<!-- ══ preloader ══ -->
-<div class="loader" id="loader">
-  <div class="loader__inner">
-    <div class="loader__name">KAPIL&nbsp;SONI</div>
-    <div class="loader__bar"><i id="loaderBar"></i></div>
-    <div class="loader__pct"><span id="loaderPct">0</span>%</div>
-  </div>
-</div>
-
-<div class="cursor" id="cursor" aria-hidden="true"><span class="cursor__dot"></span><span class="cursor__ring"></span></div>
-<div class="progress" id="progress" aria-hidden="true"></div>
-<div class="grain" aria-hidden="true"></div>
 
 <!-- ══ webgl ══ -->
 <canvas id="gl" aria-hidden="true"></canvas>
@@ -54,10 +41,10 @@
   </a>
   <nav class="nav__links" aria-label="Primary">
     <a href="#work">Work</a>
-    <a href="#references">References</a>
     <a href="#projects">Projects</a>
-    <a href="#process">How I work</a>
     <a href="#stack">Stack</a>
+    <a href="#process">How I work</a>
+    <a href="#references">References</a>
     <a href="#offline">Offline</a>
     <a href="#contact">Contact</a>
   </nav>
@@ -67,10 +54,10 @@
 
 <div class="menu" id="menu">
   <a href="#work"><span>01</span> Work</a>
-  <a href="#references"><span>02</span> References</a>
-  <a href="#projects"><span>03</span> Projects</a>
+  <a href="#projects"><span>02</span> Projects</a>
+  <a href="#stack"><span>03</span> Stack</a>
   <a href="#process"><span>04</span> How I work</a>
-  <a href="#stack"><span>05</span> Stack</a>
+  <a href="#references"><span>05</span> References</a>
   <a href="#offline"><span>06</span> Offline</a>
   <a href="#contact"><span>07</span> Contact</a>
   <a href="resume.html"><span>08</span> Résumé</a>
@@ -86,7 +73,7 @@
       <span class="line" data-split>Kapil Soni</span>
     </h1>
     <p class="hero__role" data-reveal>
-      <span class="rot" id="rot" aria-live="polite">Backend &amp; platform engineer</span>
+      Backend &amp; platform engineer
     </p>
     <p class="hero__blurb" data-reveal>
       I help small engineering teams ship faster and keep their backends solid while they grow.
@@ -207,109 +194,9 @@
 </section>
 
 
-<!-- ══ education ══ -->
-<section class="sec education" id="education">
-  <p class="sec__label" data-reveal>03 · Education</p>
-  <h2 class="sec__title" data-split-words>What I studied, and where</h2>
-  <ul class="edu">
-    <li data-reveal>
-      <span class="edu__when">2024 – 2025</span>
-      <h3>M.Eng. Software Engineering</h3>
-      <p class="edu__where">Concordia University · Montréal, Canada</p>
-      <p class="edu__note">Software engineering processes, requirements engineering and quality assurance. The reason I moved.</p>
-    </li>
-    <li data-reveal>
-      <span class="edu__when">2017 – 2021</span>
-      <h3>B.E. Information Technology</h3>
-      <p class="edu__where">Gujarat Technological University · Gujarat, India</p>
-      <p class="edu__note">Four years of fundamentals, then straight into shipping production code at Bacancy.</p>
-    </li>
-  </ul>
-
-  <figure class="journey" data-reveal>
-    <svg viewBox="0 0 1060 190" role="img" aria-labelledby="journey-t">
-      <title id="journey-t">Ahmedabad, India in 2021 to Montréal, Canada in 2024</title>
-      <text class="j-city" x="30" y="76">AHMEDABAD, IN</text>
-      <text class="j-sub"  x="30" y="100">2021 · first prod deploy</text>
-      <text class="j-city" x="1030" y="76" text-anchor="end">MONTREAL, CA</text>
-      <text class="j-sub"  x="1030" y="100" text-anchor="end">2024 · masters &amp; beyond</text>
-      <path class="j-arc" d="M262 112 C 420 40, 700 40, 758 100"/>
-      <circle class="j-dot" cx="262" cy="112" r="6"/>
-      <circle class="j-dot" cx="758" cy="100" r="6"/>
-      <circle class="j-dot--ghost" cx="665" cy="64" r="4.5"/>
-      <text class="j-cap" x="530" y="160" text-anchor="middle">12,800 KM · SAME MISSION, BIGGER SYSTEMS</text>
-    </svg>
-  </figure>
-</section>
-
-<!-- ══ references ══ -->
-<section class="sec refs" id="references">
-  <p class="sec__label" data-reveal>04 · References</p>
-  <h2 class="sec__title" data-split-words>What they said</h2>
-  <p class="refs__lead" data-reveal>People who managed or worked alongside me at OneSpan, Bacancy and Simform.</p>
-  <div class="quotes">
-
-    <figure class="quote" data-reveal data-tilt>
-      <blockquote>
-        <p>I am pleased to write this recommendation letter for Kapil Soni, who has been a Software Developer intern
-        in the MSS team at OneSpan. During his time with us, Kapil has consistently demonstrated exceptional technical
-        skills, a strong work ethic, and a collaborative spirit that has significantly contributed to our projects.</p>
-        <p>I have no doubt that Kapil Soni will make a significant positive impact wherever he goes. I highly recommend
-        him for any software development positions or further opportunities in software development.</p>
-      </blockquote>
-      <figcaption>
-        <span class="avatar"><img src="assets/img/testimonial-1.jpg" alt="Sina Moetakef" width="72" height="72" loading="lazy" decoding="async"></span>
-        <span><b>Sina Moetakef</b>Product Manager, OneSpan</span>
-      </figcaption>
-    </figure>
-
-    <figure class="quote" data-reveal data-tilt>
-      <blockquote>
-        <p>Kapil's strongest attributes include exceptional quick learning ability and technology proficiency, enabling
-        him to swiftly adapt to new technologies and stay abreast of industry trends. His decision-making abilities are
-        commendable. Moreover, Kapil demonstrates a strong client focus and leadership skills.</p>
-      </blockquote>
-      <figcaption>
-        <span class="avatar"><img src="assets/img/testimonial-2.jpg" alt="Vaidehee Vala" width="72" height="72" loading="lazy" decoding="async"></span>
-        <span><b>Vaidehee Vala</b>Director of Engineering, Bacancy</span>
-      </figcaption>
-    </figure>
-
-    <figure class="quote" data-reveal data-tilt>
-      <blockquote>
-        <p>It was a pleasure to have Kapil as my intern and watch him turn into an app developer within a few months.
-        Throughout our time together, Kapil consistently demonstrated exceptional problem-solving abilities and a
-        profound commitment to deep research. Kapil took the initiative to conduct thorough research, exploring various
-        algorithms and methodologies to find the best solution. What impressed me most was his dedication to
-        understanding the underlying principles of the technology he was working with.</p>
-      </blockquote>
-      <figcaption>
-        <span class="avatar"><img src="assets/img/testimonial-3.jpg" alt="Saurabh Detharia" width="72" height="72" loading="lazy" decoding="async"></span>
-        <span><b>Saurabh Detharia</b>Senior Software Developer, Simform</span>
-      </figcaption>
-    </figure>
-
-    <figure class="quote" data-reveal data-tilt>
-      <blockquote>
-        <p>As a project manager and certified scrum master, I had the opportunity to work with Kapil on several
-        projects: Dayo Dating, Core Lite Safety Plan, and GH Labs. Kapil's technical skills, attention to detail, and
-        leadership abilities were critical to completing them.</p>
-        <p>Leading the feature team on the Dayo project, Kapil showed outstanding leadership, communication skills, and
-        the capacity to collaborate productively. Kapil built great lower-level video processing commands for iOS and
-        Android in Dayo, and single-handedly released the applications to the App Store and Play Store.</p>
-      </blockquote>
-      <figcaption>
-        <span class="avatar avatar--tight"><img src="assets/img/testimonial-4.jpg" alt="Khushboo Rathod" width="72" height="72" loading="lazy" decoding="async"></span>
-        <span><b>Khushboo Rathod</b>Former Project Manager, Bacancy</span>
-      </figcaption>
-    </figure>
-
-  </div>
-</section>
-
 <!-- ══ projects ══ -->
 <section class="sec projects" id="projects">
-  <p class="sec__label" data-reveal>05 · Selected work</p>
+  <p class="sec__label" data-reveal>03 · Selected work</p>
   <h2 class="sec__title" data-split-words>Things I built</h2>
 
   <div class="cards">
@@ -623,9 +510,39 @@
   </ul>
 </section>
 
+<!-- ══ stack ══ -->
+<section class="sec stack" id="stack">
+  <p class="sec__label" data-reveal>04 · Stack</p>
+  <h2 class="sec__title" data-split-words>What I reach for</h2>
+  <div class="stack__grid">
+    <div class="stack__col" data-reveal><h3>Languages &amp; UI</h3><p>Go · Java · TypeScript · JavaScript · SQL · React · Redux · Jest</p></div>
+    <div class="stack__col" data-reveal><h3>Backend</h3><p>Go/Gin · Spring Boot · REST · gRPC · GraphQL · Protobuf</p></div>
+    <div class="stack__col" data-reveal><h3>Data &amp; messaging</h3><p>PostgreSQL · MySQL · Redis · Kafka · SQS/SNS · OpenSearch · pgvector</p></div>
+    <div class="stack__col" data-reveal><h3>Cloud</h3><p>AWS (RDS, Aurora, SQS, SNS, S3) · Docker · Kubernetes · ArgoCD</p></div>
+    <div class="stack__col" data-reveal><h3>Delivery</h3><p>Jenkins · GitHub &amp; GitLab CI · canary, feature-flag and shadow deployments</p></div>
+    <div class="stack__col" data-reveal><h3>Observability</h3><p>Datadog · Prometheus · Grafana · SLOs · alerting</p></div>
+  </div>
+  <p class="stack__note" data-reveal>Where each of these actually got used, and what came out of it.</p>
+  <table class="evidence" data-reveal>
+    <thead><tr><th scope="col">Technology</th><th scope="col">Where</th><th scope="col">What I built with it</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Go</th><td>Lightspeed, Bacancy</td><td>Time-versioned APIs and backend services; earlier, client microservices with goroutine-based concurrency.</td></tr>
+      <tr><th scope="row">Kafka</th><td>Lightspeed</td><td>Event processing that moved work off synchronous request paths.</td></tr>
+      <tr><th scope="row">gRPC, GraphQL, Protobuf</th><td>Lightspeed</td><td>Service interfaces for the X-Series sales-creation path.</td></tr>
+      <tr><th scope="row">PostgreSQL, Redis</th><td>Lightspeed, Bacancy</td><td>Backing stores for those services; schema and index tuning on MySQL and PostgreSQL at Bacancy.</td></tr>
+      <tr><th scope="row">Datadog, SLOs</th><td>Lightspeed</td><td>Monitoring and alerting behind canary, feature-flag and shadow deployments.</td></tr>
+      <tr><th scope="row">Kubernetes, ArgoCD</th><td>Bacancy</td><td>Ran client workloads and their deployments.</td></tr>
+      <tr><th scope="row">AWS</th><td>Bacancy</td><td>RDS, Aurora, SQS, SNS and S3 for client infrastructure.</td></tr>
+      <tr><th scope="row">React, TypeScript</th><td>OneSpan, Bacancy</td><td>Document-signing and verification workflows; client front-ends with Redux and code-splitting.</td></tr>
+      <tr><th scope="row">Java</th><td>OneSpan</td><td>Mobile Security Suite: REST integrations with OAuth 2.0, JWT, TLS 1.3 and mutual certificate validation.</td></tr>
+      <tr><th scope="row">Docker, Jenkins, CI</th><td>Bacancy</td><td>Reusable Dockerfiles and pipelines that cut manual release effort.</td></tr>
+    </tbody>
+  </table>
+</section>
+
 <!-- ══ process + engagements ══ -->
 <section class="sec sec--light process" id="process">
-  <p class="sec__label" data-reveal>06 · How I work</p>
+  <p class="sec__label" data-reveal>05 · How I work</p>
   <h2 class="sec__title" data-split-words>Three habits</h2>
 
   <ol class="steps">
@@ -685,25 +602,101 @@
     <a href="mailto:developer.kapil333@gmail.com?subject=Contract%20work" data-magnetic>Tell me what's slowing you down →</a></p>
 </section>
 
-<!-- ══ stack ══ -->
-<section class="sec stack" id="stack">
-  <p class="sec__label" data-reveal>07 · Stack</p>
-  <h2 class="sec__title" data-split-words>What I reach for</h2>
-  <div class="stack__grid">
-    <div class="stack__col" data-reveal><h3>Languages &amp; UI</h3><p>Go · Java · TypeScript · JavaScript · SQL · React · Redux · Jest</p></div>
-    <div class="stack__col" data-reveal><h3>Backend</h3><p>Go/Gin · Spring Boot · REST · gRPC · GraphQL · Protobuf</p></div>
-    <div class="stack__col" data-reveal><h3>Data &amp; messaging</h3><p>PostgreSQL · MySQL · Redis · Kafka · SQS/SNS · OpenSearch · pgvector</p></div>
-    <div class="stack__col" data-reveal><h3>Cloud</h3><p>AWS (RDS, Aurora, SQS, SNS, S3) · Docker · Kubernetes · ArgoCD</p></div>
-    <div class="stack__col" data-reveal><h3>Delivery</h3><p>Jenkins · GitHub &amp; GitLab CI · canary, feature-flag and shadow deployments</p></div>
-    <div class="stack__col" data-reveal><h3>Observability</h3><p>Datadog · Prometheus · Grafana · SLOs · alerting</p></div>
+<!-- ══ references ══ -->
+<section class="sec refs" id="references">
+  <p class="sec__label" data-reveal>06 · References</p>
+  <h2 class="sec__title" data-split-words>What they said</h2>
+  <p class="refs__lead" data-reveal>People who managed or worked alongside me at OneSpan, Bacancy and Simform.</p>
+  <div class="quotes">
+
+    <figure class="quote" data-reveal data-tilt>
+      <blockquote>
+        <p>Kapil has been a Software Developer intern in the MSS team at OneSpan. During his time with us, Kapil has
+        consistently demonstrated exceptional technical skills, a strong work ethic, and a collaborative spirit that
+        has significantly contributed to our projects. I highly recommend him for any software development
+        positions.</p>
+      </blockquote>
+      <figcaption>
+        <span class="avatar"><img src="assets/img/testimonial-1.jpg" alt="Sina Moetakef" width="72" height="72" loading="lazy" decoding="async"></span>
+        <span><b>Sina Moetakef</b>Product Manager, OneSpan</span>
+      </figcaption>
+    </figure>
+
+    <figure class="quote" data-reveal data-tilt>
+      <blockquote>
+        <p>Kapil's strongest attributes include exceptional quick learning ability and technology proficiency, enabling
+        him to swiftly adapt to new technologies and stay abreast of industry trends. His decision-making abilities are
+        commendable. Moreover, Kapil demonstrates a strong client focus and leadership skills.</p>
+      </blockquote>
+      <figcaption>
+        <span class="avatar"><img src="assets/img/testimonial-2.jpg" alt="Vaidehee Vala" width="72" height="72" loading="lazy" decoding="async"></span>
+        <span><b>Vaidehee Vala</b>Director of Engineering, Bacancy</span>
+      </figcaption>
+    </figure>
+
+    <figure class="quote" data-reveal data-tilt>
+      <blockquote>
+        <p>Kapil turned from my intern into an app developer within a few months. He took the initiative to conduct
+        thorough research, exploring various algorithms and methodologies to find the best solution. What impressed me
+        most was his dedication to understanding the underlying principles of the technology he was working with.</p>
+      </blockquote>
+      <figcaption>
+        <span class="avatar"><img src="assets/img/testimonial-3.jpg" alt="Saurabh Detharia" width="72" height="72" loading="lazy" decoding="async"></span>
+        <span><b>Saurabh Detharia</b>Senior Software Developer, Simform</span>
+      </figcaption>
+    </figure>
+
+    <figure class="quote" data-reveal data-tilt>
+      <blockquote>
+        <p>As a project manager and certified scrum master, I had the opportunity to work with Kapil on several
+        projects: Dayo Dating, Core Lite Safety Plan, and GH Labs. Kapil's technical skills, attention to detail, and
+        leadership abilities were critical to completing them.</p>
+        <p>Leading the feature team on the Dayo project, Kapil showed outstanding leadership, communication skills, and
+        the capacity to collaborate productively. Kapil built great lower-level video processing commands for iOS and
+        Android in Dayo, and single-handedly released the applications to the App Store and Play Store.</p>
+      </blockquote>
+      <figcaption>
+        <span class="avatar avatar--tight"><img src="assets/img/testimonial-4.jpg" alt="Khushboo Rathod" width="72" height="72" loading="lazy" decoding="async"></span>
+        <span><b>Khushboo Rathod</b>Former Project Manager, Bacancy</span>
+      </figcaption>
+    </figure>
+
   </div>
-  <div class="bars">
-    <div class="bar" data-reveal><label>Go &amp; backend services</label><i data-fill="95"></i></div>
-    <div class="bar" data-reveal><label>Distributed / event-driven systems</label><i data-fill="90"></i></div>
-    <div class="bar" data-reveal><label>Kubernetes &amp; deployment safety</label><i data-fill="88"></i></div>
-    <div class="bar" data-reveal><label>Observability &amp; incident response</label><i data-fill="88"></i></div>
-    <div class="bar" data-reveal><label>React / TypeScript front-end</label><i data-fill="80"></i></div>
-  </div>
+</section>
+
+<!-- ══ education ══ -->
+<section class="sec education" id="education">
+  <p class="sec__label" data-reveal>07 · Education</p>
+  <h2 class="sec__title" data-split-words>What I studied, and where</h2>
+  <ul class="edu">
+    <li data-reveal>
+      <span class="edu__when">2024 – 2025</span>
+      <h3>M.Eng. Software Engineering</h3>
+      <p class="edu__where">Concordia University · Montréal, Canada</p>
+      <p class="edu__note">Software engineering processes, requirements engineering and quality assurance. The reason I moved.</p>
+    </li>
+    <li data-reveal>
+      <span class="edu__when">2017 – 2021</span>
+      <h3>B.E. Information Technology</h3>
+      <p class="edu__where">Gujarat Technological University · Gujarat, India</p>
+      <p class="edu__note">Four years of fundamentals, then straight into shipping production code at Bacancy.</p>
+    </li>
+  </ul>
+
+  <figure class="journey" data-reveal>
+    <svg viewBox="0 0 1060 190" role="img" aria-labelledby="journey-t">
+      <title id="journey-t">Ahmedabad, India in 2021 to Montréal, Canada in 2024</title>
+      <text class="j-city" x="30" y="76">AHMEDABAD, IN</text>
+      <text class="j-sub"  x="30" y="100">2021 · first prod deploy</text>
+      <text class="j-city" x="1030" y="76" text-anchor="end">MONTREAL, CA</text>
+      <text class="j-sub"  x="1030" y="100" text-anchor="end">2024 · masters &amp; beyond</text>
+      <path class="j-arc" d="M262 112 C 420 40, 700 40, 758 100"/>
+      <circle class="j-dot" cx="262" cy="112" r="6"/>
+      <circle class="j-dot" cx="758" cy="100" r="6"/>
+      <circle class="j-dot--ghost" cx="665" cy="64" r="4.5"/>
+      <text class="j-cap" x="530" y="160" text-anchor="middle">12,800 KM · SAME MISSION, BIGGER SYSTEMS</text>
+    </svg>
+  </figure>
 </section>
 
 <!-- ══ offline ══ -->
@@ -716,13 +709,11 @@
       <span class="hobby__ico">▶</span>
       <h3>YouTube</h3>
       <p>I run a channel and do all of it myself: writing, shooting, editing. Explaining something on camera is the fastest way to find out you don't actually understand it.</p>
-      <p class="hobby__soon" data-todo="Swap for a real <a> once the channel URL is in">Channel link coming soon</p>
     </article>
     <article class="hobby" data-reveal data-tilt>
       <span class="hobby__ico">◉</span>
       <h3>Photography</h3>
       <p>Street and portrait work, mostly around Montréal. Composition, light, and knowing when not to press the shutter.</p>
-      <p class="hobby__soon" data-todo="Swap for a real <a> once the photo portfolio URL is in">Photo set coming soon</p>
     </article>
     <article class="hobby" data-reveal data-tilt>
       <span class="hobby__ico">✦</span>
@@ -769,7 +760,7 @@
 <script type="importmap">
 { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js" } }
 </script>
-<script type="module" src="assets/js/scene.js?v=5"></script>
-<script src="assets/js/main.js?v=5" defer></script>
+<script type="module" src="assets/js/scene.js?v=6"></script>
+<script src="assets/js/main.js?v=6" defer></script>
 </body>
 </html>
