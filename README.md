@@ -11,6 +11,20 @@ assets/css/style.css
 assets/img/          portrait + reference headshots (EXIF stripped)
 assets/js/scene.js  three.js point cloud that morphs on scroll
 assets/js/main.js   GSAP reveals, Lenis smooth scroll, cursor, tilt
+assets/img/         portrait, reference headshots, logo, favicon, OG card
+assets/img/schematics.html   source of the four project diagrams
+assets/design-tokens.json    primitive -> semantic -> component tokens
+docs/brand-guidelines.md     colour, type, motion, voice, a11y floor
+tools/og-image.html          source for the 1200x630 social card
+```
+
+Re-render the social card after editing `tools/og-image.html`:
+
+```bash
+python3 -m http.server 8777 &
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new \
+  --force-device-scale-factor=2 --window-size=1200,630 \
+  --screenshot=og.png http://localhost:8777/tools/og-image.html
 ```
 
 Libraries load from jsDelivr: three 0.169, GSAP 3.12 + ScrollTrigger, Lenis 1.1.

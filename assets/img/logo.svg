@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 51 32" fill="none" role="img" aria-labelledby="ks-logo-title">
+  <title id="ks-logo-title">Kapil Soni</title>
+  <!-- K: a hub node with four edges, drawn like a service in a system diagram -->
+  <g stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M8 4V28"/>
+    <path d="M8 16 20 4"/>
+    <path d="M8 16 20 28"/>
+    <!-- S: a routed trace, chamfered corners, no curves -->
+    <path d="M43 7 40 4H31L28 7v6l3 3h9l3 3v6l-3 3H31l-3-3"/>
+  </g>
+  <circle cx="8" cy="16" r="4.5" fill="currentColor"/>
+</svg>

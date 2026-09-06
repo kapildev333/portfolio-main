@@ -1,0 +1,257 @@
+{
+  "$name": "kapil-portfolio design tokens",
+  "$description": "Three-layer token system for kapil-portfolio. primitive holds raw values and is never referenced from component CSS. semantic holds jobs and is the only layer component CSS may reference. component holds per-widget usage and always resolves to a semantic token, optionally at an alpha. Prose rules live in docs/brand-guidelines.md.",
+  "$version": "1.0.0",
+  "$layers": {
+    "primitive": "Raw values. Named for what they are. Never used directly in component CSS.",
+    "semantic": "Named for the job. The only layer authored CSS should reference.",
+    "component": "Named for the widget. Resolves to a semantic token or a semantic token at an alpha. Never holds a new hue."
+  },
+  "$themes": {
+    "dark": "index.html always, resume.html under prefers-color-scheme: dark. The default.",
+    "light": "resume.html only. The site itself has no light theme.",
+    "print": "resume.html only, under @media print."
+  },
+  "$knownDefect": "resume.html ships a separate inline :root using --ink/--soft/--acc/--line/--paper/--wash and --f-d/--f-b/--f-m. Same jobs, different names. Resolution: adopt the semantic names below in both documents and keep the resume's per-theme value overrides. Two accent values are a real requirement, not the defect: #5ee7ff is unreadable on white.",
+
+  "primitive": {
+    "color": {
+      "c-ink-950": { "value": "#06070a", "$description": "Deepest ground. Page background on the dark theme." },
+      "c-ink-900": { "value": "#0b0d13", "$description": "One step up from the deepest ground. Raised surfaces and translucent fills." },
+      "c-ink-850": { "value": "#10131a", "$description": "Resume dark page wash, sits behind the sheet." },
+      "c-ink-880": { "value": "#0a0c11", "$description": "Resume dark sheet fill. Slightly darker than its wash, inverting the light theme relationship." },
+      "c-ink-800": { "value": "#12141a", "$description": "Resume primary text on the light theme." },
+      "c-ink-050": { "value": "#eef1f7", "$description": "Primary text on any dark ground." },
+      "c-ink-contrast": { "value": "#04121a", "$description": "Text placed on a cyan fill. Near-black with a blue cast so it reads as part of the accent, not a hole in it." },
+      "c-slate-400": { "value": "#8a93a8", "$description": "Secondary text on the site's dark ground." },
+      "c-slate-450": { "value": "#9aa3b6", "$description": "Secondary text on the resume's dark sheet. Lighter than c-slate-400 because that sheet is lighter than the site ground. Keep both." },
+      "c-slate-600": { "value": "#565e70", "$description": "Secondary text on the light theme." },
+      "c-cyan-400": { "value": "#5ee7ff", "$description": "The signature hue. Work, wayfinding, live state." },
+      "c-violet-400": { "value": "#a78bfa", "$description": "Secondary hue. Structure, enumeration, gradient partner." },
+      "c-amber-300": { "value": "#ffb96b", "$description": "Warm hue. The human register only. See semantic.color.accent-personal." },
+      "c-teal-700": { "value": "#0b7285", "$description": "Cyan's readable equivalent on white. 5.59:1 on paper." },
+      "c-teal-800": { "value": "#0b5566", "$description": "Cyan's print equivalent. 8.38:1 on white, survives cheap toner." },
+      "c-paper-000": { "value": "#ffffff", "$description": "Resume sheet fill, light theme and print." },
+      "c-paper-050": { "value": "#f7f8fa", "$description": "Resume page wash, light theme. The sheet sits on it." },
+      "c-border-light": { "value": "#e3e6ec", "$description": "Hairline rule on the light theme." },
+      "c-border-dark": { "value": "#22262f", "$description": "Hairline rule on the resume's dark theme, where a solid line beats an alpha over a lighter sheet." },
+      "c-border-print": { "value": "#bbbbbb", "$description": "Hairline rule in print. Dark enough to survive." },
+      "c-white-a09": { "value": "rgba(255,255,255,.09)", "$description": "Hairline rule on the site's dark ground. Alpha so it tracks whatever is behind it." },
+      "c-white-a055": { "value": "rgba(255,255,255,.55)", "$description": "Custom cursor ring at rest." },
+      "c-white-a045": { "value": "rgba(255,255,255,.045)", "$description": "Top stop of the standard card gradient." },
+      "c-white-a012": { "value": "rgba(255,255,255,.012)", "$description": "Bottom stop of every card gradient. Nearly invisible on purpose." },
+      "c-white-a02": { "value": "rgba(255,255,255,.02)", "$description": "Row hover wash in the earlier-work list." },
+      "c-print-ink": { "value": "#000000", "$description": "Print primary text. Pure black, no cast." },
+      "c-print-soft": { "value": "#333333", "$description": "Print secondary text." }
+    },
+    "font": {
+      "f-space-grotesk": { "value": "\"Space Grotesk\", system-ui, sans-serif", "$description": "Display face. Weights 400/500/700 loaded." },
+      "f-inter": { "value": "\"Inter\", system-ui, sans-serif", "$description": "Body face. Weights 400/500/600 loaded." },
+      "f-jetbrains-mono": { "value": "\"JetBrains Mono\", ui-monospace, monospace", "$description": "Mono face. Weights 400/500 loaded." }
+    },
+    "size": {
+      "max": { "value": "1240px", "$description": "Content max width. Every section centres inside it." },
+      "pad": { "value": "clamp(1.25rem, 5vw, 4.5rem)", "$description": "Horizontal page gutter. The only inline padding value on the site." }
+    },
+    "easing": {
+      "ease-out-expo": { "value": "cubic-bezier(.22,1,.36,1)", "$description": "The site's only custom curve. Fast out, long settle. Used for anything that travels distance." }
+    }
+  },
+
+  "semantic": {
+    "color": {
+      "surface": {
+        "dark": "#06070a",
+        "light": "#f7f8fa",
+        "print": "#ffffff",
+        "$description": "Page ground. Everything sits on this. Maps to c-ink-950 / c-paper-050."
+      },
+      "surface-raised": {
+        "dark": "#0b0d13",
+        "light": "#ffffff",
+        "print": "#ffffff",
+        "$description": "Anything lifted off the ground: cards, the resume sheet, the stuck nav fill, the marquee band. Maps to c-ink-900 / c-paper-000. On the resume's dark theme the sheet is darker than the wash (#0a0c11 on #10131a), inverting the light relationship."
+      },
+      "text-primary": {
+        "dark": "#eef1f7",
+        "light": "#12141a",
+        "print": "#000000",
+        "$description": "Headings, stat numbers, inline emphasis, anything the reader scans. 17.8:1 on dark surface, 18.4:1 on light."
+      },
+      "text-secondary": {
+        "dark": "#8a93a8",
+        "light": "#565e70",
+        "print": "#333333",
+        "$description": "Body prose, captions, tag text, list items, metadata. The contrast floor of the system at 6.5:1 both themes. Do not introduce anything dimmer.",
+        "$note": "resume.html dark uses #9aa3b6 instead, tuned for its lighter sheet. Keep that override."
+      },
+      "text-on-accent": {
+        "dark": "#04121a",
+        "light": "#04121a",
+        "print": "#04121a",
+        "$description": "Text placed on a filled accent surface, such as .btn--primary:hover and ::selection. 13.0:1 on cyan."
+      },
+      "border": {
+        "dark": "rgba(255,255,255,.09)",
+        "light": "#e3e6ec",
+        "print": "#bbbbbb",
+        "$description": "Every hairline rule and every resting card edge. Borders carry the depth in this system, not shadows."
+      },
+      "accent": {
+        "dark": "#5ee7ff",
+        "light": "#0b7285",
+        "print": "#0b5566",
+        "$description": "Primary accent. Means interactive or important: section labels, link hover, active nav, timeline nodes and rule, card hover edge, resume section headings and bullets. Changes value per theme because cyan is unreadable on white."
+      },
+      "accent-2": {
+        "dark": "#a78bfa",
+        "light": "#a78bfa",
+        "print": "#a78bfa",
+        "$description": "Secondary accent. Means structure or enumeration: card numbers, job list bullets, engagement/offer cards, the cursor blink, and the far stop of every accent gradient. Same value on both themes; 7.4:1 on dark ground."
+      },
+      "accent-personal": {
+        "dark": "#ffb96b",
+        "light": "#ffb96b",
+        "print": "#ffb96b",
+        "$description": "The human register. Marks content that is Kapil the person rather than Kapil the contractor: the Offline section (YouTube, photography, writing, cooking) and any future personal content. Cyan is the work, violet is the structure, orange is the person.",
+        "$doNotUse": "Never in the commercial path: hero, offers, pricing, contact CTA, resume. Never as a warning or error colour, it is a register not a severity. If a section can't decide between cyan and orange it belongs in the commercial path and takes cyan.",
+        "$exception": "component.progress.progress-gradient runs accent to accent-2 to accent-personal across the whole page. That is a map of the document, not a semantic claim."
+      },
+      "signal": {
+        "dark": "#5ee7ff",
+        "light": "#0b7285",
+        "print": "#0b5566",
+        "$description": "Live state only: the availability pulse dot, the scroll progress bar, the loader bar. Currently resolves to the same value as accent. Kept as a separate name because accent says 'this is interactive' and signal says 'this is a live status'. They will diverge the first time an error or warning state is needed."
+      }
+    },
+    "font": {
+      "font-display": { "value": "{primitive.font.f-space-grotesk}", "$description": "Names and headlines. Hero title, section titles, card and job titles, stat numbers, contact headline, marquee, logo, quote glyph. Anything scanned rather than read. Never for a paragraph." },
+      "font-body": { "value": "{primitive.font.f-inter}", "$description": "Prose. Paragraphs, list items, blurbs, descriptions. Everything read in sentences." },
+      "font-mono": { "value": "{primitive.font.f-jetbrains-mono}", "$description": "Labels and technical metadata. Section numbers, eyebrows, dates, tags, stat captions, footer, resume section headings. Always letter-spaced, usually uppercase, never a full sentence. This face is what makes the site read as written by an engineer." }
+    },
+    "type": {
+      "text-body": { "value": "clamp(15px,.55vw + 13px,17px)", "lineHeight": "1.65", "$description": "Body base. Set on <body> and inherited." },
+      "text-display-hero": { "value": "clamp(3.1rem,13.5vw,10.5rem)", "weight": 700, "tracking": "-.045em", "lineHeight": ".88", "$description": "Hero name. The largest type on the site, used once." },
+      "text-display-contact": { "value": "clamp(2.4rem,10vw,6.5rem)", "weight": 700, "tracking": "-.04em", "lineHeight": "1", "$description": "Closing headline. Used once, for 'Let's scope it.'" },
+      "text-display-section": { "value": "clamp(2rem,6vw,4rem)", "weight": 500, "tracking": "-.02em", "lineHeight": "1.05", "$description": "Section titles." },
+      "text-display-menu": { "value": "clamp(2rem,9vw,3.4rem)", "weight": 500, "$description": "Mobile menu links." },
+      "text-display-lead": { "value": "clamp(1.5rem,4.2vw,2.9rem)", "tracking": "-.025em", "measure": "22ch", "$description": "The about lead sentence. One idea, capped hard at 22ch." },
+      "text-display-stat": { "value": "clamp(1.9rem,5vw,2.8rem)", "weight": 500, "lineHeight": "1", "$description": "Stat numbers." },
+      "text-display-card": { "value": "1.3rem", "weight": 500, "tracking": "-.02em", "$description": "Card, hobby, offer and job titles. Range as shipped is 1.25rem to 1.32rem." },
+      "text-prose": { "value": "0.95rem", "$description": "In-card and in-list prose. Range as shipped is .93rem to 1.05rem." },
+      "text-label": { "value": "0.72rem", "tracking": ".18em", "transform": "uppercase", "$description": "Mono labels. Range as shipped is .66rem to .74rem with tracking .05em to .28em." }
+    },
+    "space": {
+      "space-section": { "value": "clamp(5rem,12vw,9rem)", "$description": "Vertical padding on every section. The largest interval in the system and the reason the page feels unhurried. Do not shrink it to fit more in." },
+      "space-gutter": { "value": "{primitive.size.pad}", "$description": "Horizontal page gutter, shared by nav, sections, menu and footer." },
+      "space-grid": { "value": "1.1rem", "$description": "Gap between cards in every card grid." },
+      "space-stack": { "value": "1.15rem", "$description": "Gap between paragraphs in a prose block." },
+      "space-list": { "value": "0.5rem", "$description": "Gap between list items." },
+      "space-timeline": { "value": "clamp(2.5rem,5vw,4rem)", "$description": "Gap between timeline entries." },
+      "space-card-pad": { "value": "1.6rem 1.5rem 1.5rem", "$description": "Card interior padding. Top-heavier than bottom, deliberately." }
+    },
+    "radius": {
+      "radius-card": { "value": "18px", "$description": "The default container shape: .card, .hobby, .offer, .quote. If a new container is not 18px, ask why it is not a card." },
+      "radius-portrait": { "value": "24px", "$description": "One step softer than a card. Used once, on the portrait frame. Inner image is 23px to sit inside the 1px gradient border." },
+      "radius-pill": { "value": "999px", "$description": "Anything small-and-clickable or label-like: nav logo, nav CTA, buttons, tags, the offer duration badge." },
+      "radius-round": { "value": "50%", "$description": "Dots, pulse indicators, avatars, cursor ring." },
+      "radius-chip": { "value": "12px", "$description": "The 40px hobby icon square. Too small to carry 18px." },
+      "radius-sheet": { "value": "14px", "$description": "The resume sheet." }
+    },
+    "motion": {
+      "ease": { "value": "{primitive.easing.ease-out-expo}", "$description": "The only custom curve. Use for anything with distance. Plain 'ease' is acceptable for opacity fades only." },
+      "duration-micro": { "value": "0.3s", "$description": "Colour and border changes on small interactive elements." },
+      "duration-hover": { "value": "0.4s", "$description": "Hover transforms, card edges, nav state, backdrop changes. Range as shipped .35s to .45s." },
+      "duration-scene": { "value": "0.7s", "$description": "Menu clip-path open, loader dismiss, resume fade-in." },
+      "duration-canvas": { "value": "1.2s", "$description": "WebGL canvas opacity. The slowest one-shot on the site." },
+      "hover-lift": { "value": "translateY(-2px)", "$description": "The maximum hover displacement anywhere on the site." },
+      "$reducedMotion": "prefers-reduced-motion: reduce is respected in style.css and in resume.html and must stay that way. The block collapses animation and transition duration to .01ms, forces revealed content to opacity:1 and transform:none, and dims the WebGL canvas to .5. Every new animated element must be covered by it.",
+      "$noJs": "Reveal opacity is scoped to .js [data-reveal] so content is visible without JavaScript. Never move the initial opacity:0 out of that scope."
+    },
+    "a11y": {
+      "contrast-text-min": { "value": 4.5, "$description": "Minimum contrast ratio for body text. Every shipped pair clears it; text-secondary at 6.5:1 is the floor." },
+      "contrast-large-min": { "value": 3.0, "$description": "Minimum for large text (24px+, or 19px+ bold) and non-text indicators such as borders, dots and bars." },
+      "touch-target-min": { "value": "44px", "$description": "Minimum effective interactive target on touch." },
+      "focus-visible": { "value": "required", "$description": "Every interactive element needs a visible focus state. This is the current gap: style.css defines hover everywhere and :focus-visible nowhere. Never outline:none without an equal or better replacement." }
+    }
+  },
+
+  "component": {
+    "card": {
+      "card-bg": { "value": "linear-gradient(160deg, rgba(255,255,255,.045), rgba(255,255,255,.012))", "$description": "Standard card fill. Near-invisible gradient plus backdrop-filter: blur(10px). Used by .card and .quote." },
+      "card-border": { "value": "{semantic.color.border}", "$description": "Resting card edge. 1px." },
+      "card-border-hover": { "value": "rgba(94,231,255,.4)", "$description": "Card edge on hover. accent at 40%." },
+      "card-glow": { "value": "0 24px 60px -30px rgba(94,231,255,.4)", "$description": "Hover shadow. A coloured glow, not a grey drop shadow. Never add a neutral box-shadow to this system." },
+      "card-cursor-glow": { "value": "radial-gradient(340px circle at var(--mx,50%) var(--my,50%), rgba(94,231,255,.16), transparent 65%)", "$description": "Pointer-tracking light on .card::after, driven by --mx/--my from main.js." },
+      "card-radius": { "value": "{semantic.radius.radius-card}", "$description": "18px." },
+      "card-no-color": { "value": "{semantic.color.accent-2}", "$description": "The 01/02/03 numerals on project cards. Enumeration is accent-2's job." }
+    },
+    "label": {
+      "label-color": { "value": "{semantic.color.accent}", "$description": "Mono section labels ('01 · Experience'), stack column headings, step numbers, timeline dates, earlier-work tech strings, resume section headings." },
+      "label-font": { "value": "{semantic.font.font-mono}", "$description": "Always mono, always tracked, usually uppercase." }
+    },
+    "tag": {
+      "tag-border": { "value": "{semantic.color.border}", "$description": "Resting pill border on skill tags." },
+      "tag-border-hover": { "value": "rgba(94,231,255,.35)", "$description": "Tag border when the parent card or job is hovered. accent at 35%." },
+      "tag-text": { "value": "{semantic.color.text-secondary}", "$description": "Tag label at rest; goes to text-primary on parent hover." }
+    },
+    "offer": {
+      "offer-bg": { "value": "linear-gradient(160deg, rgba(167,139,250,.07), rgba(255,255,255,.012))", "$description": "Engagement card fill, tinted accent-2 to separate the three paid offers from the neutral project cards." },
+      "offer-border-hover": { "value": "rgba(167,139,250,.5)", "$description": "Engagement card edge on hover." },
+      "offer-glow": { "value": "0 24px 60px -32px rgba(167,139,250,.45)", "$description": "Engagement card hover glow, violet to match its tint." },
+      "offer-len-color": { "value": "{semantic.color.accent-2}", "$description": "The duration pill ('1 week', '2-4 weeks', 'By feature')." },
+      "offer-len-border": { "value": "rgba(167,139,250,.32)", "$description": "Duration pill border." }
+    },
+    "hobby": {
+      "hobby-bg": { "value": "linear-gradient(160deg, rgba(255,185,107,.06), rgba(255,255,255,.012))", "$description": "Offline card fill. The only warm-tinted surface on the site." },
+      "hobby-border-hover": { "value": "rgba(255,185,107,.45)", "$description": "Offline card edge on hover." },
+      "hobby-icon-color": { "value": "{semantic.color.accent-personal}", "$description": "The glyph inside the 40px icon square." },
+      "hobby-link-color": { "value": "{semantic.color.accent-personal}", "$description": "The 'Watch the channel ->' style links. Tracking widens on hover instead of a colour change." }
+    },
+    "nav": {
+      "nav-scrim": { "value": "rgba(6,7,10,.72)", "$description": "Sticky nav fill once scrolled, with backdrop-filter: blur(14px). surface at 72%." },
+      "menu-scrim": { "value": "rgba(6,7,10,.97)", "$description": "Full-screen mobile menu fill, with backdrop-filter: blur(20px). Near-opaque so nothing shows through." },
+      "nav-link-idle": { "value": "{semantic.color.text-secondary}", "$description": "Nav link at rest." },
+      "nav-link-active": { "value": "{semantic.color.text-primary}", "$description": "Nav link hovered or matching the section in view." },
+      "nav-underline": { "value": "{semantic.color.accent}", "$description": "The 1px rule that grows under an active nav link." }
+    },
+    "button": {
+      "btn-border": { "value": "{semantic.color.border}", "$description": "Secondary button edge at rest." },
+      "btn-border-hover": { "value": "{semantic.color.text-primary}", "$description": "Secondary button edge on hover." },
+      "btn-primary-bg": { "value": "{semantic.color.text-primary}", "$description": "Primary button fill at rest. Near-white, the highest-contrast thing on the page." },
+      "btn-primary-bg-hover": { "value": "{semantic.color.accent}", "$description": "Primary button fill on hover." },
+      "btn-primary-text": { "value": "{semantic.color.surface}", "$description": "Primary button label at rest." },
+      "btn-primary-text-hover": { "value": "{semantic.color.text-on-accent}", "$description": "Primary button label once the fill is cyan." }
+    },
+    "progress": {
+      "progress-gradient": { "value": "linear-gradient(90deg, #5ee7ff, #a78bfa, #ffb96b)", "$description": "Scroll progress bar: accent to accent-2 to accent-personal across the full document. The one sanctioned place all three accents appear together." },
+      "loader-gradient": { "value": "linear-gradient(90deg, #5ee7ff, #a78bfa)", "$description": "Preloader fill and skill-bar fill. accent to accent-2, no warm stop." },
+      "bar-glow": { "value": "0 0 12px rgba(94,231,255,.5)", "$description": "Glow under the 2px skill bars." }
+    },
+    "timeline": {
+      "timeline-rule": { "value": "linear-gradient(#5ee7ff, #a78bfa, transparent)", "$description": "The 1px vertical rule beside the experience list. Fades out at the bottom so it does not need an end cap." },
+      "timeline-node": { "value": "{semantic.color.accent}", "$description": "The 9px ring on each entry. Fills and glows on hover." },
+      "timeline-bullet": { "value": "{semantic.color.accent-2}", "$description": "The small triangle on job bullets." }
+    },
+    "portrait": {
+      "portrait-frame": { "value": "linear-gradient(150deg, rgba(94,231,255,.6), rgba(167,139,250,.4) 45%, rgba(255,255,255,.07) 80%)", "$description": "1px gradient border around the photograph, applied as a padded background." },
+      "portrait-halo": { "value": "radial-gradient(closest-side, rgba(94,231,255,.2), transparent 72%)", "$description": "Blurred glow behind the frame, 20px blur, inset -14%." },
+      "portrait-radius": { "value": "{semantic.radius.radius-portrait}", "$description": "24px outer, 23px on the image itself." },
+      "portrait-status-dot": { "value": "{semantic.color.signal}", "$description": "The pulsing availability dot in the caption. Live state, so signal not accent." }
+    },
+    "ambient": {
+      "grain-opacity": { "value": "0.035", "$description": "Film grain over the whole page. High enough to kill banding, low enough to disappear." },
+      "hero-scrim": { "value": "linear-gradient(100deg, #06070a 8%, rgba(6,7,10,.86) 34%, rgba(6,7,10,.28) 60%, transparent 78%)", "$description": "Gradient between the WebGL particles and the hero copy. Any new background effect needs an equivalent." },
+      "hero-scrim-mobile": { "value": "radial-gradient(120% 70% at 50% 45%, rgba(6,7,10,.86), rgba(6,7,10,.5) 70%, transparent)", "$description": "Same job under 900px, where the copy is centred rather than left-aligned." },
+      "marquee-bg": { "value": "rgba(11,13,19,.55)", "$description": "Tech marquee band. surface-raised at 55% with a 6px backdrop blur." },
+      "row-hover-bg": { "value": "{primitive.color.c-white-a02}", "$description": "Earlier-work row wash on hover, alongside a .9rem padding-left shift." }
+    },
+    "focus": {
+      "focus-ring": { "value": "2px solid {semantic.color.accent}", "offset": "2px", "$description": "Required visible focus state for every interactive element. Not yet implemented in style.css. Fix before adding any new interactive component." }
+    },
+    "selection": {
+      "selection-bg": { "value": "{semantic.color.accent}", "$description": "Text selection highlight." },
+      "selection-text": { "value": "{semantic.color.text-on-accent}", "$description": "Selected text colour on that highlight." }
+    }
+  }
+}

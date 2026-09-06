@@ -5,6 +5,22 @@
   const $  = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 
+  // The animation libraries come from a CDN, which a corporate proxy, a strict
+  // ad-blocker or a regional block can refuse. Without this guard gsap is
+  // undefined, the next line throws, and the visitor is left staring at a
+  // loader over a page whose content CSS has hidden. Bail to plain HTML instead.
+  //
+  // The `js` class is what activates the hide-until-animated CSS, so it is only
+  // added once we know we can actually animate. If this script never loads at
+  // all, the class is never set and the page renders as ordinary HTML.
+  if (!window.gsap || !window.ScrollTrigger) {
+    const l = document.getElementById('loader');
+    if (l) l.remove();
+    document.body.classList.remove('is-loading');
+    return;
+  }
+  document.documentElement.classList.add('js');
+
   gsap.registerPlugin(ScrollTrigger);
 
   /* ── smooth scroll ── */

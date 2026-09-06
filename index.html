@@ -9,16 +9,21 @@
 <meta property="og:title" content="Kapil Soni · Backend &amp; Platform Engineer">
 <meta property="og:description" content="Go, Kubernetes, Kafka. Fixed-scope contract work for small engineering teams. Montréal.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://kapildev333.github.io/portfolio-main/assets/img/kapil.jpg">
+<meta property="og:image" content="https://kapildev333.github.io/portfolio-main/assets/img/og-card.jpg?v=4">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Kapil Soni, backend and platform engineer. Go, Kubernetes, Kafka. Montréal.">
+<meta property="og:url" content="https://kapildev333.github.io/portfolio-main/">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⬡</text></svg>">
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg?v=4">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=3">
+<link rel="stylesheet" href="assets/css/style.css?v=4">
 </head>
 <body class="is-loading">
-<script>document.documentElement.classList.add("js")</script>
+
+<a class="skip" href="#top">Skip to content</a>
 
 <!-- ══ preloader ══ -->
 <div class="loader" id="loader">
@@ -38,7 +43,15 @@
 
 <!-- ══ nav ══ -->
 <header class="nav" id="nav">
-  <a class="nav__logo" href="#top" data-magnetic><span>KS</span></a>
+  <a class="nav__logo" href="#top" data-magnetic aria-label="Kapil Soni, back to top">
+    <svg viewBox="0 0 51 32" fill="none" aria-hidden="true" focusable="false">
+      <g stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M8 4V28"/><path d="M8 16 20 4"/><path d="M8 16 20 28"/>
+        <path d="M43 7 40 4H31L28 7v6l3 3h9l3 3v6l-3 3H31l-3-3"/>
+      </g>
+      <circle cx="8" cy="16" r="4.5" fill="currentColor"/>
+    </svg>
+  </a>
   <nav class="nav__links" aria-label="Primary">
     <a href="#work">Work</a>
     <a href="#references">References</a>
@@ -138,6 +151,7 @@
         <li data-reveal><b data-count="8" data-suffix="">8</b><span>Sev-0 &amp; Sev-1 resolved</span></li>
         <li data-reveal><b data-count="5" data-suffix="+">5+</b><span>years shipping</span></li>
       </ul>
+      <p class="about__source">Figures measured at Lightspeed on the X-Series sales-creation path. Ask and I will walk you through how each was counted.</p>
     </div>
   </div>
 </section>
@@ -189,23 +203,48 @@
         <div class="tags"><span>Go</span><span>Kubernetes</span><span>ArgoCD</span><span>AWS</span><span>React</span><span>TypeScript</span><span>Jenkins</span><span>Docker</span></div>
       </div>
     </li>
-    <li class="job" data-reveal>
-      <div class="job__when">2017 – 2025</div>
-      <div class="job__what">
-        <h3>Education</h3>
-        <p class="job__org">M.Eng. Software Engineering, Concordia University, Montréal (2024–2025)</p>
-        <ul>
-          <li>B.E. Information Technology, Gujarat Technological University (2017–2021).</li>
-        </ul>
-      </div>
-    </li>
   </ol>
 </section>
 
 
+<!-- ══ education ══ -->
+<section class="sec education" id="education">
+  <p class="sec__label" data-reveal>03 · Education</p>
+  <h2 class="sec__title" data-split-words>What I studied, and where</h2>
+  <ul class="edu">
+    <li data-reveal>
+      <span class="edu__when">2024 – 2025</span>
+      <h3>M.Eng. Software Engineering</h3>
+      <p class="edu__where">Concordia University · Montréal, Canada</p>
+      <p class="edu__note">Software engineering processes, requirements engineering and quality assurance. The reason I moved.</p>
+    </li>
+    <li data-reveal>
+      <span class="edu__when">2017 – 2021</span>
+      <h3>B.E. Information Technology</h3>
+      <p class="edu__where">Gujarat Technological University · Gujarat, India</p>
+      <p class="edu__note">Four years of fundamentals, then straight into shipping production code at Bacancy.</p>
+    </li>
+  </ul>
+
+  <figure class="journey" data-reveal>
+    <svg viewBox="0 0 1060 190" role="img" aria-labelledby="journey-t">
+      <title id="journey-t">Ahmedabad, India in 2021 to Montréal, Canada in 2024</title>
+      <text class="j-city" x="30" y="76">AHMEDABAD, IN</text>
+      <text class="j-sub"  x="30" y="100">2021 · first prod deploy</text>
+      <text class="j-city" x="1030" y="76" text-anchor="end">MONTREAL, CA</text>
+      <text class="j-sub"  x="1030" y="100" text-anchor="end">2024 · masters &amp; beyond</text>
+      <path class="j-arc" d="M262 112 C 420 40, 700 40, 758 100"/>
+      <circle class="j-dot" cx="262" cy="112" r="6"/>
+      <circle class="j-dot" cx="758" cy="100" r="6"/>
+      <circle class="j-dot--ghost" cx="665" cy="64" r="4.5"/>
+      <text class="j-cap" x="530" y="160" text-anchor="middle">12,800 KM · SAME MISSION, BIGGER SYSTEMS</text>
+    </svg>
+  </figure>
+</section>
+
 <!-- ══ references ══ -->
 <section class="sec refs" id="references">
-  <p class="sec__label" data-reveal>03 · References</p>
+  <p class="sec__label" data-reveal>04 · References</p>
   <h2 class="sec__title" data-split-words>What they said</h2>
   <p class="refs__lead" data-reveal>People who managed or worked alongside me at OneSpan, Bacancy and Simform.</p>
   <div class="quotes">
@@ -270,12 +309,75 @@
 
 <!-- ══ projects ══ -->
 <section class="sec projects" id="projects">
-  <p class="sec__label" data-reveal>04 · Selected work</p>
+  <p class="sec__label" data-reveal>05 · Selected work</p>
   <h2 class="sec__title" data-split-words>Things I built</h2>
 
   <div class="cards">
     <article class="card" data-tilt data-reveal>
       <div class="card__no">01</div>
+      <figure class="card__schem">
+        <svg viewBox="0 0 320 140" width="100%" style="width:100%;height:auto;display:block"
+               preserveAspectRatio="xMidYMid meet" role="img" aria-labelledby="sch1-t" class="schem">
+            <title id="sch1-t">Query and image inputs are embedded, then ranked in parallel by an OpenSearch keyword ranker and a pgvector similarity ranker, and merged into one hybrid ranked result.</title>
+            <defs>
+              <marker id="s1c" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+                <path d="M1,1 L7,4 L1,7" fill="none" stroke="#5ee7ff" style="stroke:var(--cy,#5ee7ff)" stroke-width="1.3"/>
+              </marker>
+              <marker id="s1v" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+                <path d="M1,1 L7,4 L1,7" fill="none" stroke="#a78bfa" style="stroke:var(--vi,#a78bfa)" stroke-width="1.3"/>
+              </marker>
+            </defs>
+        
+            <!-- nodes -->
+            <g class="nd" stroke="currentColor" fill="none">
+              <path d="M14,20 H62 L54,44 H6 Z"/>                     <!-- input: query -->
+              <path d="M14,96 H62 L54,120 H6 Z"/>                    <!-- input: image -->
+              <path d="M88,54 H124 L132,70 L124,86 H88 L80,70 Z"/>   <!-- gate: embed -->
+              <rect x="158" y="20" width="82" height="24"/>          <!-- service: opensearch -->
+              <ellipse cx="199" cy="102" rx="41" ry="6"/>            <!-- store: pgvector -->
+              <path d="M158,102 V114 A41,6 0 0 0 240,114 V102"/>
+              <rect x="264" y="58" width="50" height="24"/>          <!-- service: merge -->
+            </g>
+        
+            <!-- data-shape: ranked result -->
+            <g class="nd" stroke="currentColor" fill="none">
+              <path d="M266,94 H310 M266,102 H296 M266,110 H286"/>
+            </g>
+        
+            <!-- synchronous paths -->
+            <g class="p" stroke="#5ee7ff" fill="none">
+              <path d="M62,32 H74 V70"/>
+              <path d="M62,108 H74 V70"/>
+              <path d="M74,70 H80" marker-end="url(#s1c)"/>
+              <path d="M132,70 H146 V32 H158" marker-end="url(#s1c)"/>
+              <path d="M240,32 H254 V70"/>
+              <path d="M254,70 H264" marker-end="url(#s1c)"/>
+            </g>
+            <g class="s" stroke="#a78bfa" fill="none">
+              <path d="M132,70 H146 V108 H158" marker-end="url(#s1v)"/>
+              <path d="M240,108 H254 V70"/>
+            </g>
+            <g class="dot p" fill="#5ee7ff" stroke="none">
+              <circle cx="74" cy="70" r="1.7"/>
+              <circle cx="254" cy="70" r="1.7"/>
+            </g>
+        
+            <!-- labels -->
+            <g class="lk" fill="currentColor" stroke="none" text-anchor="middle">
+              <text x="34" y="35">QUERY</text>
+              <text x="34" y="111">IMAGE</text>
+              <text x="106" y="73">EMBED</text>
+              <text x="199" y="36">KEYWORD</text>
+              <text x="199" y="90">VECTOR</text>
+              <text x="289" y="73">HYBRID</text>
+            </g>
+            <g class="lb" fill="#8a93a8" stroke="none" text-anchor="middle">
+              <text x="199" y="58">OPENSEARCH</text>
+              <text x="199" y="132">PGVECTOR</text>
+              <text x="289" y="128">RANKED</text>
+            </g>
+          </svg>
+      </figure>
       <h3>Catalog Semantic Search</h3>
       <p class="card__kind">E-commerce · Search</p>
       <p>Embeds product text and images so a natural-language query, or an uploaded photo, returns matching SKUs with price filters. Hybrid keyword and vector ranking, with a React storefront demo running against a real catalogue.</p>
@@ -284,6 +386,77 @@
 
     <article class="card" data-tilt data-reveal>
       <div class="card__no">02</div>
+      <figure class="card__schem">
+        <svg viewBox="0 0 320 140" width="100%" style="width:100%;height:auto;display:block"
+               preserveAspectRatio="xMidYMid meet" role="img" aria-labelledby="sch2-t" class="schem">
+            <title id="sch2-t">Chat reaches a typed tool gate; only calls that pass the boundary hit the order, fulfilment and inventory APIs. A guardrail branches to a human hand-off, and every call is written to an audit log.</title>
+            <defs>
+              <marker id="s2c" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+                <path d="M1,1 L7,4 L1,7" fill="none" stroke="#5ee7ff" style="stroke:var(--cy,#5ee7ff)" stroke-width="1.3"/>
+              </marker>
+              <marker id="s2v" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+                <path d="M1,1 L7,4 L1,7" fill="none" stroke="#a78bfa" style="stroke:var(--vi,#a78bfa)" stroke-width="1.3"/>
+              </marker>
+            </defs>
+        
+            <!-- nodes -->
+            <g class="nd" stroke="currentColor" fill="none">
+              <path d="M12,56 H60 L52,80 H4 Z"/>                       <!-- input: chat -->
+              <path d="M78,52 H126 L134,68 L126,84 H78 L70,68 Z"/>     <!-- gate: typed tools -->
+              <path d="M102,18 L112,28 L102,38 L92,28 Z"/>             <!-- decision: guardrail -->
+              <rect x="6" y="16" width="70" height="22"/>              <!-- human hand-off -->
+              <rect x="176" y="16" width="106" height="20"/>           <!-- order api -->
+              <rect x="176" y="58" width="106" height="20"/>           <!-- fulfilment api -->
+              <rect x="176" y="96" width="106" height="20"/>           <!-- inventory api -->
+              <ellipse cx="52" cy="127" rx="6" ry="9"/>                <!-- store: audit log -->
+              <ellipse cx="278" cy="127" rx="6" ry="9"/>
+              <path d="M52,118 H278 M52,136 H278"/>
+            </g>
+        
+            <!-- trust boundary -->
+            <path class="nd q" d="M152,14 V124" stroke="currentColor" fill="none" stroke-dasharray="4 3"/>
+        
+            <!-- synchronous paths -->
+            <g class="p" stroke="#5ee7ff" fill="none">
+              <path d="M60,68 H70" marker-end="url(#s2c)"/>
+              <path d="M134,68 H164"/>
+              <path d="M164,68 V26 H176" marker-end="url(#s2c)"/>
+              <path d="M164,68 H176" marker-end="url(#s2c)"/>
+              <path d="M164,68 V106 H176" marker-end="url(#s2c)"/>
+            </g>
+            <g class="dot p" fill="#5ee7ff" stroke="none">
+              <circle cx="164" cy="68" r="1.7"/>
+            </g>
+        
+            <!-- guardrail branch + audit tap (async) -->
+            <g class="s" stroke="#a78bfa" fill="none">
+              <path d="M102,52 V38" marker-end="url(#s2v)"/>
+              <path class="q" stroke-dasharray="4 3" d="M92,28 H78" marker-end="url(#s2v)"/>
+              <g class="q" stroke-dasharray="4 3">
+                <path d="M282,26 H302"/>
+                <path d="M282,68 H302"/>
+                <path d="M282,106 H302"/>
+                <path d="M302,26 V127 H284" marker-end="url(#s2v)"/>
+              </g>
+            </g>
+        
+            <!-- labels -->
+            <g class="lk" fill="currentColor" stroke="none" text-anchor="middle">
+              <text x="32" y="71">CHAT</text>
+              <text x="102" y="66">TYPED</text>
+              <text x="102" y="78">TOOLS</text>
+              <text x="41" y="31">HUMAN</text>
+              <text x="229" y="29">ORDER API</text>
+              <text x="229" y="71">FULFILMENT</text>
+              <text x="229" y="109">INVENTORY</text>
+            </g>
+            <g class="lb" fill="#8a93a8" stroke="none" text-anchor="middle">
+              <text x="102" y="10">GUARD</text>
+              <text x="152" y="10">BOUNDARY</text>
+              <text x="165" y="131">AUDIT LOG</text>
+            </g>
+          </svg>
+      </figure>
       <h3>Order Support Assistant</h3>
       <p class="card__kind">E-commerce · Support automation</p>
       <p>A chat assistant for order status and returns. It answers <em>only</em> from live order, fulfilment and inventory APIs through a typed tool layer, with guardrails, human hand-off, and an audit log of every call it made.</p>
@@ -292,6 +465,71 @@
 
     <article class="card" data-tilt data-reveal>
       <div class="card__no">03</div>
+      <figure class="card__schem">
+        <svg viewBox="0 0 320 140" width="100%" style="width:100%;height:auto;display:block"
+               preserveAspectRatio="xMidYMid meet" role="img" aria-labelledby="sch3-t" class="schem">
+            <title id="sch3-t">A Kafka topic streams into a classifier that splits into high-confidence auto decisions and a low-confidence human review queue, with an appeals path back into review and queue depth exported to Prometheus.</title>
+            <defs>
+              <marker id="s3c" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+                <path d="M1,1 L7,4 L1,7" fill="none" stroke="#5ee7ff" style="stroke:var(--cy,#5ee7ff)" stroke-width="1.3"/>
+              </marker>
+              <marker id="s3v" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+                <path d="M1,1 L7,4 L1,7" fill="none" stroke="#a78bfa" style="stroke:var(--vi,#a78bfa)" stroke-width="1.3"/>
+              </marker>
+            </defs>
+        
+            <!-- nodes -->
+            <g class="nd" stroke="currentColor" fill="none">
+              <ellipse cx="14" cy="64" rx="6" ry="14"/>                <!-- store: kafka topic -->
+              <ellipse cx="58" cy="64" rx="6" ry="14"/>
+              <path d="M14,50 H58 M14,78 H58"/>
+              <rect x="92" y="50" width="74" height="28"/>             <!-- service: classifier -->
+              <rect x="206" y="14" width="80" height="24"/>            <!-- auto decision -->
+              <rect x="206" y="76" width="80" height="22"/>            <!-- queue: human review -->
+              <path d="M226,76 V98 M246,76 V98 M266,76 V98"/>
+              <rect x="96" y="112" width="90" height="22"/>            <!-- service: prometheus -->
+            </g>
+        
+            <!-- data-shape: queue depth sparkline -->
+            <g class="fr" stroke="rgba(255,255,255,.09)" fill="none">
+              <path d="M10,104 V132 H84"/>
+            </g>
+            <path class="p" d="M12,128 L22,120 L32,124 L42,112 L52,118 L62,110 L72,114 L82,106"
+                  fill="none" stroke="#5ee7ff"/>
+        
+            <!-- async stream in, async queueing -->
+            <g class="p" stroke="#5ee7ff" fill="none">
+              <path class="q" stroke-dasharray="4 3" d="M64,64 H92" marker-end="url(#s3c)"/>
+              <path d="M166,64 H184"/>
+              <path d="M184,64 V26 H206" marker-end="url(#s3c)"/>
+            </g>
+            <g class="dot p" fill="#5ee7ff" stroke="none">
+              <circle cx="184" cy="64" r="1.7"/>
+            </g>
+            <g class="s q" stroke="#a78bfa" fill="none" stroke-dasharray="4 3">
+              <path d="M184,64 V90 H206" marker-end="url(#s3v)"/>
+              <path d="M278,38 V76" marker-end="url(#s3v)"/>
+              <path d="M246,98 V123 H186" marker-end="url(#s3v)"/>
+              <path d="M84,123 H96" marker-end="url(#s3v)"/>
+            </g>
+        
+            <!-- labels -->
+            <g class="lk" fill="currentColor" stroke="none" text-anchor="middle">
+              <text x="36" y="62">KAFKA</text>
+              <text x="36" y="74">TOPIC</text>
+              <text x="129" y="68">CLASSIFY</text>
+              <text x="246" y="30">AUTO</text>
+              <text x="246" y="72">REVIEW Q</text>
+              <text x="141" y="127">PROM</text>
+            </g>
+            <g class="lb" fill="#8a93a8" stroke="none">
+              <text x="204" y="22" text-anchor="end">HIGH</text>
+              <text x="204" y="86" text-anchor="end">LOW</text>
+              <text x="272" y="60" text-anchor="end">APPEALS</text>
+              <text x="8" y="99">QUEUE DEPTH</text>
+            </g>
+          </svg>
+      </figure>
       <h3>Content Moderation Pipeline</h3>
       <p class="card__kind">Social · Streaming</p>
       <p>Kafka-fed pipeline that classifies posts and images, routes low-confidence items to a human review queue with appeals and audit logs, and reports queue depth and decision latency to Prometheus, so a growing backlog shows up before it becomes a problem.</p>
@@ -300,6 +538,73 @@
 
     <article class="card" data-tilt data-reveal>
       <div class="card__no">04</div>
+      <figure class="card__schem">
+        <svg viewBox="0 0 320 140" width="100%" style="width:100%;height:auto;display:block"
+               preserveAspectRatio="xMidYMid meet" role="img" aria-labelledby="sch4-t" class="schem">
+            <title id="sch4-t">Checkout events stream into a rules engine that short-circuits the clear cases straight to Kafka; ambiguous ones go to model scoring before publishing, while throughput and false-positive rate are exported to Grafana.</title>
+            <defs>
+              <marker id="s4c" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+                <path d="M1,1 L7,4 L1,7" fill="none" stroke="#5ee7ff" style="stroke:var(--cy,#5ee7ff)" stroke-width="1.3"/>
+              </marker>
+              <marker id="s4v" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+                <path d="M1,1 L7,4 L1,7" fill="none" stroke="#a78bfa" style="stroke:var(--vi,#a78bfa)" stroke-width="1.3"/>
+              </marker>
+            </defs>
+        
+            <!-- nodes -->
+            <g class="nd" stroke="currentColor" fill="none">
+              <path d="M16,36 H64 L58,44 H10 Z"/>                      <!-- stream: checkout events -->
+              <path d="M16,48 H64 L58,56 H10 Z"/>
+              <path d="M16,60 H64 L58,68 H10 Z"/>
+              <rect x="88" y="34" width="66" height="30"/>             <!-- service: rules engine -->
+              <rect x="166" y="80" width="70" height="24"/>            <!-- service: model review -->
+              <ellipse cx="250" cy="49" rx="6" ry="15"/>               <!-- store: kafka out -->
+              <ellipse cx="306" cy="49" rx="6" ry="15"/>
+              <path d="M250,34 H306 M250,64 H306"/>
+              <rect x="236" y="108" width="78" height="24"/>           <!-- service: grafana -->
+            </g>
+        
+            <!-- data-shape: throughput vs false-positive rate -->
+            <g class="fr" stroke="rgba(255,255,255,.09)" fill="none">
+              <rect x="4" y="100" width="104" height="34"/>
+            </g>
+            <path class="p" fill="none" stroke="#5ee7ff"
+                  d="M10,120 L24,116 L38,118 L52,110 L66,112 L80,106 L94,107 L104,103"/>
+            <path class="s q" fill="none" stroke="#a78bfa" stroke-dasharray="4 3"
+                  d="M10,128 L24,127 L38,129 L52,126 L66,128 L80,129 L94,130 L104,130"/>
+        
+            <!-- paths -->
+            <g class="p" stroke="#5ee7ff" fill="none">
+              <path class="q" stroke-dasharray="4 3" d="M64,49 H88" marker-end="url(#s4c)"/>
+              <path d="M154,49 H244" marker-end="url(#s4c)"/>
+            </g>
+            <g class="s" stroke="#a78bfa" fill="none">
+              <path d="M121,64 V92 H166" marker-end="url(#s4v)"/>
+              <path d="M236,92 H278 V64" marker-end="url(#s4v)"/>
+              <g class="q" stroke-dasharray="4 3">
+                <path d="M100,64 V72 H56 V100" marker-end="url(#s4v)"/>
+                <path d="M108,120 H236" marker-end="url(#s4v)"/>
+              </g>
+            </g>
+        
+            <!-- labels -->
+            <g class="lk" fill="currentColor" stroke="none" text-anchor="middle">
+              <text x="121" y="53">RULES</text>
+              <text x="201" y="95">MODEL</text>
+              <text x="278" y="52">KAFKA</text>
+              <text x="275" y="124">GRAFANA</text>
+            </g>
+            <g class="lb" fill="#8a93a8" stroke="none">
+              <text x="36" y="28" text-anchor="middle">CHECKOUT</text>
+              <text x="199" y="44" text-anchor="middle">CLEAR</text>
+              <text x="278" y="26" text-anchor="middle">DECISIONS</text>
+              <text x="128" y="78">AMBIG</text>
+              <text x="4" y="96">THRUPUT / FP</text>
+              <text x="112" y="103">TP</text>
+              <text x="112" y="131">FP</text>
+            </g>
+          </svg>
+      </figure>
       <h3>Fraud &amp; Chargeback Scoring</h3>
       <p class="card__kind">Payments · Real time</p>
       <p>Scores checkout events in real time by combining a rules engine with model-based review of the ambiguous cases, publishes decisions back to Kafka, and tracks throughput and false positives in Grafana.</p>
@@ -319,8 +624,8 @@
 </section>
 
 <!-- ══ process + engagements ══ -->
-<section class="sec process" id="process">
-  <p class="sec__label" data-reveal>05 · How I work</p>
+<section class="sec sec--light process" id="process">
+  <p class="sec__label" data-reveal>06 · How I work</p>
   <h2 class="sec__title" data-split-words>Three habits</h2>
 
   <ol class="steps">
@@ -351,26 +656,38 @@
     <article class="offer" data-tilt data-reveal>
       <span class="offer__len">1 week</span>
       <h3>Readiness audit</h3>
+      <dl class="offer__meta" data-todo="Set a real price band and next available slot">
+        <div><dt>Duration</dt><dd>5 working days</dd></div>
+        <div><dt>Price</dt><dd>Fixed, quoted up front</dd></div>
+      </dl>
       <p>A read of the code, the infra and the pipeline, ending in a ranked list of risks with a cost against each one. Useful on its own even if we stop there.</p>
     </article>
     <article class="offer" data-tilt data-reveal>
       <span class="offer__len">2–4 weeks</span>
       <h3>Hardening sprint</h3>
+      <dl class="offer__meta" data-todo="Set a real price band and next available slot">
+        <div><dt>Duration</dt><dd>2 to 4 weeks</dd></div>
+        <div><dt>Price</dt><dd>Fixed, quoted up front</dd></div>
+      </dl>
       <p>We take the top items off that list and fix them: monitoring, alerting, safe rollouts, the query that falls over at 3× traffic. Runbooks included.</p>
     </article>
     <article class="offer" data-tilt data-reveal>
       <span class="offer__len">By feature</span>
       <h3>Extra senior engineer</h3>
+      <dl class="offer__meta" data-todo="Set a real rate and next available slot">
+        <div><dt>Duration</dt><dd>Scoped per feature</dd></div>
+        <div><dt>Price</dt><dd>Fixed, quoted up front</dd></div>
+      </dl>
       <p>You have a backend feature that needs shipping and no one free to ship it. I join the team, build it, document it and hand it over.</p>
     </article>
   </div>
-  <p class="process__foot" data-reveal>Fixed price, clear scope, and everything I build stays with your team.
+  <p class="process__foot" data-reveal><b data-todo="Replace with your real next opening">Currently booking new engagements.</b> Fixed price, clear scope, and everything I build stays with your team.
     <a href="mailto:developer.kapil333@gmail.com?subject=Contract%20work" data-magnetic>Tell me what's slowing you down →</a></p>
 </section>
 
 <!-- ══ stack ══ -->
 <section class="sec stack" id="stack">
-  <p class="sec__label" data-reveal>06 · Stack</p>
+  <p class="sec__label" data-reveal>07 · Stack</p>
   <h2 class="sec__title" data-split-words>What I reach for</h2>
   <div class="stack__grid">
     <div class="stack__col" data-reveal><h3>Languages &amp; UI</h3><p>Go · Java · TypeScript · JavaScript · SQL · React · Redux · Jest</p></div>
@@ -391,7 +708,7 @@
 
 <!-- ══ offline ══ -->
 <section class="sec offline" id="offline">
-  <p class="sec__label" data-reveal>07 · Offline</p>
+  <p class="sec__label" data-reveal>08 · Offline</p>
   <h2 class="sec__title" data-split-words>When the laptop shuts</h2>
   <p class="offline__lead" data-reveal>Four things I do when I'm not writing code.</p>
   <div class="hobbies">
@@ -399,13 +716,13 @@
       <span class="hobby__ico">▶</span>
       <h3>YouTube</h3>
       <p>I run a channel and do all of it myself: writing, shooting, editing. Explaining something on camera is the fastest way to find out you don't actually understand it.</p>
-      <a class="hobby__link" href="https://youtube.com/" target="_blank" rel="noopener" data-todo="Replace with your channel URL">Watch the channel →</a>
+      <p class="hobby__soon" data-todo="Swap for a real <a> once the channel URL is in">Channel link coming soon</p>
     </article>
     <article class="hobby" data-reveal data-tilt>
       <span class="hobby__ico">◉</span>
       <h3>Photography</h3>
       <p>Street and portrait work, mostly around Montréal. Composition, light, and knowing when not to press the shutter.</p>
-      <a class="hobby__link" href="https://instagram.com/" target="_blank" rel="noopener" data-todo="Replace with your photo portfolio / Instagram">See photos →</a>
+      <p class="hobby__soon" data-todo="Swap for a real <a> once the photo portfolio URL is in">Photo set coming soon</p>
     </article>
     <article class="hobby" data-reveal data-tilt>
       <span class="hobby__ico">✦</span>
@@ -424,7 +741,7 @@
 
 <!-- ══ contact ══ -->
 <section class="sec contact" id="contact">
-  <p class="sec__label" data-reveal>08 · Contact</p>
+  <p class="sec__label" data-reveal>09 · Contact</p>
   <h2 class="contact__big" data-split-words>Let's scope it.</h2>
   <p class="contact__sub" data-reveal>A one-week readiness audit, a hardening sprint, or an extra senior backend engineer.
     Tell me what's slowing you down and I'll tell you what it takes to fix.</p>
@@ -452,7 +769,7 @@
 <script type="importmap">
 { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js" } }
 </script>
-<script type="module" src="assets/js/scene.js?v=3"></script>
-<script src="assets/js/main.js?v=3" defer></script>
+<script type="module" src="assets/js/scene.js?v=4"></script>
+<script src="assets/js/main.js?v=4" defer></script>
 </body>
 </html>

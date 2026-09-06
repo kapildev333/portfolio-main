@@ -19,7 +19,9 @@
 }
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{-webkit-text-size-adjust:100%}
+html{-webkit-text-size-adjust:100%;overflow-x:clip}   /* full-bleed section scrims use -50vw insets;
+                                                          clip (not hidden) contains them without
+                                                          creating a scroll container */
 body{
   background:var(--bg);color:var(--ink);
   font-family:var(--f-body);font-size:clamp(15px,.55vw + 13px,17px);
@@ -73,7 +75,8 @@ main{position:relative;z-index:2}
   border-bottom:1px solid transparent;
 }
 .nav.stuck{background:rgba(6,7,10,.72);backdrop-filter:blur(14px);border-color:var(--line);padding-block:.8rem}
-.nav__logo{font-family:var(--f-display);font-weight:700;letter-spacing:.18em;font-size:.95rem;border:1px solid var(--line);border-radius:999px;padding:.42rem .8rem}
+.nav__logo{display:grid;place-items:center;border:1px solid var(--line);border-radius:999px;padding:.5rem .85rem;color:var(--ink)}
+.nav__logo svg{width:34px;height:auto;display:block}
 .nav__logo:hover{border-color:var(--cy);color:var(--cy)}
 .nav__links{display:flex;gap:1.8rem;font-size:.85rem;color:var(--muted)}
 .nav__links a{position:relative;transition:color .3s}
@@ -313,3 +316,134 @@ main{position:relative;z-index:2}
 .portrait figcaption i{width:7px;height:7px;border-radius:50%;background:var(--cy);flex:none;
   animation:pulse 2.4s infinite}
 @media (max-width:959px){.portrait{max-width:280px}}
+
+/* ── failure floor ──────────────────────────────────────────────────
+   The `js` class is set by main.js only after it confirms gsap loaded,
+   so if the CDN is blocked or the script never runs, none of the
+   hide-until-animated rules above apply and the page renders as plain
+   HTML. This is the last net: the loader sits at z-index 100 over
+   everything, so it must retire on its own even when no JS runs at all. */
+.loader{animation:loader-bail 1ms linear 6s forwards}
+@keyframes loader-bail{to{opacity:0;visibility:hidden;pointer-events:none}}
+.js .loader{animation:none}   /* JS is alive and owns the loader */
+
+/* ── focus ──────────────────────────────────────────────────────────
+   Nothing here had a focus style. Keyboard users could not see where
+   they were anywhere on the page. */
+:where(a, button, [tabindex]):focus-visible{
+  outline:2px solid var(--cy);
+  outline-offset:3px;
+  border-radius:6px;
+}
+.nav__logo:focus-visible,.nav__cta:focus-visible,.btn:focus-visible,
+.contact__mail:focus-visible{outline-offset:4px;border-radius:999px}
+.card:focus-within,.offer:focus-within,.quote:focus-within{border-color:var(--cy)}
+
+.skip{
+  position:fixed;top:.6rem;left:.6rem;z-index:200;
+  padding:.7rem 1.1rem;border-radius:10px;
+  background:var(--ink);color:var(--bg);font-size:.85rem;font-weight:500;
+  transform:translateY(-160%);transition:transform .25s var(--ease);
+}
+/* :focus, not :focus-visible — a skip link is only ever reached by keyboard,
+   and it must appear for programmatic focus too (e.g. a screen reader jumping to it) */
+.skip:focus{transform:translateY(0);outline:2px solid var(--cy);outline-offset:3px}
+
+/* ── section ground ─────────────────────────────────────────────────
+   Only .hero had a scrim; every other section rendered its copy
+   directly over the particle cloud, which sits on the right — exactly
+   where the body columns are. Each section now carries its own veil,
+   masked at top and bottom so the cloud still breathes between them.
+   The scene stays put and the content passes over it. */
+.sec{position:relative;isolation:isolate}
+.sec::before{
+  content:"";position:absolute;inset:0 -50vw;z-index:-1;pointer-events:none;
+  background:rgba(6,7,10,.74);
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 7%,#000 93%,transparent 100%);
+  mask-image:linear-gradient(to bottom,transparent 0,#000 7%,#000 93%,transparent 100%);
+}
+/* the inverted section paints its own ground */
+.sec--light::before{display:none}
+
+/* ── education ── */
+.edu{display:grid;gap:1.1rem;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));margin-bottom:2.6rem}
+.edu li{border:1px solid var(--line);border-radius:18px;padding:1.5rem;
+  background:linear-gradient(160deg,rgba(255,255,255,.04),rgba(255,255,255,.01))}
+.edu h3{font-family:var(--f-display);font-size:1.2rem;font-weight:500;letter-spacing:-.02em;margin-bottom:.3rem}
+.edu .edu__where{color:var(--muted);font-size:.93rem}
+.edu .edu__when{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.14em;color:var(--cy);
+  text-transform:uppercase;margin-bottom:.8rem;display:block}
+.edu .edu__note{color:var(--muted);font-size:.9rem;margin-top:.7rem}
+
+/* ── the move ── */
+.journey{border:1px solid var(--line);border-radius:18px;padding:1.6rem 1.5rem 1.2rem;
+  background:linear-gradient(160deg,rgba(94,231,255,.05),rgba(255,255,255,.012));overflow:hidden}
+.journey svg{width:100%;height:auto;display:block;overflow:visible}
+.journey .j-city{font-family:var(--f-mono);font-size:15px;letter-spacing:.18em;fill:var(--ink)}
+.journey .j-sub{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;fill:var(--muted)}
+.journey .j-cap{font-family:var(--f-mono);font-size:11px;letter-spacing:.22em;fill:var(--muted)}
+.journey .j-arc{fill:none;stroke:var(--cy);stroke-width:1.5;stroke-dasharray:7 7;opacity:.85}
+.journey .j-dot{fill:var(--cy)}
+.journey .j-dot--ghost{fill:var(--ink);opacity:.9}
+@media (prefers-reduced-motion:no-preference){
+  .journey .j-arc{stroke-dashoffset:0;animation:j-drift 3.2s linear infinite}
+  @keyframes j-drift{to{stroke-dashoffset:-28}}
+}
+@media (max-width:620px){
+  .journey .j-city{font-size:19px}
+  .journey .j-sub,.journey .j-cap{font-size:14px}
+}
+.hobby__soon{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.08em;color:var(--muted);opacity:.75}
+
+/* ── the one inverted section ───────────────────────────────────────
+   Nine sections shared one treatment: mono label, big left title, grey
+   copy, same cloud behind. By the fourth the eye stops registering
+   change. The engagements block flips to light, which is also where a
+   buyer is deciding — so it gets the page's only bright ground.
+   Everything below is a token override; the components are untouched. */
+.sec--light{
+  --ink:#0c1017;
+  --muted:#4d5768;
+  --line:rgba(10,14,22,.16);
+  --cy:#0b6f83;          /* #5ee7ff is 1.5:1 on white; this is 5.6:1 */
+  --vi:#6b4fd6;
+  color:var(--ink);
+}
+.sec--light::before{
+  display:block;background:#eef1f6;-webkit-mask-image:none;mask-image:none;
+}
+.sec--light .offer{
+  background:linear-gradient(160deg,rgba(107,79,214,.07),rgba(12,16,23,.02));
+  backdrop-filter:none;
+}
+.sec--light .offer:hover{border-color:rgba(107,79,214,.5);box-shadow:0 22px 50px -30px rgba(12,16,23,.45)}
+.sec--light .offer__len{border-color:rgba(107,79,214,.32)}
+.sec--light .steps li{border-top-color:var(--line)}
+.sec--light .process__foot a{color:var(--cy)}
+.sec--light .process__foot a:hover{color:var(--ink)}
+
+.offer__meta{display:grid;gap:.35rem;margin:.9rem 0 1.1rem;padding:.85rem 0;
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.offer__meta > div{display:flex;justify-content:space-between;gap:1rem;align-items:baseline}
+.offer__meta dt{font-family:var(--f-mono);font-size:.66rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--muted)}
+.offer__meta dd{font-size:.88rem;color:var(--ink);text-align:right}
+.process__foot b{color:var(--ink);font-weight:600}
+.about__source{margin-top:1.1rem;font-family:var(--f-mono);font-size:.7rem;line-height:1.7;
+  letter-spacing:.04em;color:var(--muted);opacity:.8}
+
+/* ── project schematics (hoisted out of the inline SVGs so four copies
+   of .p/.s/.q/text cannot leak into the rest of the document) ── */
+.schem text{font-family:ui-monospace,"JetBrains Mono",SFMono-Regular,Menlo,monospace; font-size:9px;letter-spacing:.8px;text-transform:uppercase}
+.schem .nd{fill:none;stroke:currentColor;stroke:var(--ink,currentColor);stroke-width:1.1;opacity:.55}
+.schem .fr{fill:none;stroke:rgba(255,255,255,.09);stroke:var(--line,rgba(255,255,255,.09));stroke-width:1}
+.schem .p{fill:none;stroke:#5ee7ff;stroke:var(--cy,#5ee7ff);stroke-width:1.3}
+.schem .s{fill:none;stroke:#a78bfa;stroke:var(--vi,#a78bfa);stroke-width:1.3}
+.schem .q{stroke-dasharray:4 3}
+.schem .lb{fill:#8a93a8;fill:var(--muted,#8a93a8);stroke:none}
+.schem .lk{fill:currentColor;stroke:none;opacity:.92}
+.schem .dot{stroke:none}
+.card__schem{margin:0 0 1.2rem;border:1px solid var(--line);border-radius:12px;padding:.7rem .6rem;
+  background:rgba(6,7,10,.5)}
+.card__schem svg{width:100%;height:auto;display:block;color:var(--ink)}
+.card:hover .card__schem{border-color:rgba(94,231,255,.28)}

@@ -10,51 +10,62 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
+/* Shared semantic tokens — same names as index.html so the two files stay in step.
+   The accent is INTENTIONALLY a different colour per scheme; this is not drift:
+   #5ee7ff on white is 1.46:1 (fails WCAG AA), #0b7285 on the dark ground is 3.50:1
+   (also fails). So light uses #0b7285 (5.59:1 on white) and dark uses #5ee7ff
+   (13.37:1 on #0a0c11). Do not "unify" them to one value. */
 :root{
-  --ink:#12141a; --soft:#565e70; --line:#e3e6ec; --acc:#0b7285; --paper:#fff; --wash:#f7f8fa;
+  --surface:#f7f8fa; --surface-raised:#fff;
+  --text-primary:#12141a; --text-secondary:#565e70; --border:#e3e6ec; --accent:#0b7285;
   --f-d:"Space Grotesk",sans-serif; --f-b:"Inter",sans-serif; --f-m:"JetBrains Mono",monospace;
 }
 @media (prefers-color-scheme:dark){
-  :root{--ink:#eef1f7;--soft:#9aa3b6;--line:#22262f;--acc:#5ee7ff;--paper:#0a0c11;--wash:#10131a}
+  :root{--surface:#10131a;--surface-raised:#0a0c11;
+        --text-primary:#eef1f7;--text-secondary:#9aa3b6;--border:#22262f;--accent:#5ee7ff}
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--wash);color:var(--ink);font:15px/1.6 var(--f-b);-webkit-font-smoothing:antialiased;padding:2rem 1rem 4rem}
+body{background:var(--surface);color:var(--text-primary);font:15px/1.6 var(--f-b);-webkit-font-smoothing:antialiased;padding:2rem 1rem 4rem}
 a{color:inherit;text-decoration:none}
-a:hover{color:var(--acc)}
+a:hover{color:var(--accent)}
+/* Visible keyboard focus. --accent is contrast-checked against both grounds above,
+   so the ring is legible in light and dark. Nothing here uses overflow:hidden, so
+   the offset ring is never clipped. */
+a:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:3px}
 
-.sheet{max-width:860px;margin:0 auto;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:clamp(1.6rem,5vw,3.4rem)}
-.back{max-width:860px;margin:0 auto .9rem;font:500 .78rem/1 var(--f-m);letter-spacing:.1em;text-transform:uppercase;color:var(--soft);display:flex;gap:1.2rem}
-.back a:hover{color:var(--acc)}
+.sheet{max-width:860px;margin:0 auto;background:var(--surface-raised);border:1px solid var(--border);border-radius:14px;padding:clamp(1.6rem,5vw,3.4rem)}
+.back{max-width:860px;margin:0 auto .9rem;font:500 .78rem/1 var(--f-m);letter-spacing:.1em;text-transform:uppercase;color:var(--text-secondary);display:flex;gap:1.2rem}
+.back a:hover{color:var(--accent)}
 
-header{border-bottom:2px solid var(--ink);padding-bottom:1.1rem;margin-bottom:1.6rem}
+header{border-bottom:2px solid var(--text-primary);padding-bottom:1.1rem;margin-bottom:1.6rem}
 h1{font:700 clamp(2rem,6vw,2.9rem)/1 var(--f-d);letter-spacing:-.035em}
-.tagline{font:500 .95rem/1.4 var(--f-b);color:var(--acc);margin-top:.35rem}
-.meta{margin-top:.8rem;display:flex;flex-wrap:wrap;gap:.35rem 1.1rem;font:.82rem/1.5 var(--f-m);color:var(--soft)}
+.tagline{font:500 .95rem/1.4 var(--f-b);color:var(--accent);margin-top:.35rem}
+.meta{margin-top:.8rem;display:flex;flex-wrap:wrap;gap:.35rem 1.1rem;font:.82rem/1.5 var(--f-m);color:var(--text-secondary)}
 
 section{margin-bottom:1.7rem}
-h2{font:500 .74rem/1 var(--f-m);letter-spacing:.22em;text-transform:uppercase;color:var(--acc);
-   border-bottom:1px solid var(--line);padding-bottom:.5rem;margin-bottom:.95rem}
+h2{font:500 .74rem/1 var(--f-m);letter-spacing:.22em;text-transform:uppercase;color:var(--accent);
+   border-bottom:1px solid var(--border);padding-bottom:.5rem;margin-bottom:.95rem}
 h3{font:500 1.04rem/1.35 var(--f-d)}
 .row{display:flex;flex-wrap:wrap;gap:.2rem 1rem;justify-content:space-between;align-items:baseline}
-.when{font:.78rem/1.4 var(--f-m);color:var(--soft);white-space:nowrap}
-.org{color:var(--soft);font-size:.9rem;margin-bottom:.45rem}
+.when{font:.78rem/1.4 var(--f-m);color:var(--text-secondary);white-space:nowrap}
+.org{color:var(--text-secondary);font-size:.9rem;margin-bottom:.45rem}
 .entry{margin-bottom:1.15rem}
 .entry:last-child{margin-bottom:0}
 ul{list-style:none;display:grid;gap:.3rem}
-li{position:relative;padding-left:1rem;font-size:.93rem;color:var(--soft)}
-li::before{content:"▸";position:absolute;left:0;color:var(--acc);font-size:.75em;top:.3em}
-li b{color:var(--ink);font-weight:600}
-.summary{font-size:.98rem;color:var(--soft);max-width:72ch}
+li{position:relative;padding-left:1rem;font-size:.93rem;color:var(--text-secondary)}
+li::before{content:"▸";position:absolute;left:0;color:var(--accent);font-size:.75em;top:.3em}
+li b{color:var(--text-primary);font-weight:600}
+.summary{font-size:.98rem;color:var(--text-secondary);max-width:72ch}
 
 .grid2{display:grid;gap:.9rem 2rem;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
 .kv{display:grid;grid-template-columns:106px 1fr;gap:.7rem;font-size:.9rem;margin-bottom:.4rem}
-.kv dt{font:500 .74rem/1.7 var(--f-m);letter-spacing:.09em;text-transform:uppercase;color:var(--acc)}
-.kv dd{color:var(--soft)}
-.proj{border-left:2px solid var(--line);padding-left:.9rem;margin-bottom:.85rem}
-.proj strong{font:500 .97rem/1.4 var(--f-d);color:var(--ink)}
-.proj em{font-style:normal;font:.74rem/1.6 var(--f-m);color:var(--acc);display:block}
-.proj p{font-size:.9rem;color:var(--soft);margin-top:.15rem}
-footer{margin-top:2rem;padding-top:1rem;border-top:1px solid var(--line);font:.76rem/1.6 var(--f-m);color:var(--soft);display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between}
+.kv dt{font:500 .74rem/1.7 var(--f-m);letter-spacing:.09em;text-transform:uppercase;color:var(--accent)}
+.kv dd{color:var(--text-secondary)}
+.proj{border-left:2px solid var(--border);padding-left:.9rem;margin-bottom:.85rem}
+.proj strong{font:500 .97rem/1.4 var(--f-d);color:var(--text-primary)}
+.proj em{font-style:normal;font:.74rem/1.6 var(--f-m);color:var(--accent);display:block}
+.proj p{font-size:.9rem;color:var(--text-secondary);margin-top:.15rem}
+footer{margin-top:2rem;padding-top:1rem;border-top:1px solid var(--border);font:.76rem/1.6 var(--f-m);color:var(--text-secondary);display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between}
 
 /* light entrance; nothing that fights a print or a screen reader */
 .fade{opacity:0;transform:translateY(14px);animation:up .7s cubic-bezier(.22,1,.36,1) forwards}
@@ -62,7 +73,8 @@ footer{margin-top:2rem;padding-top:1rem;border-top:1px solid var(--line);font:.7
 @media (prefers-reduced-motion:reduce){.fade{animation:none;opacity:1;transform:none}}
 
 @media print{
-  :root{--ink:#000;--soft:#333;--line:#bbb;--acc:#0b5566;--paper:#fff;--wash:#fff}
+  :root{--text-primary:#000;--text-secondary:#333;--border:#bbb;--accent:#0b5566;--surface-raised:#fff;--surface:#fff}
+  a:focus-visible{outline:none}
   body{padding:0;font-size:10.4pt;line-height:1.44}
   .sheet{border:0;border-radius:0;max-width:none;padding:0}
   .back{display:none}
