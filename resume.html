@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kapil Soni — Résumé</title>
+<meta name="description" content="Résumé of Kapil Soni, full-stack, mobile and cloud engineer based in Montréal.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⬡</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#12141a; --soft:#565e70; --line:#e3e6ec; --acc:#0b7285; --paper:#fff; --wash:#f7f8fa;
+  --f-d:"Space Grotesk",sans-serif; --f-b:"Inter",sans-serif; --f-m:"JetBrains Mono",monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root{--ink:#eef1f7;--soft:#9aa3b6;--line:#22262f;--acc:#5ee7ff;--paper:#0a0c11;--wash:#10131a}
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--wash);color:var(--ink);font:15px/1.6 var(--f-b);-webkit-font-smoothing:antialiased;padding:2rem 1rem 4rem}
+a{color:inherit;text-decoration:none}
+a:hover{color:var(--acc)}
+
+.sheet{max-width:860px;margin:0 auto;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:clamp(1.6rem,5vw,3.4rem)}
+.back{max-width:860px;margin:0 auto .9rem;font:500 .78rem/1 var(--f-m);letter-spacing:.1em;text-transform:uppercase;color:var(--soft);display:flex;gap:1.2rem}
+.back a:hover{color:var(--acc)}
+
+header{border-bottom:2px solid var(--ink);padding-bottom:1.1rem;margin-bottom:1.6rem}
+h1{font:700 clamp(2rem,6vw,2.9rem)/1 var(--f-d);letter-spacing:-.035em}
+.tagline{font:500 .95rem/1.4 var(--f-b);color:var(--acc);margin-top:.35rem}
+.meta{margin-top:.8rem;display:flex;flex-wrap:wrap;gap:.35rem 1.1rem;font:.82rem/1.5 var(--f-m);color:var(--soft)}
+
+section{margin-bottom:1.7rem}
+h2{font:500 .74rem/1 var(--f-m);letter-spacing:.22em;text-transform:uppercase;color:var(--acc);
+   border-bottom:1px solid var(--line);padding-bottom:.5rem;margin-bottom:.95rem}
+h3{font:500 1.04rem/1.35 var(--f-d)}
+.row{display:flex;flex-wrap:wrap;gap:.2rem 1rem;justify-content:space-between;align-items:baseline}
+.when{font:.78rem/1.4 var(--f-m);color:var(--soft);white-space:nowrap}
+.org{color:var(--soft);font-size:.9rem;margin-bottom:.45rem}
+.entry{margin-bottom:1.15rem}
+.entry:last-child{margin-bottom:0}
+ul{list-style:none;display:grid;gap:.3rem}
+li{position:relative;padding-left:1rem;font-size:.93rem;color:var(--soft)}
+li::before{content:"▸";position:absolute;left:0;color:var(--acc);font-size:.75em;top:.3em}
+li b{color:var(--ink);font-weight:600}
+.summary{font-size:.98rem;color:var(--soft);max-width:72ch}
+
+.grid2{display:grid;gap:.9rem 2rem;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.kv{display:grid;grid-template-columns:106px 1fr;gap:.7rem;font-size:.9rem;margin-bottom:.4rem}
+.kv dt{font:500 .74rem/1.7 var(--f-m);letter-spacing:.09em;text-transform:uppercase;color:var(--acc)}
+.kv dd{color:var(--soft)}
+.proj{border-left:2px solid var(--line);padding-left:.9rem;margin-bottom:.85rem}
+.proj strong{font:500 .97rem/1.4 var(--f-d);color:var(--ink)}
+.proj em{font-style:normal;font:.74rem/1.6 var(--f-m);color:var(--acc);display:block}
+.proj p{font-size:.9rem;color:var(--soft);margin-top:.15rem}
+footer{margin-top:2rem;padding-top:1rem;border-top:1px solid var(--line);font:.76rem/1.6 var(--f-m);color:var(--soft);display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between}
+
+/* light entrance — nothing that fights a print or a screen reader */
+.fade{opacity:0;transform:translateY(14px);animation:up .7s cubic-bezier(.22,1,.36,1) forwards}
+@keyframes up{to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.fade{animation:none;opacity:1;transform:none}}
+
+@media print{
+  :root{--ink:#000;--soft:#333;--line:#bbb;--acc:#0b5566;--paper:#fff;--wash:#fff}
+  body{padding:0;font-size:10.4pt;line-height:1.44}
+  .sheet{border:0;border-radius:0;max-width:none;padding:0}
+  .back{display:none}
+  .fade{animation:none;opacity:1;transform:none}
+  section,.entry,.proj{break-inside:avoid}
+  h2{margin-bottom:.5rem}
+  @page{margin:14mm}
+}
+</style>
+</head>
+<body>
+
+<p class="back"><a href="index.html">← Portfolio</a><a href="javascript:window.print()">Print / Save as PDF</a></p>
+
+<article class="sheet">
+  <header class="fade">
+    <h1>Kapil Soni</h1>
+    <p class="tagline">Full-Stack · Mobile · Cloud Engineer — 4 years shipping production software</p>
+    <div class="meta">
+      <span>Montréal, QC</span>
+      <a href="mailto:developer.kapil333@gmail.com">developer.kapil333@gmail.com</a>
+      <a href="tel:+12638805015">+1 263 880 5015</a>
+      <a href="https://github.com/kapildev333">github.com/kapildev333</a>
+      <a href="https://linkedin.com/in/devkapil333/">linkedin.com/in/devkapil333</a>
+    </div>
+  </header>
+
+  <section class="fade" style="animation-delay:.06s">
+    <h2>Summary</h2>
+    <p class="summary">Software developer with four years of full-stack, Android and backend delivery in agile teams —
+    Kotlin and Java on mobile, Spring Boot and Go on the server, Angular and React on the web, deployed to AWS and Azure.
+    Comfortable owning a feature from requirements through instrumentation tests and the pipeline that ships it.
+    Most recently worked on secure storage and authentication inside OneSpan's Mobile Security Suite.</p>
+  </section>
+
+  <section class="fade" style="animation-delay:.12s">
+    <h2>Experience</h2>
+
+    <div class="entry">
+      <div class="row"><h3>Software Developer Intern — OneSpan</h3><span class="when">May 2024 – Aug 2024</span></div>
+      <p class="org">Montréal, QC · Mobile Security Suite (Android SDK)</p>
+      <ul>
+        <li>Built <b>secure data-storage</b> for Android in Kotlin and Java, hardening how credentials and keys are held at rest in an SDK deployed by financial institutions.</li>
+        <li>Worked across the <b>Kotlin ↔ C++/JNI boundary</b> into the native security core, tracing defects through both layers.</li>
+        <li>Set up <b>GitLab CI/CD pipelines</b> for SDK builds, static analysis, tests and artifact publishing, removing manual release steps.</li>
+        <li>Wrote instrumentation tests on physical devices to catch OEM-specific failures emulators do not reproduce.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="row"><h3>Software Developer — Bacancy Technology</h3><span class="when">Jan 2021 – Mar 2024</span></div>
+      <p class="org">Ahmedabad, IN · Enterprise clients incl. Toyota and Tata</p>
+      <ul>
+        <li>Delivered full-stack features across <b>Android, Angular, Spring Boot and Go</b> in two-week agile cycles.</li>
+        <li>Cut database query time by roughly <b>30%</b> through index redesign, elimination of N+1 access patterns and targeted query rewrites.</li>
+        <li>Decomposed monolith responsibilities into <b>Python and Go microservices</b>, each independently deployable.</li>
+        <li>Integrated <b>Stripe</b> payments and <b>Twilio</b> messaging end to end — webhooks, idempotent retries and reconciliation.</li>
+        <li>Raised unit-test coverage on owned modules and reviewed peers' pull requests as a routine part of delivery.</li>
+        <li>Mentored two junior developers through their first production releases.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="fade" style="animation-delay:.18s">
+    <h2>Selected Projects</h2>
+
+    <div class="proj">
+      <strong>YLore / Core Lite</strong><em>React · Spring Boot · Go · AWS · WebSockets</em>
+      <p>Personal and organisational safety platform: live location detection, configurable safety plans and a help-alert escalation chain. Contributed across the React client, the Spring core and Go services handling real-time location fan-out.</p>
+    </div>
+    <div class="proj">
+      <strong>Mobile Security Suite (OneSpan)</strong><em>Android · Kotlin · Java · C++ · FIDO</em>
+      <p>Multi-factor authentication SDK combining biometrics, FIDO, push approval and Cronto with app-shielding. Worked on secure storage and the native interop layer.</p>
+    </div>
+    <div class="proj">
+      <strong>SnackPOS</strong><em>Java · Spring Boot · AWS · Docker · Jenkins · GitLab</em>
+      <p>Scalable point-of-sale system with a high-throughput transaction core, containerised deployment and automated CI/CD.</p>
+    </div>
+    <div class="proj">
+      <strong>ChargePoint Integrations</strong><em>Spring Boot · Go · Angular · PostgreSQL</em>
+      <p>EV charging session lifecycle — reservation, authorisation, metering and settlement — with recovery paths for dropped sessions and failed payments.</p>
+    </div>
+    <div class="proj">
+      <strong>Dayo</strong><em>Android · Kotlin · Spring Boot · Twilio · Firebase</em>
+      <p>Dating application: matching, realtime chat, media upload, push notifications, phone verification and abuse reporting.</p>
+    </div>
+    <div class="proj">
+      <strong>eCommerce — Go and Spring Boot</strong><em>Go · Java · Spring Boot · PostgreSQL</em>
+      <p>The same commerce domain implemented twice, deliberately, to compare concurrency and error-handling models. Catalogue, cart, orders and payments in both.</p>
+    </div>
+    <div class="proj">
+      <strong>Redis Token Service</strong><em>Go · Redis · JWT</em>
+      <p>Access/refresh token rotation with reuse detection and revocation, backed by Redis.</p>
+    </div>
+    <div class="proj">
+      <strong>Serverless Spring on AWS Lambda</strong><em>Java · Spring · Lambda · API Gateway</em>
+      <p>Spring Boot packaged for Lambda behind API Gateway, benchmarking cold-start cost against a conventional deployment.</p>
+    </div>
+    <div class="proj">
+      <strong>React Video Call</strong><em>React · WebRTC · Node · Socket.IO</em>
+      <p>Peer-to-peer video calling built directly on WebRTC — signalling, ICE negotiation and screen share.</p>
+    </div>
+    <div class="proj">
+      <strong>FastAPI Microservice · iOS Video Processing</strong><em>Python · FastAPI · Docker · Swift · AVFoundation</em>
+      <p>A production-shaped Python service template, and an iOS capture-and-export pipeline written to carry Android experience across platforms.</p>
+    </div>
+  </section>
+
+  <section class="fade" style="animation-delay:.24s">
+    <h2>Technical Skills</h2>
+    <div class="grid2">
+      <dl>
+        <div class="kv"><dt>Languages</dt><dd>Kotlin, Java, Go, TypeScript, Python, C#, Swift, SQL</dd></div>
+        <div class="kv"><dt>Mobile</dt><dd>Android SDK, Jetpack, Coroutines, JNI, Room, Firebase, iOS/Swift</dd></div>
+        <div class="kv"><dt>Backend</dt><dd>Spring Boot, Go, FastAPI, .NET/C#, REST, gRPC</dd></div>
+      </dl>
+      <dl>
+        <div class="kv"><dt>Frontend</dt><dd>Angular, React, RxJS, HTML/CSS, accessibility</dd></div>
+        <div class="kv"><dt>Data</dt><dd>PostgreSQL, MySQL, Redis, query tuning</dd></div>
+        <div class="kv"><dt>Cloud/DevOps</dt><dd>AWS, Azure, Docker, Jenkins, GitLab CI, GitHub Actions</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="fade" style="animation-delay:.3s">
+    <h2>Education</h2>
+    <div class="entry">
+      <div class="row"><h3>M.Eng., Software Engineering — Concordia University</h3><span class="when">2024 – 2025</span></div>
+      <p class="org">Montréal, QC · Software engineering processes, requirements engineering, quality assurance</p>
+    </div>
+    <div class="entry">
+      <div class="row"><h3>B.E., Computer Engineering</h3><span class="when">2017 – 2021</span></div>
+      <p class="org">Gujarat, IN</p>
+    </div>
+  </section>
+
+  <section class="fade" style="animation-delay:.36s">
+    <h2>Beyond Engineering</h2>
+    <ul>
+      <li><b>YouTube &amp; content creation</b> — writes, shoots and edits a channel end to end; the same instinct for explaining a system clearly that makes documentation and code review land.</li>
+      <li><b>Photography</b> — street and portrait work around Montréal; composition, light, and a lot of practice deciding what to leave out.</li>
+      <li><b>Cooking</b> — Gujarati home cooking and whatever Montréal has taught since. Good prep, honest feedback loop.</li>
+    </ul>
+  </section>
+
+  <footer>
+    <span>Kapil Soni · Montréal, QC</span>
+    <span>References available on request</span>
+  </footer>
+</article>
+
+</body>
+</html>
