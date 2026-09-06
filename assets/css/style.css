@@ -462,3 +462,9 @@ main{position:relative;z-index:2}
 .card__head .card__no{margin:0}
 .card__status{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;
   color:var(--cy);border:1px solid rgba(94,231,255,.3);border-radius:999px;padding:.2rem .55rem}
+.projects__lead{color:var(--muted);margin:-2rem 0 2.6rem;max-width:70ch;font-size:1.02rem}
+.projects__lead a{color:var(--cy);border-bottom:1px solid rgba(94,231,255,.35)}
+.projects__lead a:hover{color:var(--ink);border-color:var(--ink)}
+.process__lead a{color:var(--cy);border-bottom:1px solid rgba(11,111,131,.4)}
+.sec--light .process__lead a{border-bottom-color:rgba(11,111,131,.45)}
+.process__lead a:hover{color:var(--ink);border-color:var(--ink)}
