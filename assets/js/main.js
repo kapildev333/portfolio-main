@@ -124,8 +124,11 @@
   const sections = links.map((a) => $(a.getAttribute('href'))).filter(Boolean);
   const onScroll = () => {
     const max = Math.max(1, document.body.scrollHeight - innerHeight);
-    progress.style.width = (scrollY / max) * 100 + '%';
-    nav.classList.toggle('stuck', scrollY > 40);
+    // Guarded: a missing decorative element must not throw here. This block sits
+    // above the menu wiring, so an exception leaves closeMenu's consts in the
+    // temporal dead zone and every in-page link stops working.
+    if (progress) progress.style.width = (scrollY / max) * 100 + '%';
+    if (nav) nav.classList.toggle('stuck', scrollY > 40);
     let cur = -1;
     sections.forEach((s, i) => { if (s.getBoundingClientRect().top <= innerHeight * 0.35) cur = i; });
     links.forEach((a, i) => a.classList.toggle('active', i === cur));

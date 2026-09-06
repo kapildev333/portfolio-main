@@ -19,11 +19,15 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=9">
+<link rel="stylesheet" href="assets/css/style.css?v=11">
 </head>
 <body>
 
 <a class="skip" href="#top">Skip to content</a>
+
+<div class="cursor" id="cursor" aria-hidden="true"><span class="cursor__dot"></span><span class="cursor__ring"></span></div>
+<div class="progress" id="progress" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
 
 <!-- ══ webgl ══ -->
 <canvas id="gl" aria-hidden="true"></canvas>
@@ -206,67 +210,14 @@
     <article class="card" data-tilt data-reveal>
       <div class="card__head"><span class="card__no">01</span><span class="card__status">Freelance · shipped</span></div>
       <figure class="card__schem">
-        <svg viewBox="0 0 320 140" width="100%" style="width:100%;height:auto;display:block"
-               preserveAspectRatio="xMidYMid meet" role="img" aria-labelledby="sch1-t" class="schem">
-            <title id="sch1-t">Query and image inputs are embedded, then ranked in parallel by an OpenSearch keyword ranker and a pgvector similarity ranker, and merged into one hybrid ranked result.</title>
-            <defs>
-              <marker id="s1c" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
-                <path d="M1,1 L7,4 L1,7" fill="none" stroke="#5ee7ff" style="stroke:var(--cy,#5ee7ff)" stroke-width="1.3"/>
-              </marker>
-              <marker id="s1v" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
-                <path d="M1,1 L7,4 L1,7" fill="none" stroke="#a78bfa" style="stroke:var(--vi,#a78bfa)" stroke-width="1.3"/>
-              </marker>
-            </defs>
-        
-            <!-- nodes -->
-            <g class="nd" stroke="currentColor" fill="none">
-              <path d="M14,20 H62 L54,44 H6 Z"/>                     <!-- input: query -->
-              <path d="M14,96 H62 L54,120 H6 Z"/>                    <!-- input: image -->
-              <path d="M88,54 H124 L132,70 L124,86 H88 L80,70 Z"/>   <!-- gate: embed -->
-              <rect x="158" y="20" width="82" height="24"/>          <!-- service: opensearch -->
-              <ellipse cx="199" cy="102" rx="41" ry="6"/>            <!-- store: pgvector -->
-              <path d="M158,102 V114 A41,6 0 0 0 240,114 V102"/>
-              <rect x="264" y="58" width="50" height="24"/>          <!-- service: merge -->
-            </g>
-        
-            <!-- data-shape: ranked result -->
-            <g class="nd" stroke="currentColor" fill="none">
-              <path d="M266,94 H310 M266,102 H296 M266,110 H286"/>
-            </g>
-        
-            <!-- synchronous paths -->
-            <g class="p" stroke="#5ee7ff" fill="none">
-              <path d="M62,32 H74 V70"/>
-              <path d="M62,108 H74 V70"/>
-              <path d="M74,70 H80" marker-end="url(#s1c)"/>
-              <path d="M132,70 H146 V32 H158" marker-end="url(#s1c)"/>
-              <path d="M240,32 H254 V70"/>
-              <path d="M254,70 H264" marker-end="url(#s1c)"/>
-            </g>
-            <g class="s" stroke="#a78bfa" fill="none">
-              <path d="M132,70 H146 V108 H158" marker-end="url(#s1v)"/>
-              <path d="M240,108 H254 V70"/>
-            </g>
-            <g class="dot p" fill="#5ee7ff" stroke="none">
-              <circle cx="74" cy="70" r="1.7"/>
-              <circle cx="254" cy="70" r="1.7"/>
-            </g>
-        
-            <!-- labels -->
-            <g class="lk" fill="currentColor" stroke="none" text-anchor="middle">
-              <text x="34" y="35">QUERY</text>
-              <text x="34" y="111">IMAGE</text>
-              <text x="106" y="73">EMBED</text>
-              <text x="199" y="36">KEYWORD</text>
-              <text x="199" y="90">VECTOR</text>
-              <text x="289" y="73">HYBRID</text>
-            </g>
-            <g class="lb" fill="#8a93a8" stroke="none" text-anchor="middle">
-              <text x="199" y="58">OPENSEARCH</text>
-              <text x="199" y="132">PGVECTOR</text>
-              <text x="289" y="128">RANKED</text>
-            </g>
-          </svg>
+        <svg viewBox="0 0 320 140" width="100%" preserveAspectRatio="xMidYMid meet" role="img" aria-labelledby="s1-t" class="schem">
+          <title id="s1-t">Text and image queries are embedded, ranked in parallel by OpenSearch and pgvector, then merged into one hybrid result.</title>
+          <defs>
+            <marker id="s1-c" markerWidth="7" markerHeight="7" refX="6.5" refY="3.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M1,1 L6.5,3.5 L1,6" fill="none" stroke="#5ee7ff" style="stroke:var(--cy,#5ee7ff)" stroke-width="1.2"/></marker>
+            <marker id="s1-v" markerWidth="7" markerHeight="7" refX="6.5" refY="3.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M1,1 L6.5,3.5 L1,6" fill="none" stroke="#a78bfa" style="stroke:var(--vi,#a78bfa)" stroke-width="1.2"/></marker>
+          </defs>
+          <g class="nd"><path d="M22,21 H74 L66,43 H14 Z"/><path d="M22,97 H74 L66,119 H14 Z"/><path d="M101,59 H143 L152,70 L143,81 H101 L92,70 Z"/><rect x="170" y="21" width="60" height="22" rx="2"/><ellipse cx="176" cy="108" rx="6" ry="11"/><ellipse cx="224" cy="108" rx="6" ry="11"/><path d="M176,97 H224 M176,119 H224"/><rect x="248" y="59" width="60" height="22" rx="2"/></g><g class="p"><path d="M74,32 H83 V70 H92" marker-end="url(#s1-c)"/><path d="M74,108 H83 V70"/><path d="M152,70 H161 V32 H170" marker-end="url(#s1-c)"/><path d="M161,70 V108 H170" marker-end="url(#s1-c)"/><path d="M230,32 H239 V70 H248" marker-end="url(#s1-c)"/><path d="M230,108 H239 V32"/></g><g class="dot"><circle cx="83" cy="70" r="1.6"/><circle cx="161" cy="70" r="1.6"/><circle cx="239" cy="70" r="1.6"/></g><g class="lk"><text x="44" y="34.9">QUERY</text><text x="44" y="110.9">IMAGE</text><text x="122" y="72.9">EMBED</text><text x="200" y="34.9">KEYWORD</text><text x="200" y="110.9">VECTOR</text><text x="278" y="72.9">HYBRID</text></g><g class="lb"><text class="cap" x="200" y="51">OPENSEARCH</text><text class="cap" x="200" y="127">PGVECTOR</text><text class="cap" x="278" y="89">RANKED</text></g>
+        </svg>
       </figure>
       <h3>Catalog Semantic Search</h3>
       <p class="card__kind">E-commerce · Search</p>
@@ -277,75 +228,14 @@
     <article class="card" data-tilt data-reveal>
       <div class="card__head"><span class="card__no">02</span><span class="card__status">Freelance · shipped</span></div>
       <figure class="card__schem">
-        <svg viewBox="0 0 320 140" width="100%" style="width:100%;height:auto;display:block"
-               preserveAspectRatio="xMidYMid meet" role="img" aria-labelledby="sch2-t" class="schem">
-            <title id="sch2-t">Chat reaches a typed tool gate; only calls that pass the boundary hit the order, fulfilment and inventory APIs. A guardrail branches to a human hand-off, and every call is written to an audit log.</title>
-            <defs>
-              <marker id="s2c" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
-                <path d="M1,1 L7,4 L1,7" fill="none" stroke="#5ee7ff" style="stroke:var(--cy,#5ee7ff)" stroke-width="1.3"/>
-              </marker>
-              <marker id="s2v" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
-                <path d="M1,1 L7,4 L1,7" fill="none" stroke="#a78bfa" style="stroke:var(--vi,#a78bfa)" stroke-width="1.3"/>
-              </marker>
-            </defs>
-        
-            <!-- nodes -->
-            <g class="nd" stroke="currentColor" fill="none">
-              <path d="M12,56 H60 L52,80 H4 Z"/>                       <!-- input: chat -->
-              <path d="M78,52 H126 L134,68 L126,84 H78 L70,68 Z"/>     <!-- gate: typed tools -->
-              <path d="M102,18 L112,28 L102,38 L92,28 Z"/>             <!-- decision: guardrail -->
-              <rect x="6" y="16" width="70" height="22"/>              <!-- human hand-off -->
-              <rect x="176" y="16" width="106" height="20"/>           <!-- order api -->
-              <rect x="176" y="58" width="106" height="20"/>           <!-- fulfilment api -->
-              <rect x="176" y="96" width="106" height="20"/>           <!-- inventory api -->
-              <ellipse cx="52" cy="127" rx="6" ry="9"/>                <!-- store: audit log -->
-              <ellipse cx="278" cy="127" rx="6" ry="9"/>
-              <path d="M52,118 H278 M52,136 H278"/>
-            </g>
-        
-            <!-- trust boundary -->
-            <path class="nd q" d="M152,14 V124" stroke="currentColor" fill="none" stroke-dasharray="4 3"/>
-        
-            <!-- synchronous paths -->
-            <g class="p" stroke="#5ee7ff" fill="none">
-              <path d="M60,68 H70" marker-end="url(#s2c)"/>
-              <path d="M134,68 H164"/>
-              <path d="M164,68 V26 H176" marker-end="url(#s2c)"/>
-              <path d="M164,68 H176" marker-end="url(#s2c)"/>
-              <path d="M164,68 V106 H176" marker-end="url(#s2c)"/>
-            </g>
-            <g class="dot p" fill="#5ee7ff" stroke="none">
-              <circle cx="164" cy="68" r="1.7"/>
-            </g>
-        
-            <!-- guardrail branch + audit tap (async) -->
-            <g class="s" stroke="#a78bfa" fill="none">
-              <path d="M102,52 V38" marker-end="url(#s2v)"/>
-              <path class="q" stroke-dasharray="4 3" d="M92,28 H78" marker-end="url(#s2v)"/>
-              <g class="q" stroke-dasharray="4 3">
-                <path d="M282,26 H302"/>
-                <path d="M282,68 H302"/>
-                <path d="M282,106 H302"/>
-                <path d="M302,26 V127 H284" marker-end="url(#s2v)"/>
-              </g>
-            </g>
-        
-            <!-- labels -->
-            <g class="lk" fill="currentColor" stroke="none" text-anchor="middle">
-              <text x="32" y="71">CHAT</text>
-              <text x="102" y="66">TYPED</text>
-              <text x="102" y="78">TOOLS</text>
-              <text x="41" y="31">HUMAN</text>
-              <text x="229" y="29">ORDER API</text>
-              <text x="229" y="71">FULFILMENT</text>
-              <text x="229" y="109">INVENTORY</text>
-            </g>
-            <g class="lb" fill="#8a93a8" stroke="none" text-anchor="middle">
-              <text x="102" y="20" text-anchor="middle">GUARD</text>
-              <text x="152" y="10">BOUNDARY</text>
-              <text x="165" y="131">AUDIT LOG</text>
-            </g>
-          </svg>
+        <svg viewBox="0 0 320 140" width="100%" preserveAspectRatio="xMidYMid meet" role="img" aria-labelledby="s2-t" class="schem">
+          <title id="s2-t">Chat reaches a typed tool gate; only calls that cross the trust boundary reach the order, fulfilment and inventory APIs. A guardrail hands off to a human, and every call is written to an audit log.</title>
+          <defs>
+            <marker id="s2-c" markerWidth="7" markerHeight="7" refX="6.5" refY="3.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M1,1 L6.5,3.5 L1,6" fill="none" stroke="#5ee7ff" style="stroke:var(--cy,#5ee7ff)" stroke-width="1.2"/></marker>
+            <marker id="s2-v" markerWidth="7" markerHeight="7" refX="6.5" refY="3.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M1,1 L6.5,3.5 L1,6" fill="none" stroke="#a78bfa" style="stroke:var(--vi,#a78bfa)" stroke-width="1.2"/></marker>
+          </defs>
+          <g class="nd"><rect x="14" y="21" width="60" height="22" rx="2"/><path d="M22,59 H74 L66,81 H14 Z"/><path d="M101,59 H143 L152,70 L143,81 H101 L92,70 Z"/><rect x="170" y="21" width="60" height="22" rx="2"/><rect x="170" y="59" width="60" height="22" rx="2"/><rect x="170" y="97" width="60" height="22" rx="2"/><ellipse cx="254" cy="70" rx="6" ry="11"/><ellipse cx="302" cy="70" rx="6" ry="11"/><path d="M254,59 H302 M254,81 H302"/></g><path class="bound" d="M157,14 V126"/><g class="p"><path d="M74,70 H92" marker-end="url(#s2-c)"/><path d="M152,70 H157 V32 H170" marker-end="url(#s2-c)"/><path d="M157,70 H170" marker-end="url(#s2-c)"/><path d="M157,70 V108 H170" marker-end="url(#s2-c)"/></g><g class="s q"><path d="M122,59 V32 H74" marker-end="url(#s2-v)"/><path d="M230,32 H239 V70 H248" marker-end="url(#s2-v)"/><path d="M230,70 H248" marker-end="url(#s2-v)"/><path d="M230,108 H239 V70"/></g><g class="dot"><circle cx="157" cy="70" r="1.6"/><circle cx="239" cy="70" r="1.6"/></g><g class="lk"><text x="44" y="34.9">HUMAN</text><text x="44" y="72.9">CHAT</text><text x="122" y="72.9">GATE</text><text x="200" y="34.9">ORDER</text><text x="200" y="72.9">FULFILMENT</text><text x="200" y="110.9">INVENTORY</text><text x="278" y="72.9">AUDIT</text></g><g class="lb"><text class="cap" x="98" y="28">GUARDRAIL</text><text class="cap" x="157" y="16">TRUST BOUNDARY</text><text class="cap" x="122" y="89">TYPED CALLS</text><text class="cap" x="278" y="89">ALL CALLS</text></g>
+        </svg>
       </figure>
       <h3>Order Support Assistant</h3>
       <p class="card__kind">E-commerce · Support automation</p>
@@ -356,69 +246,14 @@
     <article class="card" data-tilt data-reveal>
       <div class="card__head"><span class="card__no">03</span><span class="card__status">Freelance · shipped</span></div>
       <figure class="card__schem">
-        <svg viewBox="0 0 320 140" width="100%" style="width:100%;height:auto;display:block"
-               preserveAspectRatio="xMidYMid meet" role="img" aria-labelledby="sch3-t" class="schem">
-            <title id="sch3-t">A Kafka topic streams into a classifier that splits into high-confidence auto decisions and a low-confidence human review queue, with an appeals path back into review and queue depth exported to Prometheus.</title>
-            <defs>
-              <marker id="s3c" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
-                <path d="M1,1 L7,4 L1,7" fill="none" stroke="#5ee7ff" style="stroke:var(--cy,#5ee7ff)" stroke-width="1.3"/>
-              </marker>
-              <marker id="s3v" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
-                <path d="M1,1 L7,4 L1,7" fill="none" stroke="#a78bfa" style="stroke:var(--vi,#a78bfa)" stroke-width="1.3"/>
-              </marker>
-            </defs>
-        
-            <!-- nodes -->
-            <g class="nd" stroke="currentColor" fill="none">
-              <ellipse cx="14" cy="64" rx="6" ry="14"/>                <!-- store: kafka topic -->
-              <ellipse cx="58" cy="64" rx="6" ry="14"/>
-              <path d="M14,50 H58 M14,78 H58"/>
-              <rect x="92" y="50" width="74" height="28"/>             <!-- service: classifier -->
-              <rect x="206" y="14" width="80" height="24"/>            <!-- auto decision -->
-              <rect x="206" y="76" width="80" height="22"/>            <!-- queue: human review -->
-              <path d="M226,76 V98 M246,76 V98 M266,76 V98"/>
-              <rect x="96" y="112" width="90" height="22"/>            <!-- service: prometheus -->
-            </g>
-        
-            <!-- data-shape: queue depth sparkline -->
-            <g class="fr" stroke="rgba(255,255,255,.09)" fill="none">
-              <path d="M10,104 V132 H84"/>
-            </g>
-            <path class="p" d="M12,128 L22,120 L32,124 L42,112 L52,118 L62,110 L72,114 L82,106"
-                  fill="none" stroke="#5ee7ff"/>
-        
-            <!-- async stream in, async queueing -->
-            <g class="p" stroke="#5ee7ff" fill="none">
-              <path class="q" stroke-dasharray="4 3" d="M64,64 H92" marker-end="url(#s3c)"/>
-              <path d="M166,64 H184"/>
-              <path d="M184,64 V26 H206" marker-end="url(#s3c)"/>
-            </g>
-            <g class="dot p" fill="#5ee7ff" stroke="none">
-              <circle cx="184" cy="64" r="1.7"/>
-            </g>
-            <g class="s q" stroke="#a78bfa" fill="none" stroke-dasharray="4 3">
-              <path d="M184,64 V90 H206" marker-end="url(#s3v)"/>
-              <path d="M278,38 V76" marker-end="url(#s3v)"/>
-              <path d="M246,98 V123 H186" marker-end="url(#s3v)"/>
-              <path d="M84,123 H96" marker-end="url(#s3v)"/>
-            </g>
-        
-            <!-- labels -->
-            <g class="lk" fill="currentColor" stroke="none" text-anchor="middle">
-              <text x="36" y="62">KAFKA</text>
-              <text x="36" y="74">TOPIC</text>
-              <text x="129" y="68">CLASSIFY</text>
-              <text x="246" y="30">AUTO</text>
-              <text x="246" y="72">REVIEW Q</text>
-              <text x="141" y="127">PROM</text>
-            </g>
-            <g class="lb" fill="#8a93a8" stroke="none">
-              <text x="204" y="22" text-anchor="end">HIGH</text>
-              <text x="204" y="86" text-anchor="end">LOW</text>
-              <text x="272" y="50" text-anchor="end">APPEALS</text>
-              <text x="8" y="99">QUEUE DEPTH</text>
-            </g>
-          </svg>
+        <svg viewBox="0 0 320 140" width="100%" preserveAspectRatio="xMidYMid meet" role="img" aria-labelledby="s3-t" class="schem">
+          <title id="s3-t">A Kafka topic streams into a classifier that splits into high-confidence automatic decisions and a low-confidence human review queue, with an appeals path back into review and queue depth exported to Prometheus.</title>
+          <defs>
+            <marker id="s3-c" markerWidth="7" markerHeight="7" refX="6.5" refY="3.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M1,1 L6.5,3.5 L1,6" fill="none" stroke="#5ee7ff" style="stroke:var(--cy,#5ee7ff)" stroke-width="1.2"/></marker>
+            <marker id="s3-v" markerWidth="7" markerHeight="7" refX="6.5" refY="3.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M1,1 L6.5,3.5 L1,6" fill="none" stroke="#a78bfa" style="stroke:var(--vi,#a78bfa)" stroke-width="1.2"/></marker>
+          </defs>
+          <g class="nd"><ellipse cx="20" cy="70" rx="6" ry="11"/><ellipse cx="68" cy="70" rx="6" ry="11"/><path d="M20,59 H68 M20,81 H68"/><rect x="92" y="59" width="60" height="22" rx="2"/><rect x="170" y="21" width="60" height="22" rx="2"/><rect x="170" y="97" width="60" height="22" rx="2"/><path d="M185,97 V119 M200,97 V119 M215,97 V119"/><rect x="248" y="59" width="60" height="22" rx="2"/></g><g class="p"><path class="q" d="M74,70 H92" marker-end="url(#s3-c)"/><path d="M152,70 H161 V32 H170" marker-end="url(#s3-c)"/></g><g class="s q"><path d="M161,70 V108 H170" marker-end="url(#s3-v)"/><path d="M214,43 V97" marker-end="url(#s3-v)"/><path d="M230,32 H239 V70 H248" marker-end="url(#s3-v)"/><path d="M230,108 H239 V70"/></g><g class="dot"><circle cx="161" cy="70" r="1.6"/><circle cx="239" cy="70" r="1.6"/></g><g class="lk"><text x="44" y="72.9">KAFKA</text><text x="122" y="72.9">CLASSIFY</text><text x="200" y="34.9">AUTO</text><text x="278" y="72.9">PROMETHEUS</text></g><g class="lb"><text class="cap" x="44" y="89">POSTS · IMAGES</text><text class="cap" x="147" y="36">HIGH</text><text class="cap" x="147" y="104">LOW</text><text class="cap" x="186" y="72">APPEALS</text><text class="cap" x="200" y="127">REVIEW QUEUE</text><text class="cap" x="278" y="89">QUEUE DEPTH</text></g>
+        </svg>
       </figure>
       <h3>Content Moderation Pipeline</h3>
       <p class="card__kind">Social · Streaming</p>
@@ -429,71 +264,14 @@
     <article class="card" data-tilt data-reveal>
       <div class="card__head"><span class="card__no">04</span><span class="card__status">Freelance · shipped</span></div>
       <figure class="card__schem">
-        <svg viewBox="0 0 320 140" width="100%" style="width:100%;height:auto;display:block"
-               preserveAspectRatio="xMidYMid meet" role="img" aria-labelledby="sch4-t" class="schem">
-            <title id="sch4-t">Checkout events stream into a rules engine that short-circuits the clear cases straight to Kafka; ambiguous ones go to model scoring before publishing, while throughput and false-positive rate are exported to Grafana.</title>
-            <defs>
-              <marker id="s4c" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
-                <path d="M1,1 L7,4 L1,7" fill="none" stroke="#5ee7ff" style="stroke:var(--cy,#5ee7ff)" stroke-width="1.3"/>
-              </marker>
-              <marker id="s4v" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
-                <path d="M1,1 L7,4 L1,7" fill="none" stroke="#a78bfa" style="stroke:var(--vi,#a78bfa)" stroke-width="1.3"/>
-              </marker>
-            </defs>
-        
-            <!-- nodes -->
-            <g class="nd" stroke="currentColor" fill="none">
-              <path d="M16,36 H64 L58,44 H10 Z"/>                      <!-- stream: checkout events -->
-              <path d="M16,48 H64 L58,56 H10 Z"/>
-              <path d="M16,60 H64 L58,68 H10 Z"/>
-              <rect x="88" y="34" width="66" height="30"/>             <!-- service: rules engine -->
-              <rect x="166" y="80" width="70" height="24"/>            <!-- service: model review -->
-              <ellipse cx="250" cy="49" rx="6" ry="15"/>               <!-- store: kafka out -->
-              <ellipse cx="306" cy="49" rx="6" ry="15"/>
-              <path d="M250,34 H306 M250,64 H306"/>
-              <rect x="236" y="108" width="78" height="24"/>           <!-- service: grafana -->
-            </g>
-        
-            <!-- data-shape: throughput vs false-positive rate -->
-            <g class="fr" stroke="rgba(255,255,255,.09)" fill="none">
-              <rect x="4" y="100" width="104" height="34"/>
-            </g>
-            <path class="p" fill="none" stroke="#5ee7ff"
-                  d="M10,120 L24,116 L38,118 L52,110 L66,112 L80,106 L94,107 L104,103"/>
-            <path class="s q" fill="none" stroke="#a78bfa" stroke-dasharray="4 3"
-                  d="M10,128 L24,127 L38,129 L52,126 L66,128 L80,129 L94,130 L104,130"/>
-        
-            <!-- paths -->
-            <g class="p" stroke="#5ee7ff" fill="none">
-              <path class="q" stroke-dasharray="4 3" d="M64,49 H88" marker-end="url(#s4c)"/>
-              <path d="M154,49 H244" marker-end="url(#s4c)"/>
-            </g>
-            <g class="s" stroke="#a78bfa" fill="none">
-              <path d="M121,64 V92 H166" marker-end="url(#s4v)"/>
-              <path d="M236,92 H278 V64" marker-end="url(#s4v)"/>
-              <g class="q" stroke-dasharray="4 3">
-                <path d="M100,64 V100" marker-end="url(#s4v)"/>
-                <path d="M108,120 H236" marker-end="url(#s4v)"/>
-              </g>
-            </g>
-        
-            <!-- labels -->
-            <g class="lk" fill="currentColor" stroke="none" text-anchor="middle">
-              <text x="121" y="53">RULES</text>
-              <text x="201" y="95">MODEL</text>
-              <text x="278" y="52">KAFKA</text>
-              <text x="275" y="124">GRAFANA</text>
-            </g>
-            <g class="lb" fill="#8a93a8" stroke="none">
-              <text x="36" y="28" text-anchor="middle">CHECKOUT</text>
-              <text x="199" y="44" text-anchor="middle">CLEAR</text>
-              <text x="278" y="26" text-anchor="middle">DECISIONS</text>
-              <text x="128" y="78">AMBIG</text>
-              <text x="4" y="96">THRUPUT / FP</text>
-              <text x="112" y="103">TP</text>
-              <text x="112" y="131">FP</text>
-            </g>
-          </svg>
+        <svg viewBox="0 0 320 140" width="100%" preserveAspectRatio="xMidYMid meet" role="img" aria-labelledby="s4-t" class="schem">
+          <title id="s4-t">Checkout events stream into a rules engine; clear cases go straight to Kafka, ambiguous ones take a model review path, and throughput and false positives are tracked in Grafana.</title>
+          <defs>
+            <marker id="s4-c" markerWidth="7" markerHeight="7" refX="6.5" refY="3.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M1,1 L6.5,3.5 L1,6" fill="none" stroke="#5ee7ff" style="stroke:var(--cy,#5ee7ff)" stroke-width="1.2"/></marker>
+            <marker id="s4-v" markerWidth="7" markerHeight="7" refX="6.5" refY="3.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M1,1 L6.5,3.5 L1,6" fill="none" stroke="#a78bfa" style="stroke:var(--vi,#a78bfa)" stroke-width="1.2"/></marker>
+          </defs>
+          <g class="nd"><path d="M20,59.5 H74 L68,65.5 H14 Z"/><path d="M20,66.5 H74 L68,72.5 H14 Z"/><path d="M20,73.5 H74 L68,79.5 H14 Z"/><rect x="92" y="59" width="60" height="22" rx="2"/><rect x="170" y="97" width="60" height="22" rx="2"/><ellipse cx="254" cy="32" rx="6" ry="11"/><ellipse cx="302" cy="32" rx="6" ry="11"/><path d="M254,21 H302 M254,43 H302"/><rect x="248" y="97" width="60" height="22" rx="2"/></g><g class="p"><path class="q" d="M74,70 H92" marker-end="url(#s4-c)"/><path d="M152,70 H239 V32 H248" marker-end="url(#s4-c)"/></g><g class="s"><path d="M122,81 V108 H170" marker-end="url(#s4-v)"/><path d="M230,108 H239 V70"/></g><g class="s q"><path d="M254,43 V97" marker-end="url(#s4-v)"/></g><g class="dot"><circle cx="239" cy="32" r="1.6"/></g><g class="lk"><text x="122" y="72.9">RULES</text><text x="200" y="110.9">MODEL</text><text x="278" y="34.9">KAFKA</text><text x="278" y="110.9">GRAFANA</text></g><g class="lb"><text class="cap" x="44" y="89">CHECKOUT</text><text class="cap" x="200" y="66">CLEAR</text><text class="cap" x="146" y="104">AMBIGUOUS</text><text class="cap" x="278" y="51">DECISIONS</text><text class="cap" x="278" y="127">THRUPUT · FP</text></g>
+        </svg>
       </figure>
       <h3>Fraud &amp; Chargeback Scoring</h3>
       <p class="card__kind">Payments · Real time</p>
@@ -788,7 +566,7 @@
 <script type="importmap">
 { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js" } }
 </script>
-<script type="module" src="assets/js/scene.js?v=9"></script>
-<script src="assets/js/main.js?v=9" defer></script>
+<script type="module" src="assets/js/scene.js?v=11"></script>
+<script src="assets/js/main.js?v=11" defer></script>
 </body>
 </html>
