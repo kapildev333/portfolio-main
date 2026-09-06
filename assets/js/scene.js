@@ -168,8 +168,10 @@ function tick() {
 
   scrollP += ((scrollY / maxScroll()) - scrollP) * 0.07;
   uniforms.uMorph.value = scrollP * 3;
-  // full strength on the hero, then back off so text stays readable
-  uniforms.uFade.value = 1 - 0.72 * Math.min(1, scrollP * 7);
+  // full strength on the hero, then back off so text stays readable. The cloud
+  // sits on the right, which is exactly where the body columns are, so it has to
+  // reach its floor by the time the first section of copy arrives.
+  uniforms.uFade.value = 1 - 0.74 * Math.min(1, scrollP * 12);
 
   mouse.x += (mouse.tx - mouse.x) * 0.045;
   mouse.y += (mouse.ty - mouse.y) * 0.045;

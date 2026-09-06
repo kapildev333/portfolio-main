@@ -27,7 +27,7 @@ body{
   overflow-x:hidden;
 }
 body.is-loading{overflow:hidden;height:100vh}
-img{max-width:100%;display:block}
+img{max-width:100%;display:block;height:auto}
 a{color:inherit;text-decoration:none}
 ul,ol{list-style:none}
 ::selection{background:var(--cy);color:#04121a}
@@ -149,7 +149,7 @@ main{position:relative;z-index:2}
 .about__lead .word{display:inline-block}
 .about__body{display:grid;gap:1.15rem;max-width:62ch;color:var(--muted);margin-left:auto}
 .about__body p{font-size:1.02rem}
-.about__stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:1.5rem;margin-top:1.6rem;padding-top:1.8rem;border-top:1px solid var(--line)}
+.about__stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem 1.2rem;margin-top:1.6rem;padding-top:1.8rem;border-top:1px solid var(--line)}
 .about__stats b{display:block;font-family:var(--f-display);font-size:clamp(1.9rem,5vw,2.8rem);color:var(--ink);line-height:1;font-weight:500}
 .about__stats span{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 @media(min-width:960px){.about__grid{grid-template-columns:1fr 1fr;align-items:start}}
@@ -298,3 +298,18 @@ main{position:relative;z-index:2}
 .quote figcaption span{display:grid;line-height:1.4}
 .quote figcaption b{font-family:var(--f-display);font-weight:500;font-size:1rem;color:var(--ink)}
 .quote figcaption span{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.08em;color:var(--muted)}
+
+/* ── portrait ── */
+.about__intro{display:grid;gap:2rem;align-content:start;justify-items:start}
+.portrait{position:relative;display:grid;gap:.95rem;width:100%;max-width:340px;transform-style:preserve-3d}
+.portrait__frame{position:relative;display:block;border-radius:24px;padding:1px;
+  background:linear-gradient(150deg,rgba(94,231,255,.6),rgba(167,139,250,.4) 45%,rgba(255,255,255,.07) 80%)}
+.portrait__frame::after{content:"";position:absolute;inset:-14%;z-index:-1;pointer-events:none;
+  background:radial-gradient(closest-side,rgba(94,231,255,.2),transparent 72%);filter:blur(20px)}
+.portrait img{display:block;width:100%;aspect-ratio:1;object-fit:cover;border-radius:23px;
+  transition:filter .5s var(--ease)}
+.portrait figcaption{display:flex;align-items:center;gap:.55rem;font-family:var(--f-mono);
+  font-size:.7rem;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+.portrait figcaption i{width:7px;height:7px;border-radius:50%;background:var(--cy);flex:none;
+  animation:pulse 2.4s infinite}
+@media (max-width:959px){.portrait{max-width:280px}}

@@ -8,7 +8,7 @@ Static. No build step, no npm install. Open `index.html` and it runs.
 index.html          portfolio (WebGL hero, scroll motion)
 resume.html         one-page résumé, prints straight to PDF
 assets/css/style.css
-assets/img/          reference headshots
+assets/img/          portrait + reference headshots (EXIF stripped)
 assets/js/scene.js  three.js point cloud that morphs on scroll
 assets/js/main.js   GSAP reveals, Lenis smooth scroll, cursor, tilt
 ```
