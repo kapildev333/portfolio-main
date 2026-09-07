@@ -163,27 +163,11 @@ main{position:relative;z-index:2}
 /* ── tags ── */
 .tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1rem}
 .tags span{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.05em;border:1px solid var(--line);border-radius:999px;padding:.24rem .65rem;color:var(--muted);transition:.3s}
-.card:hover .tags span,.job:hover .tags span{border-color:rgba(94,231,255,.35);color:var(--ink)}
+.job:hover .tags span{border-color:rgba(94,231,255,.35);color:var(--ink)}
 
 /* ── project cards ── */
-.cards{display:grid;gap:1.1rem;grid-template-columns:1fr}
-@media(min-width:820px){.cards{grid-template-columns:repeat(2,1fr)}}
-.card{
-  position:relative;border:1px solid var(--line);border-radius:18px;padding:1.6rem 1.5rem 1.5rem;
-  background:linear-gradient(160deg,rgba(255,255,255,.045),rgba(255,255,255,.012));
-  backdrop-filter:blur(10px);overflow:hidden;
-  transform-style:preserve-3d;transition:border-color .4s,box-shadow .4s;
-}
-.card::after{
-  content:"";position:absolute;inset:0;opacity:0;transition:opacity .45s;pointer-events:none;
-  background:radial-gradient(340px circle at var(--mx,50%) var(--my,50%),rgba(94,231,255,.16),transparent 65%);
-}
-.card:hover{border-color:rgba(94,231,255,.4);box-shadow:0 24px 60px -30px rgba(94,231,255,.4)}
-.card:hover::after{opacity:1}
 .card__no{font-family:var(--f-mono);font-size:.7rem;color:var(--vi);letter-spacing:.2em}
-.card h3{font-family:var(--f-display);font-size:1.32rem;font-weight:500;letter-spacing:-.02em;margin-bottom:.2rem}
 .card__kind{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.85rem}
-.card p:not(.card__kind){color:var(--muted);font-size:.95rem}
 
 /* ── stack ── */
 
@@ -261,7 +245,6 @@ main{position:relative;z-index:2}
 /* hero blurb emphasis */
 .hero__blurb b{color:var(--ink);font-weight:500}
 .job li b{color:var(--ink);font-weight:500}
-.card em{font-style:italic;color:var(--ink);opacity:.9}
 
 /* ── references ── */
 .refs__lead{color:var(--muted);margin-top:-2rem;margin-bottom:2.6rem;font-size:1.05rem}
@@ -322,7 +305,7 @@ main{position:relative;z-index:2}
 }
 .nav__logo:focus-visible,.nav__cta:focus-visible,.btn:focus-visible,
 .contact__mail:focus-visible{outline-offset:4px;border-radius:999px}
-.card:focus-within,.offer:focus-within,.quote:focus-within{border-color:var(--cy)}
+.offer:focus-within,.quote:focus-within{border-color:var(--cy)}
 
 .skip{
   position:fixed;top:.6rem;left:.6rem;z-index:200;
@@ -422,21 +405,15 @@ main{position:relative;z-index:2}
 .schem .lb{fill:#8a93a8;fill:var(--muted,#8a93a8);stroke:none}
 .schem .lk{fill:currentColor;stroke:none;opacity:.94}
 .schem .dot{fill:#5ee7ff;fill:var(--cy,#5ee7ff);stroke:none}
-.card__schem{margin:0 0 1.2rem;border:1px solid var(--line);border-radius:12px;padding:.7rem .6rem;
-  background:rgba(6,7,10,.5)}
+.card__schem{margin:0 0 1.4rem;padding:0}
 .card__schem svg{width:100%;height:auto;display:block;color:var(--ink)}
-.card:hover .card__schem{border-color:rgba(94,231,255,.28)}
+
 
 .stack__note{color:var(--muted);margin:-2rem 0 1.6rem;font-size:1rem}
 /* ── hero: a third, quieter action for the contract path ── */
 .btn--quiet{border-color:transparent;color:var(--muted);padding-inline:.9rem}
 .btn--quiet:hover{color:var(--ink);border-color:var(--line)}
 
-/* ── project status ── */
-.card__head{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:.9rem}
-.card__head .card__no{margin:0}
-.card__status{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--cy);border:1px solid rgba(94,231,255,.3);border-radius:999px;padding:.2rem .55rem}
 .projects__lead{color:var(--muted);margin:-2rem 0 2.6rem;max-width:70ch;font-size:1.02rem}
 .projects__lead a{color:var(--cy);border-bottom:1px solid rgba(94,231,255,.35)}
 .projects__lead a:hover{color:var(--ink);border-color:var(--ink)}
@@ -478,3 +455,43 @@ main{position:relative;z-index:2}
 .offer__len i::before{content:" · ";opacity:.5}
 
 
+
+/* ── project spec line (replaces the pill row) ── */
+.card__spec{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.06em;color:var(--muted);
+  margin-top:1.1rem;padding-top:.9rem;border-top:1px solid var(--line);opacity:.85}
+.work:hover .card__spec{color:var(--cy);opacity:1}
+
+/* ── selected work ───────────────────────────────────────────────────
+   Was a 2x2 of four identical cards: same badge, same five pills, same
+   paragraph length, no hierarchy. Now one full-width row per project,
+   alternating sides. Two reasons, in order of importance: the schematic
+   is the actual evidence and it was cramped at 467px, and four rows that
+   alternate cannot read as a template the way four equal boxes do. */
+.works{display:grid;gap:clamp(2.5rem,5vw,4.5rem)}
+.work{display:grid;gap:1.6rem 3.5rem;align-items:center;
+  padding-bottom:clamp(2.5rem,5vw,4.5rem);border-bottom:1px solid var(--line)}
+.work:last-child{border-bottom:0;padding-bottom:0}
+.work .card__schem{margin:0}
+.work .card__schem svg{color:var(--ink)}
+.work__body{display:grid;gap:.15rem;align-content:center}
+.work .card__no{margin-bottom:.8rem}
+.work h3{font-family:var(--f-display);font-size:clamp(1.4rem,2.6vw,1.85rem);font-weight:500;
+  letter-spacing:-.02em;margin-bottom:.25rem}
+.work .card__kind{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:1rem}
+.work > .work__body > p:not(.card__kind):not(.card__spec){color:var(--muted);font-size:1rem;max-width:52ch}
+.work .card__spec{margin-top:1.3rem}
+
+@media(min-width:900px){
+  .work{grid-template-columns:1.15fr .85fr}
+  /* hierarchy from reading order, not from a claim about importance */
+  .work:first-child{grid-template-columns:1.32fr .68fr}
+  /* the schematic keeps the wider column on both sides of the alternation */
+  .work:nth-child(even){grid-template-columns:.85fr 1.15fr}
+  .work:nth-child(even) .card__schem{order:2}
+  .work:nth-child(even) .work__body{order:1}
+}
+
+/* hover reports which diagram you are reading, rather than lighting a container edge */
+.work .schem .nd{transition:opacity .4s var(--ease)}
+.work:hover .schem .nd{opacity:.72}
