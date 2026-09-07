@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=17">
+<link rel="stylesheet" href="assets/css/style.css?v=18">
 </head>
 <body>
 
@@ -205,7 +205,15 @@
   <p class="projects__lead" data-reveal>Freelance engagements, built and shipped for clients. Each one I owned end to
     end: the design, the code, the deploy, and the call at the point where two approaches were both defensible.
     They are also the evidence behind <a href="#process">the contract work</a> further down.
-    All four are Go, with a React front-end where there is one.</p>
+    All four are Go, with a React front-end where there is one. They are client engagements, so there are no
+    public repos &mdash; the schematics are the architecture, redrawn.</p>
+
+  <ul class="schem__key" data-reveal aria-label="How to read the diagrams">
+    <li><svg viewBox="0 0 22 8" aria-hidden="true"><path class="p" d="M1,4 H21"/></svg>synchronous call</li>
+    <li><svg viewBox="0 0 22 8" aria-hidden="true"><path class="p q" d="M1,4 H21"/></svg>queued / async</li>
+    <li><svg viewBox="0 0 22 8" aria-hidden="true"><path class="s" d="M1,4 H21"/></svg>return or secondary path</li>
+    <li><svg viewBox="0 0 22 8" aria-hidden="true"><path class="bound" d="M11,0 V8"/></svg>trust boundary</li>
+  </ul>
 
   <div class="projs">
     <article class="proj" data-reveal>
@@ -224,10 +232,14 @@
       
       <h3>Catalog Semantic Search</h3>
       <p class="card__kind">E-commerce · Search</p>
-      <p>Embeds product text and images so a natural-language query, or an uploaded photo, returns matching SKUs with
-          price filters. OpenSearch handles the words, pgvector the pictures, and a merge step reconciles the two
-          rankings into one result set. A React storefront runs against a real catalogue.</p>
-      <p class="card__spec">PostgreSQL · pgvector · OpenSearch</p>
+      <p>Embeds product text and images so a natural-language query, or an uploaded photo, returns matching SKUs
+          with price filters applied. OpenSearch ranks the words, pgvector ranks the pictures, and a merge step
+          reconciles the two orderings into one result set. A React storefront runs it against a real catalogue.</p>
+      <p class="proj__call"><b>The call:</b> one index or two. A single vector index was simpler to operate, but it
+          ranked exact SKU and brand matches worse than plain keyword search did. Two indexes and a merge step cost
+          more to run and answered both query shapes correctly.</p>
+      <p class="card__spec">Go · PostgreSQL · pgvector · OpenSearch · React</p>
+      <p class="proj__cons">Hybrid merge at query time · filters pushed down before ranking</p>
       </div>
     </article>
 
@@ -247,9 +259,14 @@
       
       <h3>Order Support Assistant</h3>
       <p class="card__kind">E-commerce · Support automation</p>
-      <p>Order status and returns. It answers <em>only</em> from live APIs through a typed tool layer. Everything else
-          is refused at the boundary, and every call is logged.</p>
-      <p class="card__spec">gRPC · PostgreSQL · Redis</p>
+      <p>Order status and returns, answered <em>only</em> from live order, fulfilment and inventory APIs through a
+          typed tool layer. Anything the tools cannot answer is refused at the boundary rather than guessed, and a
+          guardrail hands the conversation to a human. Every call the assistant makes is written to an audit log.</p>
+      <p class="proj__call"><b>The call:</b> a typed tool layer instead of free-form prompting. It refuses some
+          questions a looser system would have answered, and in exchange there is no path by which the assistant can
+          state an order fact that no API returned.</p>
+      <p class="card__spec">Go · gRPC · PostgreSQL · Redis · React</p>
+      <p class="proj__cons">Deny by default at the trust boundary · every tool call audited</p>
       </div>
     </article>
 
@@ -269,9 +286,15 @@
       
       <h3>Content Moderation Pipeline</h3>
       <p class="card__kind">Social · Streaming</p>
-      <p>Kafka-fed classification with a human review queue behind it. Appeals route back into the queue, and queue
-          depth goes to Prometheus, so a growing backlog shows up before it becomes a problem.</p>
-      <p class="card__spec">Kafka · PostgreSQL · Kubernetes</p>
+      <p>A Kafka topic of posts and images streams into a classifier. High-confidence decisions apply automatically;
+          low-confidence items land in a human review queue, and appeals route back into that same queue rather than a
+          separate path. Queue depth and decision latency are exported to Prometheus.</p>
+      <p class="proj__call"><b>The call:</b> where the confidence threshold sits. Moving it toward automation shrinks
+          the review queue and raises the cost of a wrong auto-decision; moving it toward review does the reverse. It
+          is configuration rather than a compiled-in constant, because the right value is a policy question and it
+          changes.</p>
+      <p class="card__spec">Go · Kafka · PostgreSQL · Kubernetes · React</p>
+      <p class="proj__cons">Idempotent consumers, replay-safe · backlog visible before it hurts</p>
       </div>
     </article>
 
@@ -291,8 +314,14 @@
       
       <h3>Fraud &amp; Chargeback Scoring</h3>
       <p class="card__kind">Payments · Real time</p>
-      <p>A rules engine short-circuits the obvious cases. Only the ambiguous ones reach the model.</p>
-      <p class="card__spec">Kafka · Redis · Prometheus · Grafana</p>
+      <p>Scores checkout events as they happen. A rules engine settles the clear cases outright, so only the
+          ambiguous remainder reaches the model and the expensive path stays off the majority of traffic. Decisions
+          publish back to Kafka, and throughput and false positives are tracked in Grafana.</p>
+      <p class="proj__call"><b>The call:</b> rules first, rather than scoring every event. It buys a rule set somebody
+          has to maintain, and it keeps model latency and cost off the checkout path for the traffic that never needed
+          it.</p>
+      <p class="card__spec">Go · Kafka · Redis · Prometheus · Grafana</p>
+      <p class="proj__cons">Rules short-circuit before the model · decisions replayable from the topic</p>
       </div>
     </article>
   </div>
@@ -572,7 +601,7 @@
 <script type="importmap">
 { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js" } }
 </script>
-<script type="module" src="assets/js/scene.js?v=17"></script>
-<script src="assets/js/main.js?v=17" defer></script>
+<script type="module" src="assets/js/scene.js?v=18"></script>
+<script src="assets/js/main.js?v=18" defer></script>
 </body>
 </html>

@@ -479,7 +479,7 @@ main{position:relative;z-index:2}
   letter-spacing:-.02em;margin-bottom:.25rem}
 .proj .card__kind{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;
   color:var(--muted);margin-bottom:1rem}
-.proj > .proj__body > p:not(.card__kind):not(.card__spec){color:var(--muted);font-size:1rem;max-width:52ch}
+.proj > .proj__body > p:not(.card__kind):not(.card__spec):not(.proj__call):not(.proj__cons){color:var(--muted);font-size:1rem;max-width:52ch}
 .proj .card__spec{margin-top:1.3rem}
 
 @media(min-width:900px){
@@ -491,6 +491,27 @@ main{position:relative;z-index:2}
   .proj:nth-child(even) .card__schem{order:2}
   .proj:nth-child(even) .proj__body{order:1}
 }
+
+/* ── diagram key: the notation carries meaning, so state it once ── */
+.schem__key{display:flex;flex-wrap:wrap;gap:.55rem 1.6rem;margin:-1.4rem 0 3rem;
+  font-family:var(--f-mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.schem__key li{display:flex;align-items:center;gap:.5rem}
+.schem__key svg{width:22px;height:8px;flex:none;overflow:visible}
+.schem__key .p{fill:none;stroke:var(--cy);stroke-width:1.3}
+.schem__key .s{fill:none;stroke:var(--vi);stroke-width:1.3}
+.schem__key .q{stroke-dasharray:4 3}
+.schem__key .bound{fill:none;stroke:var(--muted);stroke-width:1;stroke-dasharray:3 3}
+
+/* ── the tradeoff line: the lead promises this, so it gets its own rule ── */
+.proj__call{position:relative;margin-top:1.15rem;padding-left:1rem;max-width:52ch;
+  font-size:.96rem;color:var(--muted)}
+.proj__call::before{content:"";position:absolute;left:0;top:.45em;bottom:.45em;width:1px;
+  background:linear-gradient(180deg,var(--cy),transparent)}
+.proj__call b{color:var(--ink);font-weight:500}
+
+/* ── design constraint, reads as a footnote to the spec ── */
+.proj__cons{margin-top:.45rem;font-family:var(--f-mono);font-size:.66rem;letter-spacing:.06em;
+  color:var(--muted);opacity:.72;max-width:52ch;line-height:1.5}
 
 /* hover reports which diagram you are reading, rather than lighting a container edge */
 .proj .schem .nd{transition:opacity .4s var(--ease)}
