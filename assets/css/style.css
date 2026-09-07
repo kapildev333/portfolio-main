@@ -477,15 +477,4 @@ main{position:relative;z-index:2}
 .offer__len i{font-style:normal}
 .offer__len i::before{content:" · ";opacity:.5}
 
-/* ── full-bleed band ─────────────────────────────────────────────────
-   One frame from the intro film, used as a breath between the two
-   heaviest sections. Atmosphere, not a claim about a photograph, so it
-   carries an empty alt and is hidden from the accessibility tree. The
-   gradient melts both edges into the page so it reads as a passage
-   rather than a pasted-in picture. */
-.band{position:relative;width:100%;overflow:hidden;isolation:isolate;margin:clamp(1rem,4vw,3rem) 0}
-.band img{width:100%;height:auto;display:block;aspect-ratio:8/3;object-fit:cover;
-  transform:scale(1.08);filter:saturate(.8) contrast(1.03) brightness(.92)}
-.band::after{content:"";position:absolute;inset:0;pointer-events:none;
-  background:linear-gradient(to bottom,var(--bg) 0%,rgba(6,7,10,0) 26%,rgba(6,7,10,0) 74%,var(--bg) 100%)}
-@media(max-width:760px){.band img{aspect-ratio:4/3}}
+
