@@ -459,7 +459,7 @@ main{position:relative;z-index:2}
 /* ── project spec line (replaces the pill row) ── */
 .card__spec{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.06em;color:var(--muted);
   margin-top:1.1rem;padding-top:.9rem;border-top:1px solid var(--line);opacity:.85}
-.work:hover .card__spec{color:var(--cy);opacity:1}
+.proj:hover .card__spec{color:var(--cy);opacity:1}
 
 /* ── selected work ───────────────────────────────────────────────────
    Was a 2x2 of four identical cards: same badge, same five pills, same
@@ -467,31 +467,31 @@ main{position:relative;z-index:2}
    alternating sides. Two reasons, in order of importance: the schematic
    is the actual evidence and it was cramped at 467px, and four rows that
    alternate cannot read as a template the way four equal boxes do. */
-.works{display:grid;gap:clamp(2.5rem,5vw,4.5rem)}
-.work{display:grid;gap:1.6rem 3.5rem;align-items:center;
+.projs{display:grid;gap:clamp(2.5rem,5vw,4.5rem)}
+.proj{display:grid;gap:1.6rem 3.5rem;align-items:center;
   padding-bottom:clamp(2.5rem,5vw,4.5rem);border-bottom:1px solid var(--line)}
-.work:last-child{border-bottom:0;padding-bottom:0}
-.work .card__schem{margin:0}
-.work .card__schem svg{color:var(--ink)}
-.work__body{display:grid;gap:.15rem;align-content:center}
-.work .card__no{margin-bottom:.8rem}
-.work h3{font-family:var(--f-display);font-size:clamp(1.4rem,2.6vw,1.85rem);font-weight:500;
+.proj:last-child{border-bottom:0;padding-bottom:0}
+.proj .card__schem{margin:0}
+.proj .card__schem svg{color:var(--ink)}
+.proj__body{display:grid;gap:.15rem;align-content:center}
+.proj .card__no{margin-bottom:.8rem}
+.proj h3{font-family:var(--f-display);font-size:clamp(1.4rem,2.6vw,1.85rem);font-weight:500;
   letter-spacing:-.02em;margin-bottom:.25rem}
-.work .card__kind{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;
+.proj .card__kind{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;
   color:var(--muted);margin-bottom:1rem}
-.work > .work__body > p:not(.card__kind):not(.card__spec){color:var(--muted);font-size:1rem;max-width:52ch}
-.work .card__spec{margin-top:1.3rem}
+.proj > .proj__body > p:not(.card__kind):not(.card__spec){color:var(--muted);font-size:1rem;max-width:52ch}
+.proj .card__spec{margin-top:1.3rem}
 
 @media(min-width:900px){
-  .work{grid-template-columns:1.15fr .85fr}
+  .proj{grid-template-columns:1.15fr .85fr}
   /* hierarchy from reading order, not from a claim about importance */
-  .work:first-child{grid-template-columns:1.32fr .68fr}
+  .proj:first-child{grid-template-columns:1.32fr .68fr}
   /* the schematic keeps the wider column on both sides of the alternation */
-  .work:nth-child(even){grid-template-columns:.85fr 1.15fr}
-  .work:nth-child(even) .card__schem{order:2}
-  .work:nth-child(even) .work__body{order:1}
+  .proj:nth-child(even){grid-template-columns:.85fr 1.15fr}
+  .proj:nth-child(even) .card__schem{order:2}
+  .proj:nth-child(even) .proj__body{order:1}
 }
 
 /* hover reports which diagram you are reading, rather than lighting a container edge */
-.work .schem .nd{transition:opacity .4s var(--ease)}
-.work:hover .schem .nd{opacity:.72}
+.proj .schem .nd{transition:opacity .4s var(--ease)}
+.proj:hover .schem .nd{opacity:.72}
