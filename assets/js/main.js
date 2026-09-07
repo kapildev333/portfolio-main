@@ -104,6 +104,39 @@
     });
   }
 
+  /* ── schematics draw themselves in ── */
+  // The one idea worth taking from anime.js (svg.createDrawable) without adding
+  // a fourth animation library: stroke-dashoffset does it, and gsap is loaded.
+  // Nodes settle first, then the paths draw, then the labels arrive — so the
+  // diagram assembles in the order you would read it.
+  if (!reduced) {
+    $$('.card__schem svg').forEach((svg) => {
+      const shapes = $$('g.nd > *, .bound', svg);
+      const groups = $$('g.p, g.s', svg);
+      const dots   = $$('.dot circle', svg);
+      const texts  = $$('text', svg);
+      // only undashed strokes can be drawn; the dashed ones carry their own
+      // pattern and would fight a dasharray of their own
+      const solid  = $$('g.p path, g.s path', svg)
+        .filter((el) => getComputedStyle(el).strokeDasharray === 'none');
+
+      shapes.forEach((el) => { el.dataset.op = getComputedStyle(el).opacity; });
+      solid.forEach((el) => {
+        const len = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: len, strokeDashoffset: len });
+      });
+      gsap.set([...shapes, ...dots, ...texts], { opacity: 0 });
+      gsap.set(groups, { opacity: 0 });
+
+      gsap.timeline({ scrollTrigger: { trigger: svg, start: 'top 85%' } })
+        .to(shapes, { opacity: (i, t) => t.dataset.op, duration: .45, stagger: .03, ease: 'power2.out' })
+        .to(groups, { opacity: 1, duration: .3 }, '-=.2')
+        .to(solid,  { strokeDashoffset: 0, duration: .75, stagger: .06, ease: 'power2.inOut' }, '<')
+        .to(dots,   { opacity: 1, duration: .25 }, '-=.25')
+        .to(texts,  { opacity: 1, duration: .4, stagger: .012 }, '-=.45');
+    });
+  }
+
   /* ── number counters ── */
   $$('[data-count]').forEach((el) => {
     const end = +el.dataset.count;
