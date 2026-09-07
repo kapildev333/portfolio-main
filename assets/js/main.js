@@ -43,10 +43,14 @@
   /* ── split text into animatable pieces ── */
   const splitChars = (el) => {
     const text = el.textContent;
+    // Per-character spans get read out letter by letter otherwise. Keep the
+    // word on the element and hide the pieces from the accessibility tree.
+    el.setAttribute('aria-label', text);
     el.textContent = '';
     [...text].forEach((ch) => {
       const s = document.createElement('span');
       s.className = 'char';
+      s.setAttribute('aria-hidden', 'true');
       s.textContent = ch === ' ' ? ' ' : ch;
       el.appendChild(s);
     });

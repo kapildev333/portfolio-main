@@ -350,15 +350,6 @@ main{position:relative;z-index:2}
 /* the inverted section paints its own ground */
 .sec--light::before{display:none}
 
-/* ── education ── */
-.edu{display:grid;gap:1.1rem;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));margin-bottom:2.6rem}
-.edu li{border:1px solid var(--line);border-radius:18px;padding:1.5rem;
-  background:linear-gradient(160deg,rgba(255,255,255,.04),rgba(255,255,255,.01))}
-.edu h3{font-family:var(--f-display);font-size:1.2rem;font-weight:500;letter-spacing:-.02em;margin-bottom:.3rem}
-.edu .edu__where{color:var(--muted);font-size:.93rem}
-.edu .edu__when{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.14em;color:var(--cy);
-  text-transform:uppercase;margin-bottom:.8rem;display:block}
-.edu .edu__note{color:var(--muted);font-size:.9rem;margin-top:.7rem}
 
 /* ── the move ── */
 .journey{border:1px solid var(--line);border-radius:18px;padding:1.6rem 1.5rem 1.2rem;
@@ -409,10 +400,11 @@ main{position:relative;z-index:2}
 
 .offer__meta{display:grid;gap:.35rem;margin:.9rem 0 1.1rem;padding:.85rem 0;
   border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.offer__meta > div{display:flex;justify-content:space-between;gap:1rem;align-items:baseline}
+/* one row carrying a sentence, not a number: stack it and read left to right */
+.offer__meta > div{display:grid;gap:.3rem}
 .offer__meta dt{font-family:var(--f-mono);font-size:.66rem;letter-spacing:.16em;
   text-transform:uppercase;color:var(--muted)}
-.offer__meta dd{font-size:.88rem;color:var(--ink);text-align:right}
+.offer__meta dd{font-size:.9rem;color:var(--ink);line-height:1.5}
 .process__foot b{color:var(--ink);font-weight:600}
 .about__source{margin-top:1.1rem;font-family:var(--f-mono);font-size:.7rem;line-height:1.7;
   letter-spacing:.04em;color:var(--muted);opacity:.8}
@@ -469,3 +461,18 @@ main{position:relative;z-index:2}
 @media(min-width:860px){
   .stackline__row{grid-template-columns:minmax(200px,270px) 1fr;align-items:baseline}
 }
+
+/* ── education rows (reuses .earlier; only the year column is narrower) ── */
+.earlier.edu{margin-bottom:2.6rem}
+@media(min-width:900px){ .earlier.edu li{grid-template-columns:270px 1fr 130px} }
+
+/* ── the entry tier ─────────────────────────────────────────────────
+   The three offers are a ladder, not a menu: you cannot buy the sprint
+   without the audit's output. So the first is marked, not the middle,
+   and the mark is a route instruction rather than a popularity claim.
+   Border and a denser wash, per the guidelines: no drop shadow. */
+.offer--entry{border-color:rgba(107,79,214,.5);
+  background:linear-gradient(160deg,rgba(107,79,214,.14),rgba(12,16,23,.02))}
+.offer--entry .offer__len{border-color:rgba(107,79,214,.5);color:var(--vi)}
+.offer__len i{font-style:normal}
+.offer__len i::before{content:" · ";opacity:.5}
