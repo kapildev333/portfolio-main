@@ -141,6 +141,17 @@
     });
   }
 
+  /* ── band parallax ── */
+  // The image is pre-scaled 1.08 in CSS so the drift never exposes an edge.
+  if (!reduced) {
+    $$('.band img').forEach((img) => {
+      gsap.to(img, {
+        yPercent: -5, ease: 'none',
+        scrollTrigger: { trigger: img.parentElement, start: 'top bottom', end: 'bottom top', scrub: true },
+      });
+    });
+  }
+
   /* ── number counters ── */
   $$('[data-count]').forEach((el) => {
     const end = +el.dataset.count;
